@@ -5,7 +5,7 @@
 
 console.log("🌿 Hale app.js v2.0.2 loaded");
 
-const API_BASE = window.API_BASE_URL !== undefined ? window.API_BASE_URL : '';
+const API_BASE = window.API_BASE_URL !== undefined ? window.API_BASE_URL : 'https://khushi85012--plant-disease-backend-fastapi-app.us-east.modal.run';
 const PREDICT_URL = `${API_BASE}/api/v1/predict`;
 const HEALTH_URL  = `${API_BASE}/api/v1/health`;
 const CROPS_URL   = `${API_BASE}/api/v1/crops`;
