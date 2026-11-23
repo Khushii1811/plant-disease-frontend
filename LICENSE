@@ -1,0 +1,51 @@
+MIT License
+
+Copyright (c) 2026 Khushi Patel
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+================================================================================
+THIRD-PARTY ASSETS & BOTANICAL IMAGE LICENSING NOTICE
+================================================================================
+
+The MIT License above applies strictly to the website source code (HTML, CSS,
+JavaScript) and client application files. It DOES NOT cover botanical reference
+photos, sample images, or upstream datasets:
+
+1. Botanical Reference Images (assets/wiki_samples/):
+   Sample photos are sourced from independent research datasets, academic
+   consortia, and open science contributors. Each image is governed by its
+   respective upstream license:
+   - Creative Commons Attribution 4.0 International (CC BY 4.0): 46 images
+   - Creative Commons Attribution-ShareAlike 4.0 (CC BY-SA 4.0): 43 images
+   - Creative Commons Zero 1.0 Universal (CC0 1.0 Public Domain): 10 images
+   - Open Database License 1.0 (ODbL 1.0): 7 images
+   - MIT License: 5 images
+   - Withdrawn / Unverified: 66 images have been withdrawn from visual display
+     and replaced with neutral placeholders (assets/placeholder.webp).
+   See credits.html for complete per-image attribution and upstream URLs.
+
+2. Hero Background (hero-bg.jpg):
+   Provenance and copyright are NOT VERIFIED. The hero display uses a procedural
+   CSS radial gradient instead.
+
+3. Vendored Client Libraries:
+   - Cropper.js: MIT License (Fengyuan Chen)
+   - jsPDF: MIT License (James Hall / Parallactive)
+   - html2canvas: MIT License (Niklas von Hertzen)

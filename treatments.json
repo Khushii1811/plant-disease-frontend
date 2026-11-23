@@ -1,0 +1,1094 @@
+{
+  "version": "2.0.0-verified",
+  "attribution": "Curated from UC Davis IPM, Cornell Cooperative Extension, Penn State Tree Fruit Guide, and FRAC Mode-of-Action Classifications.",
+  "exact_matches": {
+    "Tomato - tomato late blight": {
+      "crop_disease": "Tomato - Late Blight",
+      "pathogen_type": "Oomycete (Phytophthora infestans)",
+      "scientific_basis": "Aggressive water-mold oomycete with cell walls composed of beta-glucans and cellulose (not chitin). Standard ergosterol-inhibiting triazole fungicides have zero biological efficacy.",
+      "symptoms": "Water-soaked, rapidly expanding pale-to-dark olive lesions on leaves and stems; under high relative humidity (>90%) and cool temperatures (15-22°C), delicate white cottony mycelium and sporangiophores emerge predominantly on the abaxial (underside) leaf surface.",
+      "immediate_actions": [
+        "Immediately remove and bag heavily infected plants or tissue in dry weather; destroy or deep-bury them off-site (never compost late blight tissue).",
+        "Immediately halt all overhead irrigation; switch strictly to ground-level drip lines to eliminate free water on foliage.",
+        "Alert neighboring growers, as sporangia are wind-borne across kilometer distances during damp conditions."
+      ],
+      "organic_treatments": [
+        "Preventive applications of OMRI-listed fixed copper hydroxide or copper octanoate (FRAC M01) prior to forecasted rain events.",
+        "Foliar applications of bio-fungicide Bacillus amyloliquefaciens (strain D747) to colonize leaf surfaces and inhibit zoospore germination."
+      ],
+      "chemical_treatments": [
+        "Translaminar systemic oomycide: Mandipropamid (FRAC 40) or Dimethomorph (FRAC 40) for cell wall synthesis inhibition.",
+        "Anti-sporulant penetrant: Cymoxanil (FRAC 27) applied within 24-48 hours of suspected infection for post-infection control.",
+        "Multi-site protectant baseline: Mancozeb (FRAC M03) or Chlorothalonil (FRAC M05). Always rotate FRAC 40 with FRAC 27 or FRAC 43 (Fluopicolide) to prevent resistance."
+      ],
+      "preventive_measures": [
+        "Plant certified disease-free transplants or resistant tomato hybrids (e.g., carrying Ph-2 and Ph-3 resistance genes).",
+        "Maintain 3-4 year field rotation away from other solanaceous crops (potato, eggplant, pepper).",
+        "Maximize plant spacing and row orientation parallel to prevailing winds to accelerate foliar canopy drying."
+      ],
+      "disclaimer": "Adhere strictly to statutory label rates, pre-harvest intervals (PHI), and resistance management rules (limit single-site oomycide applications per season).",
+      "sources": "UC Davis IPM Tomato Late Blight Guidelines; Cornell Vegetable MD Online; FRAC Oomycete Guidelines.",
+      "category_name": "Tomato - Late Blight Protocol"
+    },
+    "Potato - Late Blight": {
+      "crop_disease": "Potato - Late Blight",
+      "pathogen_type": "Oomycete (Phytophthora infestans)",
+      "scientific_basis": "Destructive oomycete pathogen producing biflagellate mobile zoospores; initiates rapid foliar collapse and tuber rot in cool, damp weather.",
+      "symptoms": "Dark brown to purplish-black water-soaked lesions expanding rapidly across foliage; white mildew felt visible on lesion margins on the underside of leaves during wet morning hours; stems turn brown and brittle.",
+      "immediate_actions": [
+        "Scout fields daily during wet periods; rogue and bag early infected volunteer plants immediately.",
+        "Eliminate cull piles completely by deep burial or desiccation, as cull sprouts are the primary regional source of inoculum.",
+        "Cease all sprinkler irrigation during late afternoon and evening hours."
+      ],
+      "organic_treatments": [
+        "Preventive Bordeaux mixture or copper sulfate pentahydrate / copper hydroxide (FRAC M01) applied before rain periods.",
+        "Foliar bio-control applications of Bacillus subtilis or Trichoderma species to suppress initial surface spore survival."
+      ],
+      "chemical_treatments": [
+        "Targeted oomycides: Mandipropamid (FRAC 40), Fluopicolide (FRAC 43), or Cyazofamid (FRAC 21) combined with a multi-site protectant.",
+        "Curative penetrant: Cymoxanil (FRAC 27) within 48 hours of infection event.",
+        "Protectant cover: Mancozeb (FRAC M03) applied on a 7-day schedule when blight forecasting models indicate high risk."
+      ],
+      "preventive_measures": [
+        "Plant only certified disease-free seed tubers; never plant tubers showing brown subcutaneous rot.",
+        "Hilling up: Build broad soil ridges over potato hills to provide a minimum 10-15 cm soil barrier preventing motile zoospores from washing down to tubers.",
+        "Desiccate or kill vines 2-3 weeks prior to harvest to prevent tuber contact with live foliar spores."
+      ],
+      "disclaimer": "Strictly adhere to manufacturer pesticide labels for pre-harvest intervals and personal protective equipment. Do not apply Metalaxyl alone due to widespread phenylamide resistance.",
+      "sources": "Cornell Potato Late Blight Extension Bulletin; UC Davis IPM Potato Guidelines; FRAC Resistance Management.",
+      "category_name": "Potato - Late Blight Protocol"
+    },
+    "Tomato - tomato early blight": {
+      "crop_disease": "Tomato - Early Blight",
+      "pathogen_type": "Ascomycete fungus (Alternaria solani)",
+      "scientific_basis": "Necrotrophic fungal pathogen that produces toxic alternariol metabolites; overwinters in crop debris and infects mature senescing lower leaves first.",
+      "symptoms": "Characteristic dark brown to black circular lesions displaying prominent concentric rings ('target-board' or bullseye pattern), surrounded by a distinct chlorotic (yellow) halo; develops primarily on older lower leaves.",
+      "immediate_actions": [
+        "Prune off infected lower leaves showing target-board lesions during dry midday hours; sanitize pruning shears in 70% alcohol between plants.",
+        "Rake and remove all fallen diseased leaves from around the plant base.",
+        "Apply clean organic or black plastic mulch over the soil to eliminate soil-to-leaf rain splash transmission."
+      ],
+      "organic_treatments": [
+        "Copper octanoate (copper soap) or fixed copper hydroxide applied preventively as lower leaves develop.",
+        "Bio-fungicide applications of Bacillus amyloliquefaciens (FRAC BM02) to outcompete fungal germ tubes on leaf surfaces.",
+        "Potassium bicarbonate foliar applications to neutralize leaf surface acidity and disrupt hyphal elongation."
+      ],
+      "chemical_treatments": [
+        "Multi-site protectants: Chlorothalonil (FRAC M05) or Mancozeb (FRAC M03) applied at the first sign of lower leaf spotting.",
+        "Targeted systemic fungicides: Difenoconazole (FRAC 3 DMI) or Azoxystrobin (FRAC 11 QoI), ideally applied in pre-mixed synergy or rotated with Boscalid (FRAC 7 SDHI).",
+        "Ensure thorough coverage of lower and inner canopy foliage where humidity persists."
+      ],
+      "preventive_measures": [
+        "Implement a 3-year crop rotation away from all solanaceous plants.",
+        "Stake, cage, or trellis tomatoes to keep foliage off the ground and facilitate airflow.",
+        "Maintain optimal plant nutrition; avoid nitrogen deficiency, as nitrogen-depleted foliage is significantly more vulnerable to Alternaria invasion."
+      ],
+      "disclaimer": "Adhere strictly to local pesticide regulatory labels for application frequency and harvest intervals. Always alternate FRAC groups to prevent DMI and QoI fungal resistance.",
+      "sources": "UC Davis IPM Tomato Early Blight; Cornell Vegetable MD Online; Penn State Extension.",
+      "category_name": "Tomato - Early Blight Protocol"
+    },
+    "Potato - Early Blight": {
+      "crop_disease": "Potato - Early Blight",
+      "pathogen_type": "Ascomycete fungus (Alternaria solani / Alternaria alternata)",
+      "scientific_basis": "Necrotrophic fungal pathogen favored by alternating wet and dry periods; primarily infects physiologically aging or stressed potato foliage.",
+      "symptoms": "Dark brown, coriaceous lesions displaying pronounced concentric ridges (target-board effect) bounded by major leaf veins; heavily infected leaves turn yellow, senesce prematurely, and drop.",
+      "immediate_actions": [
+        "Inspect lower foliage during canopy closure; remove localized infected leaf clusters.",
+        "Adjust overhead irrigation to morning cycles only, ensuring foliage dries thoroughly before sunset.",
+        "Maintain consistent soil moisture to prevent plant stress and premature foliar senescence."
+      ],
+      "organic_treatments": [
+        "Preventive copper hydroxide (FRAC M01) applications starting at row closure.",
+        "Biological foliar applications of Bacillus subtilis or Trichoderma harzianum to establish competitive phyllosphere microflora."
+      ],
+      "chemical_treatments": [
+        "Protectant foundation: Chlorothalonil (FRAC M05) or Mancozeb (FRAC M03) on a 7 to 10-day preventive schedule.",
+        "Translaminar / Systemic fungicides: Boscalid (FRAC 7), Difenoconazole (FRAC 3), or Pyrimethanil (FRAC 9). Never apply FRAC 11 strobilurins alone where F129L resistance mutations are documented."
+      ],
+      "preventive_measures": [
+        "Rotate with non-solanaceous crops (cereals, legumes, corn) for at least 2-3 years.",
+        "Ensure balanced fertility; maintain adequate nitrogen and potassium throughout tuber bulking to delay foliar aging.",
+        "Plow under or destroy crop debris thoroughly post-harvest to reduce overwintering conidia."
+      ],
+      "disclaimer": "Follow statutory pesticide labels for pre-harvest intervals and dosage. Alternate fungicides across distinct FRAC mode-of-action codes.",
+      "sources": "UC Davis IPM Potato Early Blight; Cornell Extension; FRAC Alternaria Resistance Guidelines.",
+      "category_name": "Potato - Early Blight Protocol"
+    },
+    "Tomato - tomato yellow leaf curl virus": {
+      "crop_disease": "Tomato - Yellow Leaf Curl",
+      "pathogen_type": "Geminivirus (Begomovirus - TYLCV)",
+      "scientific_basis": "Single-stranded DNA plant virus transmitted persistent-circulatively by the sweetpotato/silverleaf whitefly (Bemisia tabaci). Systemic intracellular infection; NO CHEMICAL VIRICIDE EXISTS TO CURE INFECTED PLANTS.",
+      "symptoms": "Severe upward and inward cupping and curling of leaf margins; intense interveinal chlorosis with yellowed leaflet edges; pronounced plant stunting, shortened internodes, and complete cessation of fruit set ('bushy erect appearance').",
+      "immediate_actions": [
+        "CRITICAL: Rogue out (uproot) all symptomatic plants immediately upon identification; place carefully in sealed plastic bags to prevent whiteflies from escaping, and dispose of off-site.",
+        "DO NOT attempt chemical cures on infected plants—viruses reside intracellularly and cannot be eliminated by foliar fungicides or antibiotics.",
+        "Inspect adjacent plants and weeds (especially nightshades and mallow) for whitefly nymphs and adults on leaf undersides."
+      ],
+      "organic_treatments": [
+        "Vector management: Apply cold-pressed neem oil (Azadirachtin) or insecticidal potassium salts of fatty acids to foliage undersides to suppress whitefly nymphs.",
+        "Deploy bright yellow sticky traps (1 trap per 10-20 m²) to monitor and capture adult whitefly populations.",
+        "Install physical exclusion: Cover seedbeds and young crops with 40-50 mesh insect-proof netting."
+      ],
+      "chemical_treatments": [
+        "No curative chemical exists for the virus itself. Chemical intervention is strictly targeted at controlling whitefly insect vectors to stop transmission.",
+        "Vector control actives: Selective systemic insecticides such as Acetamiprid (IRAC 4A), Flonicamid (IRAC 29 - feeding blocker), or Spiromesifen (IRAC 23 - lipid synthesis inhibitor).",
+        "Rotate IRAC insecticide classes to avoid rapid whitefly chemical resistance development."
+      ],
+      "preventive_measures": [
+        "Plant exclusively TYLCV-resistant tomato cultivars (hybrids carrying the Ty-1, Ty-3, or Ty-5 resistance genes).",
+        "Apply reflective silver / aluminized plastic mulches in tomato rows; ultraviolet reflection disorients adult whiteflies and repels them from seedlings.",
+        "Enforce a mandatory 6 to 8-week host-free sanitation period between successive solanaceous planting seasons."
+      ],
+      "disclaimer": "Agricultural chemical applications must target the whitefly vector only; never apply fungicides for viral management. Follow local statutory guidelines for pollinator safety and pre-harvest intervals.",
+      "sources": "UC Davis IPM Tomato Yellow Leaf Curl; University of Florida IFAS EDIS Publication PP-71; USDA ARS Begomovirus Studies.",
+      "category_name": "Tomato - Yellow Leaf Curl Protocol"
+    },
+    "Tomato - tomato mosaic virus": {
+      "crop_disease": "Tomato - Mosaic Virus",
+      "pathogen_type": "Tobamovirus (ToMV)",
+      "scientific_basis": "Extremely stable, mechanically transmitted ribonucleoprotein virus lacking an insect vector; spreads via hands, tools, grafting shears, and contact between plants. NO CHEMICAL CURE EXISTS ONCE INFECTED.",
+      "symptoms": "Mottled light and dark green mosaic patterns on foliage; blistered, puckered leaf lamina; severe leaf distortion into narrow 'fern-leaf' or shoestring shapes; internal brown necrotic browning inside green fruit walls.",
+      "immediate_actions": [
+        "Immediately isolate and carefully rogue out infected plants; incinerate or discard them in municipal trash (never compost).",
+        "Wash hands thoroughly with soap and water or non-fat milk solution (milk proteins inactivate tobamovirus coat proteins) before handling healthy plants.",
+        "Disinfect all tools, stakes, and pruning knives by soaking in a 10-20% household bleach solution or 70% alcohol."
+      ],
+      "organic_treatments": [
+        "No biological or organic compound can eliminate tobacco mosaic virus from within plant cells.",
+        "Foliar applications of 20% reconstituted non-fat dry milk solution can be applied to tools and hands prior to pruning to physically bind and neutralize mechanistically transferred virions."
+      ],
+      "chemical_treatments": [
+        "NO CHEMICAL VIRICIDE EXISTS. Do not apply fungicides, bactericides, or antibiotics—they have zero biological activity against tobamoviruses and waste resources.",
+        "Chemical sanitizers (Trisodium phosphate 10% solution or virucidal greenhouse disinfectants) should be used solely to sterilize equipment, tables, and pruning knives."
+      ],
+      "preventive_measures": [
+        "Plant certified disease-free, heat-treated or bleach-treated seed, or select cultivars possessing the Tm-2 or Tm-2^2 resistance alleles.",
+        "Strict hygiene: Prohibit smoking or handling raw tobacco near tomato plants, as tobacco products frequently harbor viable virus particles.",
+        "Avoid touching or pruning foliage when plants are damp with morning dew."
+      ],
+      "disclaimer": "Plant viruses cannot be cured chemically. Management is 100% preventive, cultural, and sanitary.",
+      "sources": "UC Davis IPM Tomato Mosaic Virus; Cornell University Vegetable MD Online; APS Plant Pathology Compendium.",
+      "category_name": "Tomato - Mosaic Virus Protocol"
+    },
+    "Tomato - Bacterial Spot": {
+      "crop_disease": "Tomato - Bacterial Spot",
+      "pathogen_type": "Bacterium (Xanthomonas perforans / Xanthomonas campestris pv. vesicatoria)",
+      "scientific_basis": "Gram-negative phytopathogenic bacterium entering through open stomata or mechanical micro-wounds; favored by warm temperatures (24-30°C) and driven rain. FUNGAL ERGOSTEROL INHIBITORS ARE 100% INEFFECTIVE.",
+      "symptoms": "Small (1-3 mm), dark brown to black water-soaked angular spots on foliage, often surrounded by a chlorotic halo; lesions do not cross leaf veins; leaves turn yellow, scorch, and drop; immature green fruit exhibit raised, scab-like, scabby black blisters.",
+      "immediate_actions": [
+        "Refrain from touching, pruning, cultivating, or harvesting plants when foliage is wet from rain or dew.",
+        "Rogue heavily infected seedling trays prior to field transplanting.",
+        "Switch to drip or furrow irrigation immediately; overhead sprinkler irrigation violently disseminates bacterial cells across rows."
+      ],
+      "organic_treatments": [
+        "Preventive applications of fixed copper bactericides (Copper hydroxide, Copper oxychloride, or basic copper sulfate - FRAC M01).",
+        "Foliar bio-control applications of Bacillus subtilis or Bacillus amyloliquefaciens which produce antimicrobial lipopeptides suppressing bacterial attachment.",
+        "Certified bacteriophage treatments (specific Xanthomonas phages) applied during evening hours where available."
+      ],
+      "chemical_treatments": [
+        "Scientific Gold Standard: Fixed copper hydroxide combined with Mancozeb (FRAC M01 + FRAC M03). Mancozeb releases zinc and manganese ions that synergistically overcome copper-tolerant Xanthomonas strains.",
+        "In certified regions with registered antibiotic labels: Kasugamycin (FRAC 24) applied preventively during high-risk disease weather.",
+        "Plant resistance activator: Acibenzolar-S-methyl (FRAC P01 - systemic acquired resistance inducer) applied prior to disease onset."
+      ],
+      "preventive_measures": [
+        "Use only certified hot-water treated seeds (50°C for 25 minutes) or certified pathogen-free transplants.",
+        "Practice a minimum 2 to 3-year crop rotation with non-host crops (corn, grasses, brassicas).",
+        "Eliminate all volunteer solanaceous weeds and promptly disc in crop residues post-harvest to speed up bacterial decomposition."
+      ],
+      "disclaimer": "Copper-resistant Xanthomonas strains are widespread globally; combining copper with mancozeb is essential. Follow statutory regulations for antibiotic applications in agriculture.",
+      "sources": "UC Davis IPM Tomato Bacterial Spot; University of Florida IFAS EDIS Publication PP-3; Cornell Extension.",
+      "category_name": "Tomato - Bacterial Spot Protocol"
+    },
+    "Apple - apple scab": {
+      "crop_disease": "Apple - Apple Scab",
+      "pathogen_type": "Ascomycete fungus (Venturia inaequalis)",
+      "scientific_basis": "Hemibiotrophic fungus that overwinters as pseudothecia in fallen leaf litter; primary ascospores release during spring rains between green tip and petal fall.",
+      "symptoms": "Dull olive-green to velvety soot-colored circular spots on young leaves and sepals; margins are feathery; lesions become dark brown, raised, corky, and scabby on leaves and developing fruit, leading to leaf distortion and fruit cracking.",
+      "immediate_actions": [
+        "Scout orchards at tight cluster and pink bud stages following rain events (Mills Scab Infection Periods).",
+        "Flail mow or shred fallen orchard leaves with a mulching mower in late autumn to speed up leaf decomposition.",
+        "Apply agricultural urea (5% solution) to fallen leaves on the orchard floor in late autumn to accelerate fungal breakdown by saprophytes."
+      ],
+      "organic_treatments": [
+        "Dormant and delayed-dormant applications of liquid lime-sulfur or micronized wettable sulfur (FRAC M02) up to bloom.",
+        "Copper hydroxide or Bordeaux mixture applied at silver tip to green tip stage before green tissue expands (to avoid phytotoxic fruit russeting).",
+        "Foliar applications of potassium bicarbonate during active scab ascospore discharge."
+      ],
+      "chemical_treatments": [
+        "Multi-site protectants: Captan (FRAC M04) or Mancozeb (FRAC M03) applied prior to rain infection events between green tip and petal fall.",
+        "Post-infection / Curative systemics: Difenoconazole (FRAC 3 DMI) or Myclobutanil (FRAC 3) having 72-96 hours of kick-back activity after rain initiation.",
+        "SDHI fungicides: Fluxapyroxad (FRAC 7) or Penthiopyrad (FRAC 7). Always tank-mix single-site fungicides with Captan or Mancozeb to prevent resistance."
+      ],
+      "preventive_measures": [
+        "Plant scab-resistant apple cultivars carrying the Vf gene (e.g., Liberty, Enterprise, GoldRush, Prima, Freedom).",
+        "Prune trees annually to open the canopy, ensuring thorough sunlight penetration and rapid drying of leaf surfaces.",
+        "Avoid overhead irrigation in orchard systems."
+      ],
+      "disclaimer": "Do not apply Captan within 7-10 days of oil applications to prevent severe foliar phytotoxicity. Observe strict pre-harvest intervals and maximum seasonal application limits.",
+      "sources": "Penn State Tree Fruit Production Guide; Cornell Fruit Resources (Scab Management); UC Davis IPM Apple Scab.",
+      "category_name": "Apple - Apple Scab Protocol"
+    },
+    "Apple - Rust": {
+      "crop_disease": "Apple - Cedar Apple Rust",
+      "pathogen_type": "Basidiomycete fungus (Gymnosporangium juniperi-virginianae)",
+      "scientific_basis": "Heteroecious obligate biotrophic rust fungus requiring two distinct hosts: eastern red cedar / juniper (Juniperus virginiana) and apple (Malus spp.) to complete its life cycle. It cannot spread from apple to apple.",
+      "symptoms": "Bright yellow-orange or fiery reddish-yellow circular spots on the upper leaf surface in late spring; tiny black pycnia appear in the spot centers; later, tubular aecia cup-structures erupt on the leaf underside, shedding powdery brown spores.",
+      "immediate_actions": [
+        "Locate and eradicate wild eastern red cedar and ornamental junipers within a 1-2 km radius of the commercial orchard if feasible.",
+        "Prune and destroy cedar galls (brown woody 'cedar apples') on nearby ornamental junipers during late winter before gelatinous orange telial horns erupt in spring rains.",
+        "Inspect apple leaves between pink bud and petal fall for early yellow flecking."
+      ],
+      "organic_treatments": [
+        "Micronized wettable sulfur (FRAC M02) applied at pink bud, bloom, and petal fall.",
+        "Preventive applications of copper octanoate or fixed copper at tight cluster before bloom."
+      ],
+      "chemical_treatments": [
+        "DMI Triazoles: Myclobutanil (FRAC 3) or Difenoconazole (FRAC 3) applied from pink bud through petal fall provides exceptional protective and curative action.",
+        "Protectant cover: Mancozeb (FRAC M03) or Metiram (FRAC M03) applied preventively during spring ascospore and aeciospore flight.",
+        "QoI Strobilurins: Trifloxystrobin (FRAC 11) or Pyraclostrobin (FRAC 11) rotated strictly with DMI fungicides."
+      ],
+      "preventive_measures": [
+        "Select resistant apple varieties (e.g., Enterprise, Liberty, Freedom, Redfree, Pristine); avoid highly susceptible varieties like Honeycrisp, Rome, or Golden Delicious near cedar woodlands.",
+        "Maintain broad spacing between orchards and cedar windbreaks.",
+        "Follow a calendar or degree-day rust forecasting model between tight cluster and second cover."
+      ],
+      "disclaimer": "Follow chemical label restrictions for bees: NEVER apply insecticides or fungicides during active blossom bloom. Obey statutory pre-harvest intervals.",
+      "sources": "Penn State Tree Fruit Production Guide; Cornell University Fruit Pathology; UC Davis IPM Apple Rust.",
+      "category_name": "Apple - Cedar Apple Rust Protocol"
+    },
+    "Apple - apple black rot": {
+      "crop_disease": "Apple - Black Rot (Frogeye Leaf Spot)",
+      "pathogen_type": "Ascomycete fungus (Botryosphaeria obtusa)",
+      "scientific_basis": "Opportunistic fungal pathogen entering through wounds, fire blight cankers, or dead wood; conidia splash-disseminate during spring rains.",
+      "symptoms": "On leaves (Frogeye leaf spot): Small purple spots that enlarge into circular lesions with light brown or tan centers and dark purple borders, mimicking a frog's eye. On fruit: Firm brown rot expanding with alternating light and dark concentric zones, eventually turning pitch-black and mummifying.",
+      "immediate_actions": [
+        "Prune out all dead wood, cankered branches, fire blight strikes, and mummified fruit during dormant pruning; burn or remove prunings immediately from orchard floor.",
+        "Prune during dry winter weather; disinfect tools with 70% alcohol or 10% bleach solution.",
+        "Remove and dispose of any mummified fruit adhering to twigs throughout the growing season."
+      ],
+      "organic_treatments": [
+        "Preventive liquid lime-sulfur applied during late dormant to silver tip stages.",
+        "Foliar applications of copper hydroxide or fixed coppers at early green tip before bloom."
+      ],
+      "chemical_treatments": [
+        "Protectant cover: Captan (FRAC M04) or Mancozeb (FRAC M03) applied from tight cluster through mid-summer cover applications.",
+        "Targeted systemic fungicides: Thiophanate-methyl (FRAC 1) or Difenoconazole (FRAC 3) tank-mixed with Captan for multi-site resistance protection.",
+        "Rotate with Strobilurins (FRAC 11: Pyraclostrobin, Trifloxystrobin) or SDHI (FRAC 7: Fluxapyroxad)."
+      ],
+      "preventive_measures": [
+        "Prevent branch injuries, winter freeze cracks, and sunscald by painting lower tree trunks with white latex paint.",
+        "Manage fire blight and insect pests aggressively to prevent wounding portals.",
+        "Maintain optimal tree vigor; avoid excessive pruning or excessive nitrogen fertilization."
+      ],
+      "disclaimer": "Adhere strictly to personal protective equipment (PPE) guidelines and statutory worker reentry intervals (REI). Follow FRAC rotation limits.",
+      "sources": "Penn State Tree Fruit Production Guide; Cornell Fruit Pathology; University of Kentucky Extension Black Rot.",
+      "category_name": "Apple - Black Rot (Frogeye Leaf Spot) Protocol"
+    },
+    "Grape - grape downy mildew": {
+      "crop_disease": "Grape - Downy Mildew",
+      "pathogen_type": "Oomycete (Plasmopara viticola)",
+      "scientific_basis": "Obligate biotrophic oomycete that overwinters as oospores in leaf litter on the vineyard floor; requires free water and temperatures above 10°C for infection.",
+      "symptoms": "Yellowish, oily, translucent lesions on the upper leaf surface ('oil spots'); under humid conditions (>95% RH), dense white cottony down appears strictly on the corresponding lower leaf surface; young infected berry clusters shrivel, turn brown, and become covered with white down.",
+      "immediate_actions": [
+        "Inspect vineyards following the 10-10-10 rule (10 mm rain, 10°C temperature, 10 cm shoot growth).",
+        "Ensure canopy leaf removal in the fruiting zone immediately after bloom to expose clusters and maximize air circulation.",
+        "Eliminate standing water in vineyard rows through proper ditching or tile drainage."
+      ],
+      "organic_treatments": [
+        "Preventive Bordeaux mixture (copper sulfate + hydrated lime) or copper hydroxide (FRAC M01) applied before forecasted rain periods.",
+        "Foliar applications of potassium phosphite / phosphorous acid salts which stimulate natural plant systemic defenses and provide direct oomycidal suppression."
+      ],
+      "chemical_treatments": [
+        "CAA Oomycides: Mandipropamid (FRAC 40) or Dimethomorph (FRAC 40) for cell wall biosynthesis inhibition.",
+        "Curative penetrant: Cymoxanil (FRAC 27) applied within 24-48 hours of infection event.",
+        "QiI Fungicide: Cyazofamid (FRAC 21) or Spectrin-disruptor: Fluopicolide (FRAC 43). Multi-site protectant: Mancozeb (FRAC M03) applied up to 66 days before harvest (observe strict PHI)."
+      ],
+      "preventive_measures": [
+        "Employ shoot positioning, hedging, and suckering to maintain an open canopy.",
+        "Avoid overhead irrigation; use under-trellis drip systems exclusively.",
+        "Shred or disc down fallen vineyard leaf debris in autumn to bury overwintering oospores."
+      ],
+      "disclaimer": "Observe strict Pre-Harvest Intervals (PHI) for wine and table grapes (e.g., Mancozeb has a 66-day PHI in many jurisdictions). Avoid repeated copper applications to prevent soil copper accumulation.",
+      "sources": "UC Davis IPM Grape Downy Mildew; Cornell Grape IPM Guidelines; FRAC Downy Mildew Working Group.",
+      "category_name": "Grape - Downy Mildew Protocol"
+    },
+    "Grape - grape powdery mildew": {
+      "crop_disease": "Grape - Powdery Mildew",
+      "pathogen_type": "Ascomycete fungus (Erysiphe necator)",
+      "scientific_basis": "Obligate biotrophic ectoparasite; mycelium grows superficially on green tissue, sending haustoria into epidermal cells. Does NOT require free moisture—favored by shade, high humidity, and moderate warmth (20-27°C).",
+      "symptoms": "White to grayish powdery or dusty fungal patches on upper and lower leaf surfaces, green shoots, and developing berries; infected berries crack open, exposing seeds, and emit a distinct stale musty odor.",
+      "immediate_actions": [
+        "Initiate mildew monitoring when shoots reach 15 cm in length.",
+        "Perform leaf thinning and shoot positioning in the fruiting zone immediately to increase direct sun exposure (UV radiation naturally suppresses Erysiphe conidia).",
+        "Flag and inspect shaded canopy pockets where air movement is restricted."
+      ],
+      "organic_treatments": [
+        "Micronized wettable sulfur (FRAC M02) or sulfur dust: the historic Gold Standard organic powdery mildew control.",
+        "Foliar applications of Potassium bicarbonate (FRAC NC) to dehydrate and burst fungal conidia on contact.",
+        "Narrow-range horticultural mineral oil or stylet oil (1-1.5%) applied as an eradicant for established mild colonies."
+      ],
+      "chemical_treatments": [
+        "DMI Triazoles: Difenoconazole (FRAC 3), Tebuconazole (FRAC 3), or Myclobutanil (FRAC 3).",
+        "SDHI fungicides: Boscalid (FRAC 7) or Fluopyram (FRAC 7).",
+        "QoI Strobilurins: Azoxystrobin (FRAC 11) or Trifloxystrobin (FRAC 11). Rotate FRAC groups every single application to prevent resistance."
+      ],
+      "preventive_measures": [
+        "Maintain a consistent preventive program starting at 15-20 cm shoot growth through veraison.",
+        "Design trellis systems that optimize air exchange and minimize interior canopy shading.",
+        "Choose powdery mildew resistant cultivars where feasible."
+      ],
+      "disclaimer": "DO NOT apply sulfur within 14-21 days of any oil application to prevent severe foliar phytotoxicity and canopy defoliation. Do not apply sulfur when temperatures exceed 32°C.",
+      "sources": "UC Davis IPM Grape Powdery Mildew Guidelines; Cornell Viticulture Extension; FRAC Group 3 & 11 Guidelines.",
+      "category_name": "Grape - Powdery Mildew Protocol"
+    },
+    "Citrus - citrus canker": {
+      "crop_disease": "Citrus - Citrus Canker",
+      "pathogen_type": "Bacterium (Xanthomonas citri subsp. citri)",
+      "scientific_basis": "Gram-negative quarantine bacterium entering through natural stomata and leafminer feeding wounds; spread by wind-driven rain and mechanical transmission. FUNGAL FUNGICIDES ARE COMPLETELY INEFFECTIVE.",
+      "symptoms": "Raised, corky, blister-like circular lesions on both leaf surfaces, twigs, and fruit; lesions develop a rough, crater-like cracked center surrounded by an oily or water-soaked margin and a prominent bright yellow chlorotic halo.",
+      "immediate_actions": [
+        "Sanitize all pruning tools, harvesting clippers, picking sacks, and tractor implements with quaternary ammonium or 10% bleach between orchard blocks.",
+        "Do not prune, hedge, or pick fruit when tree foliage is wet from rain or morning dew.",
+        "Promptly notify regional agricultural extension authorities in regulated quarantine zones."
+      ],
+      "organic_treatments": [
+        "Preventive applications of OMRI-listed fixed copper hydroxide or copper oxychloride (FRAC M01) timed to protect emerging leaf flushes and young fruitlets.",
+        "Foliar applications of Bacillus subtilis or Bacillus amyloliquefaciens to suppress bacterial surface multiplication."
+      ],
+      "chemical_treatments": [
+        "Preventive bactericide program: Fixed copper hydroxide applied at 21 to 28-day intervals during spring and summer vegetative flushes until fruit reaches 4-5 cm diameter.",
+        "Combined leafminer control: Citrus leafminer (Phyllocnistis citrella) larvae create feeding tunnels that multiply canker infection by 10-fold; control leafminer flushes with Abamectin (IRAC 6) or Spinetoram (IRAC 5).",
+        "No fungal triazole, strobilurin, or antibiotic fungicide will cure internal canker infection."
+      ],
+      "preventive_measures": [
+        "Plant certified, canker-free nursery stock propagated in enclosed, certified insect-screened greenhouses.",
+        "Establish dense perimeter windbreaks (e.g., Casuarina, bamboo) around citrus blocks to reduce wind speeds below the 8 m/s threshold required for rain-driven stomatal penetration.",
+        "Prune out heavily cankered twigs and water sprouts during dry winter dormancy."
+      ],
+      "disclaimer": "In many agricultural jurisdictions, Citrus Canker is an active quarantine pest subject to statutory eradication or containment rules. Always confirm local regulatory reporting requirements.",
+      "sources": "University of Florida IFAS Citrus Canker Guide; USDA APHIS Plant Protection Quarantine; UC Davis IPM Citrus.",
+      "category_name": "Citrus - Citrus Canker Protocol"
+    },
+    "Citrus - citrus greening disease": {
+      "crop_disease": "Citrus - Huanglongbing (Citrus Greening)",
+      "pathogen_type": "Phloem-limited Bacterium (Candidatus Liberibacter asiaticus - CLas)",
+      "scientific_basis": "Unculturable, fastidious phloem-inhabiting bacterium transmitted by the Asian citrus psyllid (Diaphorina citri) and infected budwood; causes phloem blockages, starving roots and foliage. NO CURATIVE CHEMICAL OR FUNGICIDE EXISTS.",
+      "symptoms": "Asymmetrical blotchy mottle on leaves (patterns do not match on both sides of the leaf midrib, distinguishing it from zinc deficiency); thick, leathery, erect leaves with prominent veinal corking; premature fruit drop; small, lopsided, bitter fruit that stays green at the blossom end ('greening').",
+      "immediate_actions": [
+        "In commercial groves in non-endemic areas: Immediately verify with PCR molecular diagnostic testing and rogue out (excavate and destroy) infected trees to eliminate inoculum reservoirs.",
+        "In endemic areas: Establish rigorous psyllid suppression protocols to minimize secondary field transmission.",
+        "Scout tender young feather-leaf flushes for psyllid eggs, nymphs, and white waxy honeydew secretions."
+      ],
+      "organic_treatments": [
+        "Suppression of Asian citrus psyllid: Apply organic horticultural oils or insecticidal potassium salts of fatty acids during vegetative flushing.",
+        "Deploy parasitic wasps (Tamarixia radiata) as certified biological parasitoids of psyllid nymphs.",
+        "Enhanced foliar micronutrient applications (chelated Zn, Mn, Fe, B) and phosphite soil drenches to sustain tree vitality and root survival."
+      ],
+      "chemical_treatments": [
+        "THERE IS NO FUNGICIDE OR CHEMICAL BACTERICIDE THAT CURES HUANGLONGBING. Do not apply fungicides.",
+        "Vector suppression actives: Coordinated regional insecticide treatments targeting adult psyllids using Imidacloprid (IRAC 4A soil drench for young trees) or foliar applications of Fenpropathrin (IRAC 3A), Dimethoate (IRAC 1B), or Thiamethoxam (IRAC 4A) timed to vegetative flushes.",
+        "Trunk injection therapies with oxytetracycline hydrochloride where authorized under emergency regional state labels (Section 18)."
+      ],
+      "preventive_measures": [
+        "Plant exclusively certified pathogen-free budwood trees sourced from state-registered insect-proof foundation screenhouses.",
+        "Participate in area-wide psyllid control programs with neighboring citrus growers to prevent psyllid re-infestation.",
+        "Strictly obey all quarantine transport prohibitions on live citrus plant material and ornamental host plants (such as Murraya paniculata / orange jessamine)."
+      ],
+      "disclaimer": "Citrus Greening is a devastating quarantine disease. Federal and regional plant health statutes strictly mandate reporting and regulate tree movement.",
+      "sources": "University of Florida IFAS Citrus Greening Management Guidelines; USDA ARS Huanglongbing Research; UC IPM Citrus Psyllid.",
+      "category_name": "Citrus - Huanglongbing (Citrus Greening) Protocol"
+    },
+    "Paddy - Blast": {
+      "crop_disease": "Paddy - Rice Blast",
+      "pathogen_type": "Ascomycete fungus (Magnaporthe oryzae / Pyricularia oryzae)",
+      "scientific_basis": "Devastating hemibiotrophic fungal pathogen infecting leaves, collars, nodes, and panicles; favored by high nitrogen fertilization, prolonged leaf wetness (>10 hours), and warm humid weather (24-28°C).",
+      "symptoms": "Spindle-shaped or eye-shaped lesions with pointed ends on leaves; lesions have grayish-white necrotic centers and dark brown to reddish-brown margins; lesions coalesce causing complete leaf desiccation ('leaf blast'); blackish necrosis at the panicle neck causes empty, drooping white heads ('neck blast').",
+      "immediate_actions": [
+        "Maintain continuous standing water depth (5-10 cm) in the paddy field immediately; draining or drying fields drastically accelerates blast severity.",
+        "Immediately suspend all supplemental nitrogen top-dressing (excessive vegetative tissue softens plant cuticle, making it susceptible to appressorial penetration).",
+        "Drain excess standing water only if severe root rot occurs, but maintain saturated mud."
+      ],
+      "organic_treatments": [
+        "Seed treatment and foliar application with bio-control agent Pseudomonas fluorescens (strain Pf1) or Bacillus subtilis.",
+        "Foliar applications of silica supplements (potassium silicate) to fortify epidermal cell walls with a mechanical silica-cellulose matrix barrier."
+      ],
+      "chemical_treatments": [
+        "Melanin Biosynthesis Inhibitor (MBI-D): Tricyclazole (FRAC 16.1) — the international Gold Standard active for systemic blast prevention, applied at early tillering and late boot stage.",
+        "Organophosphate systemic: Isoprothiolane (FRAC 6) for rapid therapeutic and curative action.",
+        "Antibiotic fungicide: Kasugamycin (FRAC 24) or Strobilurin: Azoxystrobin (FRAC 11) applied prior to panicle emergence to safeguard against neck blast."
+      ],
+      "preventive_measures": [
+        "Plant blast-resistant certified paddy varieties adapted to your agro-ecological zone.",
+        "Avoid split application overdoses of nitrogen; balance with adequate potassium and silica fertilization.",
+        "Practice thorough seed treatment with certified fungicides or biocontrol agents prior to nursery sowing."
+      ],
+      "disclaimer": "Observe statutory pre-harvest intervals and water drainage restrictions to protect aquatic life and downstream waterways. Alternate chemical FRAC groups.",
+      "sources": "IRRI (International Rice Research Institute) Rice Knowledge Bank; TNAU Agritech Portal Paddy Pathology; ICAR-CRRI.",
+      "category_name": "Paddy - Rice Blast Protocol"
+    },
+    "Paddy - Bacterial Leaf Blight": {
+      "crop_disease": "Paddy - Bacterial Leaf Blight",
+      "pathogen_type": "Bacterium (Xanthomonas oryzae pv. oryzae)",
+      "scientific_basis": "Vascular bacterial disease entering through hydathodes on leaf margins or wind-inflicted wounds; spread by floodwater and rain storms. FUNGICIDES HAVE ZERO EFFECT.",
+      "symptoms": "Water-soaked to yellowish-green stripes initiating along leaf margins and tips, rapidly expanding into wavy-margined, bleached straw-white lesions that progress down the blade; milky or opaque bacterial ooze droplets form on young lesions in humid mornings and dry into amber beads.",
+      "immediate_actions": [
+        "Immediately drain standing floodwater from the field for 3-4 days to arrest bacterial water-borne dissemination.",
+        "Stop all nitrogenous fertilizer applications immediately; apply muriate of potash (potassium) to strengthen leaf tissue.",
+        "Avoid touching, weeding, or walking through flooded fields when plants are wet."
+      ],
+      "organic_treatments": [
+        "Seed soaking with Pseudomonas fluorescens or Bacillus amyloliquefaciens prior to nursery sowing.",
+        "Preventive foliar application of fresh cow dung slurry extract (20%) or neem seed kernel extract (NSKE 5%) as practiced in traditional IPM systems."
+      ],
+      "chemical_treatments": [
+        "Bactericide program: Copper hydroxide (FRAC M01) or Copper oxychloride combined with agricultural streptomycin / tetracycline formulations where registered.",
+        "Plant defense activator: Probenazole or Acibenzolar-S-methyl to stimulate systemic host defense pathways.",
+        "Do NOT apply tricyclazole, hexaconazole, or strobilurins—they are fungicides and will have zero biological efficacy against Xanthomonas bacteria."
+      ],
+      "preventive_measures": [
+        "Grow certified BLB-resistant rice cultivars (hybrids carrying multiple pyramidized Xa genes: Xa4, xa5, xa13, Xa21).",
+        "Ensure proper field drainage and avoid submergence of nursery beds during storms.",
+        "Clean irrigation channels and eradicate cyperaceous and gramineous weed hosts from paddy bunds."
+      ],
+      "disclaimer": "Agricultural antibiotics must only be used in strict accordance with national pesticide regulatory labels and resistance mitigation directives.",
+      "sources": "IRRI Rice Knowledge Bank Bacterial Blight; ICAR-National Rice Research Institute; TNAU Agritech.",
+      "category_name": "Paddy - Bacterial Leaf Blight Protocol"
+    },
+    "Cabbage - Tip Burn": {
+      "crop_disease": "Cabbage - Tip Burn",
+      "pathogen_type": "Abiotic Physiological Disorder (Localized Calcium Deficiency)",
+      "scientific_basis": "NON-PATHOGENIC DISORDER. Caused by localized calcium deficiency in rapidly expanding inner head foliage. Calcium moves exclusively in the transpiration xylem stream; when inner leaves are enclosed in the head, transpiration drops to near zero, starving leaf margins of calcium and causing cell collapse. FUNGICIDES AND BACTERICIDES ARE 100% USELESS.",
+      "symptoms": "Marginal chlorosis turning into dry, necrotic, papery dark brown or black scorch along the edges of rapidly expanding inner head leaves; outer wrapper leaves often look completely normal while internal head quality is degraded; NO fungal mycelium or bacterial ooze present.",
+      "immediate_actions": [
+        "DO NOT APPLY ANY FUNGICIDE, BACTERICIDE, OR PESTICIDE. This is a non-parasitic nutritional and water-management problem.",
+        "Immediately regulate irrigation: Maintain consistent, uniform soil moisture via drip irrigation to avoid alternating cycles of drought and saturation.",
+        "Immediately halt excessive nitrogen top-dressing, which drives explosive vegetative leaf expansion outstripping vascular calcium transport."
+      ],
+      "organic_treatments": [
+        "Foliar application of chelated calcium (Calcium EDTA or calcium chloride 0.5%) directed toward the growing heart during early head formation.",
+        "Soil application of agricultural gypsum (calcium sulfate) or calcitic limestone to boost root-zone exchangeable calcium without spiking soil pH."
+      ],
+      "chemical_treatments": [
+        "NO CHEMICAL FUNGICIDE IS REQUIRED OR EFFECTIVE.",
+        "Apply water-soluble Calcium nitrate in balanced fertigation schedules, keeping the Ammonium-to-Nitrate ratio low (high ammonium competes with calcium uptake)."
+      ],
+      "preventive_measures": [
+        "Select cabbage and cauliflower cultivars genetically bred for high resistance to tip burn (tolerance to rapid-growth calcium stress).",
+        "Maintain uniform soil moisture using tensiometers or capacitance moisture sensors.",
+        "Ensure optimal soil pH between 6.2 and 6.8 to maximize natural calcium bioavailability."
+      ],
+      "disclaimer": "Tip Burn is an abiotic calcium transportation disorder. Applying chemical plant protectants is a waste of capital and risks chemical residue issues.",
+      "sources": "Cornell Vegetable MD Online Brassica Tipburn; UC Davis IPM Cole Crops; University of Wisconsin Extension.",
+      "category_name": "Cabbage - Tip Burn Protocol"
+    },
+    "Chilli - Leaf Curl Virus": {
+      "crop_disease": "Chilli - Leaf Curl Virus",
+      "pathogen_type": "Begomovirus (Chilli Leaf Curl Virus - ChiLCV)",
+      "scientific_basis": "Geminivirus transmitted persistent-circulatively by the whitefly (Bemisia tabaci). Systemic viral infection causing severe physiological disruption. NO CHEMICAL VIRICIDE EXISTS TO CURE INFECTED PLANTS.",
+      "symptoms": "Upward curling, puckering, and severe reduction in leaflet size; leaves crowd together at terminal branches causing a 'witches' broom' or bunched appearance; vein thickening and swollen petioles; plants are severely stunted and fail to produce viable flower buds or pods.",
+      "immediate_actions": [
+        "Rogue out and safely incinerate or bag all infected chilli plants immediately upon noticing terminal leaf curl.",
+        "DO NOT apply fungicides or bactericides; they have zero activity against intracellular plant viruses.",
+        "Install yellow sticky cards across the field (1 trap every 15 meters) to monitor and mass-trap whitefly vectors."
+      ],
+      "organic_treatments": [
+        "Vector suppression: Foliar applications of cold-pressed neem seed kernel extract (NSKE 5%) or 0.5% neem oil targeting leaf undersides where whitefly nymphs congregate.",
+        "Barrier netting: Grow nursery seedlings under 40-50 mesh insect barrier nylon nets before field transplanting.",
+        "Intercropping with barrier crops: Plant 2-3 border rows of tall non-host crops like maize, sorghum, or pearl millet around chilli fields to block whitefly wind-drift."
+      ],
+      "chemical_treatments": [
+        "No chemical cures the virus itself. All chemical interventions target the whitefly vector (Bemisia tabaci).",
+        "Systemic vector controls: Seedling dip or foliar application of Imidacloprid (IRAC 4A), Acetamiprid (IRAC 4A), or Diafenthiuron (IRAC 12A).",
+        "Novel anti-feedant: Flonicamid (IRAC 29) or Spiromesifen (IRAC 23) to manage whitefly nymphal stages. Rotate IRAC groups strictly."
+      ],
+      "preventive_measures": [
+        "Select leaf-curl tolerant chilli hybrids adapted to your region.",
+        "Dip seedling roots in systemic insecticide solution for 15 minutes before transplanting.",
+        "Eliminate solanaceous and asteraceous weed hosts (e.g., Datura, Solanum nigrum, Parthenium) from field borders."
+      ],
+      "disclaimer": "Never apply fungicides for leaf curl management. Chemical interventions must target vector populations exclusively and adhere to pollinator safety intervals.",
+      "sources": "ICAR-IIHR Chilli Pathology Guidelines; TNAU Agritech Portal; AVRDC (World Vegetable Center) Chili Pepper Production.",
+      "category_name": "Chilli - Leaf Curl Virus Protocol"
+    },
+    "Peach - peach leaf curl": {
+      "crop_disease": "Peach - Leaf Curl",
+      "pathogen_type": "Ascomycete fungus (Taphrina deformans)",
+      "scientific_basis": "Dimorphic fungus that overwinters as budding blastospores on bark and bud scales; infects tender expanding leaf tissue exclusively in cool, wet spring weather (9-16°C) as buds swell. Once leaves display symptoms, chemical applications are 100% INEFFECTIVE for that season.",
+      "symptoms": "Severe thickening, puckering, twisting, and downward curling of expanding spring leaves; distorted leaves turn yellow, bright pink, or deep crimson-red; leaves become fleshy and brittle, eventually developing a powdery gray velvet coat of asci before withering and dropping.",
+      "immediate_actions": [
+        "NOTE: Do not apply fungicides once leaves are already puckered and red in spring—fungicide efficacy is ZERO once infection has occurred and the fungus is inside leaf tissues.",
+        "Maintain tree vigor: Apply light balanced nitrogen fertilization and ensure adequate irrigation to help the tree push out a healthy second flush of summer leaves to replace defoliated tissue.",
+        "Thin heavy fruit sets to reduce tree metabolic stress following foliar loss."
+      ],
+      "organic_treatments": [
+        "Crucial timing: Apply fixed copper (Copper hydroxide or Bordeaux mixture - FRAC M01) during dormant season (after 90% leaf fall in autumn, or in late winter just before bud swell).",
+        "Add 1% dormant horticultural oil to copper applications to enhance coverage and suppress overwintering scale insects."
+      ],
+      "chemical_treatments": [
+        "Single dormant application: Chlorothalonil (FRAC M05) applied in late autumn or late winter prior to bud swell provides near 100% control.",
+        "Alternative dormant actives: Ziram (FRAC M03) or Dodine (FRAC U12).",
+        "CRITICAL: A single thoroughly timed dormant application before bud swell is mandatory; no spring or summer foliar treatments have any curative effect."
+      ],
+      "preventive_measures": [
+        "Plant peach cultivars with documented resistance to Taphrina deformans (e.g., Frost, Avalon Pride, Mary Jane, Muir).",
+        "Ensure 100% thorough bark coverage of all buds, branches, and tree trunks during the single winter dormant application."
+      ],
+      "disclaimer": "Fungicide applications made after buds open and leaves unfurl are completely wasted. Follow statutory safety regulations regarding copper and chlorothalonil.",
+      "sources": "UC Davis IPM Peach Leaf Curl; Penn State Tree Fruit Guide; Cornell Fruit Resources.",
+      "category_name": "Peach - Leaf Curl Protocol"
+    },
+    "Pear - pear fire blight": {
+      "crop_disease": "Pear - Fire Blight",
+      "pathogen_type": "Bacterium (Erwinia amylovora)",
+      "scientific_basis": "Destructive quarantine bacterium overwintering in margin cankers; enters through blossom nectaries in spring, driven by bees, rain splash, and warmth (>18°C), then travels systemically down the vascular xylem.",
+      "symptoms": "Blossoms, leaves, and young twigs suddenly wilt, turn jet-black (as if scorched by fire), and remain tenaciously attached to twigs; young shoot tips wilt into a characteristic hooked shape ('shepherd's crook'); creamy bacterial ooze droplets exude from blighted stems in humid weather.",
+      "immediate_actions": [
+        "Prune out infected strikes immediately during dry weather: Cut a minimum of 30-40 cm (12-15 inches) BELOW all visible fire blight discoloration into healthy wood.",
+        "Disinfect pruning shears between EVERY SINGLE CUT by dipping in 10% household bleach, 70% denatured alcohol, or Lysol sanitizer.",
+        "Burn or immediately bury all excised fire blight clippings off-site; do not leave prunings in the orchard."
+      ],
+      "organic_treatments": [
+        "Preventive applications of fixed copper hydroxide at delayed dormant / silver tip stage to sanitize overwintering canker surfaces.",
+        "Biological bloom applications: Apply competitive antagonist bacteria like Bacillus subtilis (strain QST 713) or Pantoea agglomerans to open blossoms before Erwinia colonization.",
+        "Foliar applications of Potassium phosphite or copper octanoate."
+      ],
+      "chemical_treatments": [
+        "Blossom protection: Apply agricultural Streptomycin sulfate (FRAC 25) or Kasugamycin (FRAC 24) during active blossom bloom, timed strictly using fire blight forecasting models (Cougarblight or Maryblyt).",
+        "Plant defense activator: Prohexadione-calcium (growth retardant) applied at petal fall to inhibit shoot elongation, harden shoot cell walls, and prevent shoot blight invasion.",
+        "Fungicides (triazoles, strobilurins) have ZERO effect on Erwinia bacteria."
+      ],
+      "preventive_measures": [
+        "Select fire-blight resistant pear varieties (e.g., Harrow Delight, Magness, Moonglow, Blake's Pride); avoid ultra-susceptible cultivars like Bartlett and Bosc in high-pressure regions.",
+        "Avoid excessive spring nitrogen fertilization, which forces succulent vegetative shoots that are highly vulnerable to vascular invasion."
+      ],
+      "disclaimer": "Agricultural antibiotics must only be applied during bloom under official university extension temperature-risk models. Obey resistance management protocols and statutory regulations.",
+      "sources": "UC Davis IPM Pear Fire Blight; Cornell University Tree Fruit Pathology; Penn State Extension.",
+      "category_name": "Pear - Fire Blight Protocol"
+    },
+    "Soybean - Rust": {
+      "crop_disease": "Soybean - Asian Soybean Rust",
+      "pathogen_type": "Basidiomycete fungus (Phakopsora pachyrhizi)",
+      "scientific_basis": "Aggressive obligate biotrophic rust fungus capable of causing catastrophic defoliation within 10-14 days; urediniospores are wind-borne over hundreds of kilometers and infect leaves directly by appressorial cuticular penetration without requiring stomata.",
+      "symptoms": "Tiny, pinpoint chlorotic flecks on lower leaf surfaces, quickly developing into raised, volcanic-shaped brown or reddish-brown pustules (uredinia) predominantly on the leaf underside; infected leaves rapidly turn yellow, scorch, and defoliate prematurely.",
+      "immediate_actions": [
+        "Scout lower and middle canopy leaves weekly starting at reproductive stage R1 (first flower).",
+        "Check regional sentinel plot rust tracking networks (sbr.ipmpipe.org) for active spore flights.",
+        "Ensure ground rig applicators deliver high-pressure foliar applications with fine droplets to penetrate dense soybean canopy."
+      ],
+      "organic_treatments": [
+        "Preventive applications of micronized wettable sulfur (FRAC M02) prior to canopy closure.",
+        "Biological foliar applications of Bacillus subtilis or Trichoderma species to suppress early urediniospore germination."
+      ],
+      "chemical_treatments": [
+        "Triple-action premixes: Apply multi-site protectant (Mancozeb FRAC M03) combined with DMI Triazole (Prothioconazole, Tebuconazole - FRAC 3) and SDHI (Fluxapyroxad, Benzovindiflupyr - FRAC 7).",
+        "Apply preventively at growth stages R1 to R3 (flowering to early pod development) if rust is detected within 100 miles.",
+        "Rotate FRAC 3 and FRAC 7 actives; NEVER apply single-site strobilurin (FRAC 11) fungicides alone due to widespread Phakopsora resistance."
+      ],
+      "preventive_measures": [
+        "Plant early-maturing soybean cultivars to escape late-season spore showers.",
+        "Utilize cultivars containing Rpp resistance genes (Rpp1 through Rpp6).",
+        "Enforce a strict kudzu and legume host-free period during winter months."
+      ],
+      "disclaimer": "Adhere strictly to personal protective gear, pre-harvest intervals, and application limits per season. Resistance to triazoles and strobilurins is documented globally in Asian soybean rust.",
+      "sources": "USDA ARS Asian Soybean Rust Research; Iowa State University Extension; FRAC Rust Working Group.",
+      "category_name": "Soybean - Asian Soybean Rust Protocol"
+    },
+    "Banana - Sigatoka": {
+      "crop_disease": "Banana - Sigatoka (Black Leaf Streak)",
+      "pathogen_type": "Ascomycete fungus (Pseudocercospora fijiensis / Mycosphaerella fijiensis)",
+      "scientific_basis": "Airborne ascomycete causing destructive foliar necrosis and premature ripening of banana bunches; ascospores are discharged into air currents during rain events.",
+      "symptoms": "Tiny, rusty reddish-brown specks or streaks on the underside of the 3rd or 4th leaf from the top; streaks elongate parallel to leaf veins, becoming dark brown to black elliptical spots with depressed grey centers and bright yellow halos.",
+      "immediate_actions": [
+        "De-leafing (surgery): Systematically cut off severely diseased leaf portions with sanitized curved knives weekly to lower field ascospore inoculum.",
+        "Improve plantation drainage: Dig deep drainage trenches between rows to lower humidity in the canopy understory.",
+        "Ensure weed control to maximize airflow along plantation mats."
+      ],
+      "organic_treatments": [
+        "Foliar applications of agricultural mineral oil (horticultural paraffinic oil) which acts physically to retard germ tube penetration and mycelial growth.",
+        "Fixed copper compounds (Copper hydroxide - FRAC M01) mixed with agricultural oil.",
+        "Bio-fungicides based on Bacillus subtilis or melaleuca alternifolia (tea tree oil) extracts."
+      ],
+      "chemical_treatments": [
+        "DMI Triazoles: Difenoconazole (FRAC 3) or Propiconazole (FRAC 3) emulsified in light mineral oil.",
+        "SDHI fungicides: Fluopyram (FRAC 7) or Boscalid (FRAC 7).",
+        "Multi-site protectants: Mancozeb (FRAC M03) applied in water-oil emulsions. Rotate FRAC 3, FRAC 7, and FRAC 11 strictly to manage resistance."
+      ],
+      "preventive_measures": [
+        "Maintain optimal mat density: De-sucker regularly to preserve a mother-daughter-granddaughter stool configuration (preventing overcrowding).",
+        "Plant Sigatoka-tolerant or resistant somaclonal hybrid varieties (e.g., FHIA hybrids).",
+        "Ensure balanced potassium and silicon nutrition to fortify leaf cuticle."
+      ],
+      "disclaimer": "Observe strict environmental safety guidelines to prevent runoff of fungicide-oil mixtures into tropical water bodies. Obey FRAC banana working group resistance limits.",
+      "sources": "FAO Banana Disease Technical Guidelines; CIRAD Sigatoka Control; ProMusa International Musa Network.",
+      "category_name": "Banana - Sigatoka (Black Leaf Streak) Protocol"
+    },
+    "Banana - Panama": {
+      "crop_disease": "Banana - Panama Disease (Fusarium Wilt TR4)",
+      "pathogen_type": "Soil-borne Fungus (Fusarium oxysporum f. sp. cubense - Tropical Race 4)",
+      "scientific_basis": "Devastating vascular wilt fungus producing resilient chlamydospores that persist viable in soil for over 30 years; enters roots and blocks vascular xylem. NO FUNGICIDE OR CHEMICAL TREATMENT CAN CURE INFECTED PLANTS IN THE FIELD.",
+      "symptoms": "Prominent yellowing of the margins of older leaves; leaves collapse at the junction of the petiole and pseudostem, forming a 'skirt' of dead brown leaves hanging around the trunk; splitting of the pseudostem base; internal vascular strands exhibit intense reddish-brown or black discoloration.",
+      "immediate_actions": [
+        "CRITICAL BIOSECURITY: Immediately quarantine the mat and surrounding 5-meter buffer zone; do not move soil, plants, or water out of the infected area.",
+        "DO NOT attempt to treat with foliar fungicides—Fusarium is a soil-borne vascular pathogen completely unreached by foliar treatments.",
+        "Eradicate the infected mat by injecting glyphosate or herbicide into the pseudostem, followed by burning or plastic containment to prevent spore dispersal.",
+        "Sanitize footwear and machinery tires with quaternary ammonium disinfectant (e.g., 20% solution)."
+      ],
+      "organic_treatments": [
+        "No curative organic treatment exists once a plant is infected.",
+        "Preventive soil incorporation of beneficial Trichoderma harzianum or Bacillus velezensis into virgin or rotation soils to suppress soil pathogen populations.",
+        "High organic matter compost additions and cover cropping with Allium species (leeks, garlic) which exude anti-fungal thiosulfinates."
+      ],
+      "chemical_treatments": [
+        "NO CHEMICAL FUNGICIDE CAN CURE OR ERADICATE PANAMA DISEASE TR4 IN THE FIELD. Do not apply fungicides.",
+        "Chemical intervention is strictly confined to biosecurity disinfectants (Quaternary ammonium compounds) used on tools, vehicles, and boots to prevent farm-to-farm pathogen spread."
+      ],
+      "preventive_measures": [
+        "Plant exclusively certified tissue-cultured plantlets from quarantined, certified disease-free laboratories.",
+        "Construct footbaths and vehicle tire wash stations containing fresh disinfectant at every farm entrance.",
+        "Transition to resistant banana somaclonal selections (e.g., Formosana / GCTCV-218) in endemic TR4 zones."
+      ],
+      "disclaimer": "Fusarium TR4 is an existential quarantine threat to global banana production. Promptly notify regional government phytosanitary inspectors upon discovery.",
+      "sources": "FAO World Banana Forum Fusarium TR4 Manual; ProMusa Knowledge Network; CIRAD Pathology.",
+      "category_name": "Banana - Panama Disease (Fusarium Wilt TR4) Protocol"
+    }
+  },
+  "categories": {
+    "healthy": {
+      "category_name": "Healthy Foliage",
+      "pathogen_type": "None (Healthy Tissue)",
+      "scientific_basis": "Normal vegetative tissue with intact cuticular barrier, active chloroplast photosystems, and balanced stomatal conductance. Zero pathogen colonization detected.",
+      "symptoms": "Leaves exhibit uniform vibrant green pigmentation, normal cellular turgidity, intact leaf margins, and zero evidence of chlorosis, necrosis, pustules, lesions, or sporulation.",
+      "immediate_actions": [
+        "Continue standard routine scouting and agronomic canopy inspection on a weekly basis.",
+        "Maintain uniform irrigation schedules and monitor root-zone electrical conductivity (EC) and moisture levels."
+      ],
+      "organic_treatments": [
+        "Foliar applications of organic kelp (seaweed extract) or cold-processed amino acids to fortify plant vigor and stress resilience.",
+        "Root colonization with beneficial mycorrhizal fungi to enhance phosphorus and micronutrient uptake."
+      ],
+      "chemical_treatments": [
+        "No chemical plant protection application is needed or justified. Conserve beneficial predatory insects and natural phyllosphere microflora."
+      ],
+      "preventive_measures": [
+        "Maintain recommended inter-plant spacing to ensure adequate canopy air circulation and sunlight penetration.",
+        "Implement strict biosecurity: Disinfect pruners, boots, and tools between greenhouse bays and field blocks."
+      ],
+      "disclaimer": "Proper plant nutrition and water management maintain optimal physiological defense barriers against opportunistic pathogens.",
+      "sources": "UC Davis IPM Principles of Plant Health; FAO Good Agricultural Practices."
+    },
+    "blight_oomycete": {
+      "category_name": "Oomycete Blight (Late Blight / Phytophthora)",
+      "pathogen_type": "Oomycete (Phytophthora spp. / Pythium spp.)",
+      "scientific_basis": "Water-mold stramenopile producing flagellated zoospores in free water. Possesses cellulose-glucan cell walls; standard fungal triazole inhibitors have zero biological efficacy.",
+      "symptoms": "Rapidly expanding water-soaked, dark olive or brown necrotic lesions; in high humidity, delicate white sporulating mildew emerges on the underside of foliage; foul rotting odor in dense canopies.",
+      "immediate_actions": [
+        "Rogue out and safely bag heavily blighted plants immediately; dispose of them off-site.",
+        "Immediately cease overhead sprinkler irrigation; switch strictly to ground-level drip lines.",
+        "Alert adjacent fields to initiate preventive protective barriers."
+      ],
+      "organic_treatments": [
+        "Preventive applications of fixed copper hydroxide, copper octanoate, or Bordeaux mixture (FRAC M01) prior to rain periods.",
+        "Foliar bio-fungicide applications of Bacillus amyloliquefaciens (strain D747) to colonize leaf surfaces."
+      ],
+      "chemical_treatments": [
+        "Targeted oomycides: Mandipropamid (FRAC 40), Dimethomorph (FRAC 40), or Cyazofamid (FRAC 21).",
+        "Translaminar curative penetrant: Cymoxanil (FRAC 27) applied within 48 hours of infection.",
+        "Multi-site protectants: Mancozeb (FRAC M03) or Chlorothalonil (FRAC M05). Always rotate FRAC codes."
+      ],
+      "preventive_measures": [
+        "Ensure strict 3-year crop rotation away from solanaceous host crops.",
+        "Plant certified disease-free seed tubers, seeds, or resistant hybrid cultivars.",
+        "Maximize row spacing and canopy ventilation to promote rapid foliar drying."
+      ],
+      "disclaimer": "Adhere strictly to pesticide statutory labels for application dosage, pre-harvest intervals, and resistance management.",
+      "sources": "UC Davis IPM; Cornell Vegetable MD; FRAC Oomycete Guidelines."
+    },
+    "blight_fungal": {
+      "category_name": "Fungal Blight (Early Blight / Alternaria / Northern Blight)",
+      "pathogen_type": "Ascomycete / Deuteromycete Fungi (Alternaria, Exserohilum, Helminthosporium)",
+      "scientific_basis": "Necrotrophic fungal pathogens producing phytotoxic metabolites; favored by warm temperatures and alternating wet/dry canopy cycles; infects senescent lower foliage first.",
+      "symptoms": "Dark brown to black necrotic lesions displaying prominent concentric rings (target-board / bullseye pattern) bordered by chlorotic halos; lesions coalesce into extensive foliar blights causing premature leaf drop.",
+      "immediate_actions": [
+        "Prune off infected lower leaves showing concentric rings during dry midday conditions.",
+        "Rake and eliminate fallen leaf debris from beneath the canopy to minimize spore carryover.",
+        "Avoid working in fields when leaves are wet with rain or morning dew."
+      ],
+      "organic_treatments": [
+        "Fixed copper hydroxide or copper octanoate applied preventively at early vegetative stages.",
+        "Bio-fungicides: Bacillus subtilis or Trichoderma harzianum foliar formulations to compete with germinating conidia.",
+        "Potassium bicarbonate foliar applications to neutralize micro-environmental leaf acidity."
+      ],
+      "chemical_treatments": [
+        "Multi-site protectants: Chlorothalonil (FRAC M05) or Mancozeb (FRAC M03).",
+        "Targeted systemics: DMI Triazoles (Difenoconazole, Tebuconazole - FRAC 3) or SDHI fungicides (Boscalid - FRAC 7).",
+        "Strobilurins: Azoxystrobin (FRAC 11) - always applied in rotation or tank-mixed with protectants to counter resistance."
+      ],
+      "preventive_measures": [
+        "Implement a 3-year crop rotation with non-host botanical families.",
+        "Apply clean mulch over soil to prevent rain-splash transmission of soil-borne conidia.",
+        "Ensure balanced nitrogen fertility; avoid nitrogen starvation which promotes Alternaria susceptibility."
+      ],
+      "disclaimer": "Always observe statutory harvest intervals and alternate FRAC groups every application.",
+      "sources": "UC Davis IPM; Penn State Extension; Cornell University."
+    },
+    "bacterial_disease": {
+      "category_name": "Bacterial Disease (Bacterial Spot / Blight / Canker / Fire Blight)",
+      "pathogen_type": "Gram-negative Bacteria (Xanthomonas, Pseudomonas, Erwinia)",
+      "scientific_basis": "Bacterial pathogens entering through stomata, hydathodes, or micro-wounds; multiplied in intercellular apoplast. FUNGAL FUNGICIDES ARE COMPLETELY INEFFECTIVE.",
+      "symptoms": "Water-soaked, angular lesions delimited by leaf veins; lesions turn dark brown to black, frequently surrounded by distinct bright yellow halos; bacterial ooze beads on lesions under morning humidity.",
+      "immediate_actions": [
+        "NEVER cultivate, prune, or harvest when crops are wet with rain or dew.",
+        "Rogue heavily diseased plants or prune blighted twigs 30 cm below visible margins with sanitized tools.",
+        "Halt all overhead sprinkler irrigation; switch to drip lines to eliminate splash dispersal."
+      ],
+      "organic_treatments": [
+        "Preventive applications of fixed copper hydroxide or copper oxychloride (FRAC M01).",
+        "Foliar bio-control applications of Bacillus subtilis or Bacillus amyloliquefaciens.",
+        "Certified bacteriophage applications applied in evening hours where regionally registered."
+      ],
+      "chemical_treatments": [
+        "Fixed copper hydroxide combined synergistically with Mancozeb (FRAC M01 + FRAC M03) to control copper-resistant bacterial strains.",
+        "Agricultural antibiotics where legally approved on specific crops: Kasugamycin (FRAC 24) or Streptomycin sulfate (FRAC 25).",
+        "Systemic defense inducers: Acibenzolar-S-methyl (FRAC P01)."
+      ],
+      "preventive_measures": [
+        "Sow certified pathogen-free, hot-water-treated seed and certified healthy transplants.",
+        "Maintain 3-year crop rotation away from host families.",
+        "Disinfect all cutting knives, shears, and machinery between rows with 70% alcohol or quaternary ammonium."
+      ],
+      "disclaimer": "Fungicides have zero efficacy against bacterial pathogens. Follow strict local pesticide laws regarding agricultural antibiotics.",
+      "sources": "UC Davis IPM; University of Florida IFAS; Cornell Extension."
+    },
+    "rust": {
+      "category_name": "Foliar Rust",
+      "pathogen_type": "Basidiomycete Rust Fungi (Puccinia, Uromyces, Phakopsora, Gymnosporangium)",
+      "scientific_basis": "Obligate biotrophic rust fungi that produce millions of airborne dikaryotic urediniospores; spore pustules rupture leaf epidermis causing rapid foliar desiccation.",
+      "symptoms": "Raised, powdery, blister-like pustules (uredinia) on upper or lower leaf surfaces erupting with rust-colored, orange, golden-yellow, or reddish-brown spores; severe infections cause chlorosis and premature defoliation.",
+      "immediate_actions": [
+        "Isolate the infection zone; avoid walking through dry fields during midday when rust spores easily shed onto clothing.",
+        "Prune heavily infected lower leaves and dispose of them in sealed bags off-site.",
+        "Eradicate nearby alternate hosts (such as wild junipers for apple rust, or barberry for cereal rusts)."
+      ],
+      "organic_treatments": [
+        "Micronized wettable sulfur (FRAC M02) applied preventively at early vegetative emergence.",
+        "Foliar applications of copper octanoate or fixed copper hydroxide.",
+        "Bio-fungicides: Bacillus subtilis or Trichoderma species to suppress initial surface spore germination."
+      ],
+      "chemical_treatments": [
+        "DMI Triazoles: Tebuconazole (FRAC 3), Difenoconazole (FRAC 3), or Propiconazole (FRAC 3) provide superb therapeutic and translaminar control.",
+        "QoI Strobilurins: Azoxystrobin (FRAC 11) or Pyraclostrobin (FRAC 11).",
+        "Multi-site protectants: Mancozeb (FRAC M03) applied prior to spore flight. Rotate FRAC 3 and FRAC 11."
+      ],
+      "preventive_measures": [
+        "Plant rust-resistant certified cultivars.",
+        "Ensure proper crop spacing and avoid excessive canopy density.",
+        "Eliminate volunteer host plants and weed hosts during the off-season."
+      ],
+      "disclaimer": "Do not apply sulfur during high ambient temperatures (>32°C) or within 2 weeks of oil applications. Adhere to statutory pre-harvest intervals.",
+      "sources": "UC Davis IPM Rust Guidelines; Penn State Tree Fruit Guide; FRAC Rust Committee."
+    },
+    "powdery_mildew": {
+      "category_name": "Powdery Mildew",
+      "pathogen_type": "Ascomycete Fungi (Podosphaera, Erysiphe, Oidium, Leveillula)",
+      "scientific_basis": "Obligate biotrophic ectoparasites producing superficial white mycelium on epidermal cells; favored by warm, dry climates with high relative humidity and shade; does NOT need free water.",
+      "symptoms": "White to light gray talcum-like powdery patches on upper and lower leaf surfaces, petioles, and young stems; infected leaves curl upward, become brittle, scorch, and senesce prematurely.",
+      "immediate_actions": [
+        "Prune away severely coated shoots and leaves to immediately reduce conidial spore load.",
+        "Increase sunlight penetration by thinning excess vegetative suckers and shaded inner canopy growth.",
+        "Avoid heavy overhead shading."
+      ],
+      "organic_treatments": [
+        "Micronized wettable sulfur (FRAC M02) - the preeminent organic preventive control.",
+        "Potassium bicarbonate (FRAC NC) foliar applications to instantly dehydrate and disrupt fungal hyphae on contact.",
+        "Narrow-range horticultural mineral oils or pure cold-pressed neem oil (0.5-1%) as contact eradicants."
+      ],
+      "chemical_treatments": [
+        "DMI Triazoles: Myclobutanil (FRAC 3), Difenoconazole (FRAC 3), or Penconazole (FRAC 3).",
+        "SDHI fungicides: Boscalid (FRAC 7) or Fluxapyroxad (FRAC 7).",
+        "QoI Strobilurins: Azoxystrobin (FRAC 11) or Kresoxim-methyl (FRAC 11). Rotate FRAC groups every single application."
+      ],
+      "preventive_measures": [
+        "Select powdery mildew resistant cultivars.",
+        "Avoid high-nitrogen fertilizer applications that force dense, tender vegetative foliage.",
+        "Space rows to ensure direct sunlight exposure across the canopy."
+      ],
+      "disclaimer": "NEVER apply sulfur within 2-3 weeks of any oil application to prevent severe foliar phytotoxicity. Observe strict harvest intervals.",
+      "sources": "UC Davis IPM Powdery Mildew; Cornell Vegetable MD; FRAC Group 3 & 11."
+    },
+    "downy_mildew": {
+      "category_name": "Downy Mildew",
+      "pathogen_type": "Oomycete (Plasmopara, Peronospora, Pseudoperonospora, Bremia)",
+      "scientific_basis": "Obligate biotrophic oomycete favored by cool to moderate temperatures and high relative humidity (>85%); requires free water on leaves for sporangial germination.",
+      "symptoms": "Angular, pale yellow to chlorotic spots on upper leaf surface, strictly delimited by major leaf veins; dense white to grayish-purple downy felt forms on the corresponding lower leaf surface.",
+      "immediate_actions": [
+        "Cease all overhead watering immediately; switch to drip irrigation to keep leaf surfaces dry.",
+        "Prune lower infected leaves showing angular chlorosis during dry midday hours.",
+        "Ensure ventilation fans in protected cultivation run during early dawn hours to reduce humidity below 80%."
+      ],
+      "organic_treatments": [
+        "Preventive Bordeaux mixture or fixed copper hydroxide (FRAC M01) applied before rain events.",
+        "Potassium phosphite / mono- and di-potassium salts of phosphorous acid to trigger systemic acquired resistance (SAR).",
+        "Bio-fungicides: Bacillus subtilis or Bacillus amyloliquefaciens foliar formulations."
+      ],
+      "chemical_treatments": [
+        "Targeted Oomycides: Mandipropamid (FRAC 40), Dimethomorph (FRAC 40), or Cyazofamid (FRAC 21).",
+        "Translaminar penetrant: Cymoxanil (FRAC 27) applied within 24-48 hours of infection.",
+        "Multi-site protectants: Mancozeb (FRAC M03) or Chlorothalonil (FRAC M05). Always rotate FRAC groups."
+      ],
+      "preventive_measures": [
+        "Plant certified resistant varieties.",
+        "Space plants generously to promote rapid drying of foliage after dew or rains.",
+        "Practice 3-year crop rotation away from susceptible plant families."
+      ],
+      "disclaimer": "Downy mildews are oomycetes, not true fungi; standard triazole fungicides are ineffective. Adhere to statutory pre-harvest intervals.",
+      "sources": "UC Davis IPM Downy Mildew; Cornell Vegetable MD; FRAC Oomycete Guidelines."
+    },
+    "scab": {
+      "category_name": "Foliar & Fruit Scab",
+      "pathogen_type": "Ascomycete Fungi (Venturia, Cladosporium, Elsinoë)",
+      "scientific_basis": "Hemibiotrophic ascomycete overwintering in fallen leaves or twig cankers; primary ascospores release during spring rain periods to infect expanding green tissue.",
+      "symptoms": "Velvety, olive-green to dark brown circular spots on leaves and fruit; lesions develop corky, scabby, rough cracked margins causing leaf distortion, stunting, and fruit deformity.",
+      "immediate_actions": [
+        "Shred or remove fallen leaves from beneath the trees or rows to destroy overwintering inoculum.",
+        "Prune the canopy to maximize light penetration and air movement.",
+        "Monitor weather-driven infection models (such as Mills scab periods) to time treatments."
+      ],
+      "organic_treatments": [
+        "Delayed-dormant to pink-bud applications of liquid lime-sulfur or micronized sulfur (FRAC M02).",
+        "Fixed copper hydroxide (FRAC M01) applied before green tissue emergence (to prevent fruit russeting).",
+        "Foliar potassium bicarbonate applications during active ascospore flights."
+      ],
+      "chemical_treatments": [
+        "Multi-site protectants: Captan (FRAC M04) or Mancozeb (FRAC M03) applied prior to rain events.",
+        "Curative systemics: Difenoconazole (FRAC 3) or Myclobutanil (FRAC 3) possessing post-infection kick-back activity.",
+        "SDHI fungicides: Fluxapyroxad (FRAC 7). Always tank-mix single-site actives with Captan or Mancozeb."
+      ],
+      "preventive_measures": [
+        "Plant scab-resistant cultivars.",
+        "Apply urea (5%) to fallen leaves in late autumn to accelerate microbial leaf breakdown.",
+        "Avoid overhead irrigation."
+      ],
+      "disclaimer": "Do not apply Captan with or near horticultural oils to prevent severe leaf scorch. Follow statutory label restrictions.",
+      "sources": "Penn State Tree Fruit Production Guide; Cornell Fruit Pathology; UC Davis IPM."
+    },
+    "leaf_spot": {
+      "category_name": "Cercospora / Septoria / Fungal Leaf Spot",
+      "pathogen_type": "Ascomycete Fungi (Cercospora, Septoria, Bipolaris, Passalora)",
+      "scientific_basis": "Necrotrophic and hemibiotrophic leaf-spotting fungi producing airborne or splash-dispersed conidia; initiates spots that coalesce into extensive foliar blight.",
+      "symptoms": "Small, circular to irregular tan, gray, or brown spots, frequently exhibiting dark brown or reddish borders and tiny black fruiting bodies (pycnidia) embedded in the center; surrounding tissue develops chlorosis.",
+      "immediate_actions": [
+        "Prune off heavily spotted lower leaves during dry midday hours.",
+        "Clean up fallen leaf debris beneath plants; avoid overhead watering.",
+        "Mulch soil around plants to block rain splash of spores from the ground."
+      ],
+      "organic_treatments": [
+        "Preventive applications of copper octanoate or fixed copper hydroxide (FRAC M01).",
+        "Bio-fungicides: Bacillus amyloliquefaciens or Trichoderma species to suppress germinating conidia.",
+        "Foliar potassium bicarbonate applications."
+      ],
+      "chemical_treatments": [
+        "Multi-site protectants: Chlorothalonil (FRAC M05) or Mancozeb (FRAC M03).",
+        "Targeted systemics: Difenoconazole (FRAC 3 DMI) or Azoxystrobin (FRAC 11 QoI).",
+        "SDHI fungicides: Boscalid (FRAC 7). Rotate FRAC groups every application."
+      ],
+      "preventive_measures": [
+        "Enforce a 2-3 year crop rotation away from susceptible plant species.",
+        "Use certified disease-free seeds or hot-water-treated seed.",
+        "Maintain broad plant spacing to accelerate canopy drying."
+      ],
+      "disclaimer": "Rotate fungicides across different FRAC codes to prevent resistant fungal strains from emerging. Follow label pre-harvest intervals.",
+      "sources": "UC Davis IPM; Cornell Vegetable MD; University of Florida IFAS."
+    },
+    "anthracnose": {
+      "category_name": "Anthracnose",
+      "pathogen_type": "Ascomycete Fungi (Colletotrichum spp. / Glomerella spp.)",
+      "scientific_basis": "Hemibiotrophic fungus producing conidia embedded in gelatinous mucilage, dispersed by rain splash and overhead irrigation; causes sunken necrotic lesions on leaves, stems, and fruits.",
+      "symptoms": "Sunken, circular, water-soaked dark brown to black lesions on leaves and fruit; under warm, humid conditions, salmon-pink or orange gelatinous spore masses ooze from concentric rings within the lesion.",
+      "immediate_actions": [
+        "Prune out infected twigs and remove diseased fruits promptly; dispose off-site.",
+        "Halt all overhead sprinkler irrigation immediately.",
+        "Avoid moving through fields or harvesting when foliage is wet."
+      ],
+      "organic_treatments": [
+        "Preventive applications of fixed copper hydroxide or Bordeaux mixture (FRAC M01).",
+        "Foliar bio-fungicides: Bacillus subtilis or Trichoderma harzianum.",
+        "Pure cold-pressed neem oil (0.5%) applied during cool early morning hours."
+      ],
+      "chemical_treatments": [
+        "Multi-site protectants: Chlorothalonil (FRAC M05) or Mancozeb (FRAC M03).",
+        "Targeted systemics: Azoxystrobin (FRAC 11) or Pyraclostrobin (FRAC 11) tank-mixed with protectants.",
+        "Benzimidazole fungicides: Thiophanate-methyl (FRAC 1) or DMI: Difenoconazole (FRAC 3). Rotate FRAC groups."
+      ],
+      "preventive_measures": [
+        "Use certified anthracnose-free seed and disease-free nursery stock.",
+        "Apply plastic mulch to prevent soil-splash inoculation.",
+        "Practice a minimum 2 to 3-year crop rotation away from host crops."
+      ],
+      "disclaimer": "Resistance to single-site QoI (FRAC 11) fungicides is documented in Colletotrichum. Always tank-mix with multi-site protectants.",
+      "sources": "UC Davis IPM Anthracnose; University of Florida IFAS; Cornell Extension."
+    },
+    "rot": {
+      "category_name": "Fruit, Crown & Stem Rot",
+      "pathogen_type": "Fungi / Oomycetes (Botrytis, Sclerotinia, Phytophthora, Botryosphaeria)",
+      "scientific_basis": "Necrotrophic fungal and oomycete pathogens attacking soft plant tissues, stems, and fruit; enters via wounds, natural openings, or senescent floral petals.",
+      "symptoms": "Soft, water-soaked brown decay on stems, fruit, or crown tissues; developing fluffy gray or white mycelial mold; hard black resting bodies (sclerotia) may form inside decayed stems; fruit rots and mummifies.",
+      "immediate_actions": [
+        "Carefully remove and bag rotting fruit, stems, or crowns immediately; never leave mummies in the field.",
+        "Prune lower foliage to elevate fruit off moist soil beds.",
+        "Improve soil drainage and reduce irrigation frequency to let the root crown dry."
+      ],
+      "organic_treatments": [
+        "Copper hydroxide or copper octanoate applied preventively before fruit set.",
+        "Biological antagonists: Trichoderma harzianum or Bacillus subtilis applied to soil and crown.",
+        "Streptomyces lydicus or Gliocladium virens bio-fungicides."
+      ],
+      "chemical_treatments": [
+        "Targeted rot protectants: Fludioxonil (FRAC 12), Boscalid (FRAC 7), or Cyprodinil (FRAC 9).",
+        "Multi-site protectants: Captan (FRAC M04) or Chlorothalonil (FRAC M05).",
+        "For oomycete crown rots: Mefenoxam (FRAC 4) or Fosetyl-Al (FRAC P07)."
+      ],
+      "preventive_measures": [
+        "Plant on raised beds covered with plastic mulch to keep fruit off wet soil.",
+        "Avoid harvesting wet fruit; handle produce gently to avoid skin punctures.",
+        "Sanitize storage containers and harvesting bins thoroughly."
+      ],
+      "disclaimer": "Follow statutory post-harvest and pre-harvest intervals strictly. Rotate chemical modes of action.",
+      "sources": "UC Davis IPM; Cornell Vegetable MD; Penn State Extension."
+    },
+    "viral_disease": {
+      "category_name": "Viral Disease (Mosaic / Leaf Curl / Bunchy Top / Scorch)",
+      "pathogen_type": "Plant Viruses (Begomovirus, Potyvirus, Tobamovirus, Babuvirus)",
+      "scientific_basis": "Obligate intracellular nucleoprotein pathogens transmitted mechanically or by insect vectors (whiteflies, aphids, thrips, leafhoppers). NO CHEMICAL VIRICIDE EXISTS ONCE INFECTED.",
+      "symptoms": "Mottling, light and dark green mosaic patterns; blistering, puckering, upward or downward leaf curling; severe stunting, shortened internodes, and poor or distorted fruit set; leaf shoe-stringing.",
+      "immediate_actions": [
+        "CRITICAL: Rogue out (uproot) and safely destroy all infected plants immediately to prevent field-wide vector spread.",
+        "DO NOT APPLY FUNGICIDES OR BACTERICIDES—they have zero biological activity on viruses and waste resources.",
+        "Inspect foliage undersides for insect vectors (whiteflies, aphids, thrips) and set yellow/blue sticky traps."
+      ],
+      "organic_treatments": [
+        "Target vector insects: Apply cold-pressed neem oil (Azadirachtin) or insecticidal potassium salts of fatty acids.",
+        "Install 40-50 mesh insect-exclusion netting over nurseries and young seedling beds.",
+        "Apply reflective silver / aluminized plastic mulch to repel flying insect vectors."
+      ],
+      "chemical_treatments": [
+        "NO CHEMICAL CURE EXISTS FOR PLANT VIRUSES. Never apply fungicides for viral infections.",
+        "Chemical vector control: Apply selective insecticides to suppress vector populations: Acetamiprid (IRAC 4A), Flonicamid (IRAC 29), Spiromesifen (IRAC 23), or Pymetrozine (IRAC 9B).",
+        "Strictly rotate IRAC insecticide classes to avoid rapid vector resistance."
+      ],
+      "preventive_measures": [
+        "Plant exclusively virus-resistant certified hybrid cultivars.",
+        "Source certified virus-indexed seeds, tissue-cultured plantlets, or budwood.",
+        "Eradicate perennial weed reservoirs along borders (e.g., wild solanaceous weeds, parthenium, mallows)."
+      ],
+      "disclaimer": "Agricultural chemical applications must target insect vectors only; no product can cure a virus-infected plant. Obey pollinator protection intervals.",
+      "sources": "UC Davis IPM Viral Diseases; Cornell Vegetable MD; University of Florida IFAS."
+    },
+    "phytoplasma": {
+      "category_name": "Phytoplasma Disorder (Little Leaf / Yellows)",
+      "pathogen_type": "Phytoplasma (Wall-less Mollicute Prokaryote)",
+      "scientific_basis": "Phloem-restricted cell-wall-less bacteria transmitted by phloem-feeding leafhopper vectors (e.g., Hishimonus phycitis). Systemic infection causing profound hormonal imbalance.",
+      "symptoms": "Extreme reduction in leaf size ('little leaf'), proliferation of axillary buds giving a bushy 'witches' broom' appearance; phyllody (floral parts turn into green leaf-like structures); complete failure to set fruit.",
+      "immediate_actions": [
+        "Immediately rogue out and destroy infected plants; they will not recover and act as continuous sources of infection for leafhoppers.",
+        "Do not apply fungicides; phytoplasmas are prokaryotes lacking fungal cell walls.",
+        "Monitor leafhopper populations using yellow sticky traps."
+      ],
+      "organic_treatments": [
+        "Foliar applications of neem seed kernel extract (NSKE 5%) or azadirachtin to deter leafhopper feeding.",
+        "Conserve natural predators (spiders, predatory mirid bugs) that consume leafhopper nymphs."
+      ],
+      "chemical_treatments": [
+        "NO FUNGICIDE IS EFFECTIVE.",
+        "Vector management: Apply selective systemic insecticides targeting leafhopper vectors: Thiamethoxam (IRAC 4A), Imidacloprid (IRAC 4A), or Dimethoate (IRAC 1B).",
+        "Tetracycline antibiotic trunk injections in perennial crops where legally authorized under strict veterinary/phytosanitary supervision."
+      ],
+      "preventive_measures": [
+        "Eradicate alternate weed hosts and wild solanaceous plants surrounding crop fields.",
+        "Grow seedlings under insect-proof screenhouses.",
+        "Rotate crops with non-susceptible botanical families."
+      ],
+      "disclaimer": "Fungicides have zero efficacy against phytoplasma organisms. Chemical applications must focus on leafhopper vectors.",
+      "sources": "ICAR-IIHR Eggplant Pathology; TNAU Agritech; FAO Plant Protection."
+    },
+    "abiotic_nutritional": {
+      "category_name": "Abiotic / Physiological / Nutritional Disorder",
+      "pathogen_type": "Abiotic (Non-infectious Physiological / Nutritional Imbalance)",
+      "scientific_basis": "NON-PATHOGENIC DISORDER. Caused by localized mineral deficiency (calcium, iron, magnesium, nitrogen), extreme temperature, salinity, or water stress. ZERO MICROBIAL PATHOGENS ARE INVOLVED.",
+      "symptoms": "Marginal leaf scorch, interveinal chlorosis, generalized yellowing of older leaves, tip burn, or blossom-end rot; symptoms are symmetrical across plant canopies; NO fungal sporulation, mycelium, or bacterial ooze.",
+      "immediate_actions": [
+        "DO NOT APPLY ANY FUNGICIDE, BACTERICIDE, OR INSECTICIDE. Applying pesticides is harmful, costly, and ineffective.",
+        "Conduct an immediate soil and irrigation water test (pH, EC, nutrient levels).",
+        "Regulate irrigation: Maintain consistent, uniform soil moisture; avoid cycles of severe drying followed by flooding."
+      ],
+      "organic_treatments": [
+        "Soil application of well-composted organic matter to buffer root-zone pH and enhance cation exchange capacity.",
+        "Foliar applications of chelated micronutrients (chelated iron, zinc, magnesium) or calcium chloride for rapid foliar uptake.",
+        "Soil application of agricultural gypsum (calcium sulfate) to supply calcium without altering neutral pH."
+      ],
+      "chemical_treatments": [
+        "NO PESTICIDE APPLICATION REQUIRED.",
+        "Formulate a balanced water-soluble fertigation program based on tissue analysis (balanced N:P:K with required secondary and micronutrients)."
+      ],
+      "preventive_measures": [
+        "Calibrate irrigation systems to crop evapotranspiration (ETc) rates.",
+        "Maintain optimal soil pH (6.0 to 6.8 for most vegetable and fruit crops) to ensure complete nutrient bioavailability.",
+        "Select crop cultivars known for tolerance to tip burn, blossom-end rot, and temperature extremes."
+      ],
+      "disclaimer": "Abiotic disorders cannot be cured by pesticides. Correct the underlying cultural, water, or nutrient factor.",
+      "sources": "UC Davis IPM Abiotic Disorders; Cornell Soil & Nutrient Management; Penn State Extension."
+    },
+    "insect_mite_pest": {
+      "category_name": "Arthropod Pest Damage (Mites / Thrips / Whitefly / Weevils)",
+      "pathogen_type": "Arthropod Pests (Acarina - Mites; Insecta - Thrips, Whiteflies, Beetles)",
+      "scientific_basis": "Damage caused by herbivorous insects and arachnids through piercing-sucking sap extraction or chewing foliage. FUNGICIDES HAVE ZERO EFFECT.",
+      "symptoms": "Fine chlorotic stippling or bronzing of the upper leaf surface; delicate silken webbing on leaf undersides (spider mites); silvering and black fecal specks (thrips); shot-holes or ragged leaf margins (chewing beetles and weevils).",
+      "immediate_actions": [
+        "Examine leaf undersides with a 10x-20x hand lens to identify the exact pest species (mites, thrips, nymphs).",
+        "Wash foliage undersides with high-pressure clean water mist to physically dislodge mite colonies and dust.",
+        "Avoid using broad-spectrum synthetic pyrethroids, which slaughter beneficial predatory mites and cause explosive secondary pest flare-ups."
+      ],
+      "organic_treatments": [
+        "Release biological predatory mites (e.g., Phytoseiulus persimilis, Neoseiulus californicus) to devour spider mite colonies.",
+        "Foliar applications of insecticidal potassium salts of fatty acids or pure cold-pressed neem oil (Azadirachtin).",
+        "Apply wettable sulfur (FRAC M02) for dual suppression of mites and powdery mildew."
+      ],
+      "chemical_treatments": [
+        "DO NOT APPLY FUNGICIDES for arthropod pests.",
+        "Targeted selective Acaricides: Abamectin (IRAC 6), Spiromesifen (IRAC 23), or Bifenazate (IRAC 20D) for spider mites.",
+        "Selective Insecticides: Acetamiprid (IRAC 4A) or Spinosad (IRAC 5) for thrips and chewing pests. Rotate IRAC groups."
+      ],
+      "preventive_measures": [
+        "Keep field borders, headlands, and roads moist to minimize dust accumulation (dust heavily promotes spider mite outbreaks).",
+        "Conserve natural predator refuges and flowering hedgerows.",
+        "Install insect-proof screenhouses and sticky traps in enclosed cultivation."
+      ],
+      "disclaimer": "Never apply fungicides for insect or mite management. Always obey pollinator safety labels and pre-harvest intervals.",
+      "sources": "UC Davis IPM Mite Management; University of Florida IFAS Entomology; IRAC Guidelines."
+    },
+    "general": {
+      "category_name": "General Foliar Pathology",
+      "pathogen_type": "Unspecified Foliar Pathogen / Stress",
+      "scientific_basis": "Foliar stress or pathogen symptom requiring physical examination and confirmation before chemical treatment is applied.",
+      "symptoms": "Foliar chlorosis, atypical discoloration, necrotic flecking, or lesion development indicating physiological stress or pathogen pressure.",
+      "immediate_actions": [
+        "Isolate symptomatic foliage and inspect closely with a hand lens for fungal fruiting bodies, bacterial ooze, or tiny insect pests.",
+        "Refrain from overhead irrigation until the disease family is verified; keep foliage dry.",
+        "Consult your regional university agricultural extension officer or certified crop advisor (CCA)."
+      ],
+      "organic_treatments": [
+        "Foliar applications of broad-spectrum bio-fungicide (Bacillus subtilis or Trichoderma species).",
+        "Foliar application of organic cold-pressed neem oil (0.5%) during cool morning or evening hours."
+      ],
+      "chemical_treatments": [
+        "Broad-spectrum multi-site protectant: Fixed copper hydroxide (FRAC M01) or Mancozeb (FRAC M03) applied preventively.",
+        "Confirm diagnostic pathogen identification through laboratory isolation before applying single-site systemic fungicides."
+      ],
+      "preventive_measures": [
+        "Maintain balanced fertilizer ratios; avoid excessive nitrogen.",
+        "Ensure adequate soil drainage, root aeration, and proper row spacing."
+      ],
+      "disclaimer": "Hale is an AI decision-support diagnostic tool. Always verify foliar symptoms in the field and adhere to local statutory pesticide regulations.",
+      "sources": "UC Davis IPM General Guidelines; FAO Plant Health."
+    }
+  }
+}

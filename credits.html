@@ -1,0 +1,2427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Credits &amp; Licensing Provenance — Hale</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/svg+xml" href="assets/hale_logo.svg" />
+  <style>
+    :root {
+      --bg-dark: #030d08;
+      --bg-surface: #061c12;
+      --bg-card: #0a2618;
+      --border-subtle: rgba(74, 222, 128, 0.18);
+      --border-glow: rgba(74, 222, 128, 0.35);
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-faint: #64748b;
+      --green-accent: #4ade80;
+      --green-light: #86efac;
+      --red-accent: #f87171;
+      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-stack);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(3, 13, 8, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.85rem 1.5rem;
+    }
+
+    .nav-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1.35rem;
+    }
+
+    .nav-logo-img {
+      height: 38px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 8px rgba(0, 168, 89, 0.25));
+      transition: transform 0.25s ease;
+    }
+
+    .nav-logo:hover .nav-logo-img {
+      transform: scale(1.03);
+    }
+
+    .footer-logo-img {
+      height: 34px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .logo-icon-svg {
+      width: 30px;
+      height: 30px;
+      display: block;
+      filter: drop-shadow(0 2px 6px rgba(52, 211, 153, 0.4));
+    }
+
+    .logo-dot {
+      color: var(--green-accent);
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: #ffffff;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.15s ease;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--green-light);
+    }
+
+    .nav-scanner-btn {
+      background: rgba(74, 222, 128, 0.12);
+      border: 1px solid rgba(74, 222, 128, 0.35);
+      padding: 0.35rem 0.95rem;
+      border-radius: 999px;
+      color: var(--green-light);
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 1.5rem 1.5rem 3rem;
+      flex: 1;
+    }
+
+    /* Header */
+    .page-header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .page-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(74, 222, 128, 0.1);
+      border: 1px solid rgba(74, 222, 128, 0.3);
+      color: var(--green-light);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .page-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      color: #ffffff;
+    }
+
+    .page-subtitle {
+      color: var(--text-muted);
+      max-width: 820px;
+      margin: 0 auto 1rem;
+      font-size: 0.92rem;
+    }
+
+    /* Cards Grid */
+    .lic-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .lic-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 1rem;
+    }
+
+    .lic-card h3 {
+      font-size: 0.95rem;
+      color: var(--green-light);
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .lic-card p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* Filter Controls */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      padding: 1rem 1.25rem;
+      border-radius: 10px;
+    }
+
+    .search-input {
+      background: #030a06;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      padding: 0.55rem 1rem;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      min-width: 280px;
+      outline: none;
+    }
+
+    .search-input:focus {
+      border-color: var(--green-accent);
+    }
+
+    .filter-pills {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-pill {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-muted);
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .filter-pill:hover, .filter-pill.active {
+      background: rgba(74, 222, 128, 0.18);
+      border-color: var(--green-accent);
+      color: var(--green-light);
+    }
+
+    /* Table */
+    .table-wrap {
+      overflow-x: auto;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.86rem;
+    }
+
+    thead th {
+      background: #04120a;
+      color: var(--text-muted);
+      font-weight: 700;
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    tbody td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      vertical-align: middle;
+    }
+
+    tbody tr:hover {
+      background: rgba(74, 222, 128, 0.04);
+    }
+
+    .td-num {
+      color: var(--text-faint);
+      width: 40px;
+      font-family: monospace;
+    }
+
+    .td-thumb {
+      width: 70px;
+    }
+
+    .thumb-img {
+      width: 60px;
+      height: 48px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: block;
+      background: #020704;
+    }
+
+    .wiki-id-sub {
+      font-size: 0.72rem;
+      color: var(--text-faint);
+      margin-top: 2px;
+    }
+
+    .source-citation {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+      max-width: 380px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .badge-verified {
+      background: rgba(74, 222, 128, 0.12);
+      border: 1px solid rgba(74, 222, 128, 0.35);
+      color: var(--green-light);
+    }
+
+    .badge-replaced {
+      background: rgba(248, 113, 113, 0.14);
+      border: 1px solid rgba(248, 113, 113, 0.35);
+      color: var(--red-accent);
+    }
+
+    .lic-link {
+      color: var(--green-light);
+      text-decoration: underline;
+    }
+    .source-link {
+      color: var(--green-light);
+      text-decoration: underline;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .source-link:hover {
+      color: var(--accent-light);
+    }
+
+
+    .lic-unspecified {
+      color: var(--red-accent);
+      font-weight: 600;
+    }
+
+    .td-changes {
+      font-size: 0.76rem;
+      color: var(--text-faint);
+    }
+
+    /* Footer */
+    .footer {
+      background: rgba(3, 10, 6, 0.95);
+      border-top: 1px solid var(--border-subtle);
+      padding: 2rem 1.5rem;
+      margin-top: auto;
+    }
+
+    .footer-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      max-width: 700px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+    }
+
+    .footer-link:hover {
+      color: var(--green-light);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" title="Hale — Plant Health AI">
+        <img src="assets/hale_logo_full_dark.png" alt="Hale — Plant Health AI" class="nav-logo-img" />
+      </a>
+      <div class="nav-links">
+        <a href="index.html#upload-section" class="nav-scanner-btn">
+          <span>←</span><span>AI Leaf Scanner</span>
+        </a>
+        <a href="wiki.html" class="nav-link">Disease Wiki (177)</a>
+        <a href="credits.html" class="nav-link active" style="color: #4ade80; font-weight: 800;">Credits</a>
+        <a href="index.html#how-it-works" class="nav-link">How it Works</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="page-header">
+      <span class="page-badge">Dataset Provenance &amp; Attribution</span>
+      <h1 class="page-title">Credits &amp; Licensing Provenance</h1>
+      <p class="page-subtitle">
+        Per-condition attribution, upstream licensing verification, and redistribution clearance catalog for all 177 agricultural plant conditions and botanical reference samples.
+      </p>
+    </div>
+
+    <!-- Licensing Framework Cards -->
+    <div class="lic-cards">
+      <div class="lic-card">
+        <h3><span>✓</span> Verified Photographic Reference Images (111 Conditions)</h3>
+        <p>
+          All photographic specimens displayed in Hale are verified under academic open-access licences (CC BY-SA 4.0, CC BY 4.0, MIT, or CC0). Sourced from academic repositories including PlantVillage (Penn State / EPFL), Mendeley Data, Zenodo, and IEEE DataPort.
+        </p>
+      </div>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+      <input type="text" id="searchInput" class="search-input" placeholder="Search crop, condition, source, or license..." />
+      <div style="font-size: 0.85rem; color: #94a3b8; font-weight: 600;">
+        Showing <span id="visibleCount" style="color: #4ade80;">111</span> verified images
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="table-wrap">
+      <table id="creditsTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Preview</th>
+            <th>Condition &amp; Target Class</th>
+            <th>Upstream Source &amp; Citation</th>
+            <th>License</th>
+            <th>Clearance Status</th>
+            <th>Modifications</th>
+          </tr>
+        </thead>
+        <tbody>
+<tr class="row-verified" data-crop="banana" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">1</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/banana_cordana.webp" alt="Banana - Cordana" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Banana</strong> — Cordana
+          <div class="wiki-id-sub"><code>banana_cordana</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="banana" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">2</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/banana_healthy.webp" alt="Banana - Healthy" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Banana</strong> — Healthy
+          <div class="wiki-id-sub"><code>banana_healthy</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="banana" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">3</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/banana_insectpest.webp" alt="Banana - Insectpest" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Banana</strong> — Insectpest
+          <div class="wiki-id-sub"><code>banana_insectpest</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="banana" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">4</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/banana_moko.webp" alt="Banana - Moko" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Banana</strong> — Moko
+          <div class="wiki-id-sub"><code>banana_moko</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="banana" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">5</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/banana_pestalotiopsis.webp" alt="Banana - Pestalotiopsis" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Banana</strong> — Pestalotiopsis
+          <div class="wiki-id-sub"><code>banana_pestalotiopsis</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="banana" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">6</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/banana_sigatoka.webp" alt="Banana - Sigatoka" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Banana</strong> — Sigatoka
+          <div class="wiki-id-sub"><code>banana_sigatoka</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="bean" data-status="verified" data-license="odbl 1.0">
+        <td class="td-num">7</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/bean_bean_leaf_shot_hole.webp" alt="Bean - Bean Leaf Shot Hole" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Bean</strong> — Bean Leaf Shot Hole
+          <div class="wiki-id-sub"><code>bean_bean_leaf_shot_hole</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.1016/j.dib.2025.112130" target="_blank" rel="noopener noreferrer" class="source-link">PlantCity Benchmark ↗</a>
+          <div class="source-citation">Khan et al. (2025), Data in Brief</div>
+        </td>
+        <td class="td-license"><a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener noreferrer" class="lic-link">ODbL 1.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="bell pepper" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">8</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/bell_pepper_bacterial_spot.webp" alt="Bell Pepper - Bacterial Spot" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Bell Pepper</strong> — Bacterial Spot
+          <div class="wiki-id-sub"><code>bell_pepper_bacterial_spot</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="blackgram" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">9</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/blackgram_anthracnose.webp" alt="Blackgram - Anthracnose" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Blackgram</strong> — Anthracnose
+          <div class="wiki-id-sub"><code>blackgram_anthracnose</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="blackgram" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">10</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/blackgram_healthy.webp" alt="Blackgram - Healthy" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Blackgram</strong> — Healthy
+          <div class="wiki-id-sub"><code>blackgram_healthy</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="blackgram" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">11</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/blackgram_leaf_crinkle.webp" alt="Blackgram - Leaf Crinkle" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Blackgram</strong> — Leaf Crinkle
+          <div class="wiki-id-sub"><code>blackgram_leaf_crinkle</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="blackgram" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">12</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/blackgram_powdery_mildew.webp" alt="Blackgram - Powdery Mildew" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Blackgram</strong> — Powdery Mildew
+          <div class="wiki-id-sub"><code>blackgram_powdery_mildew</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="blackgram" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">13</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/blackgram_yellow_mosaic.webp" alt="Blackgram - Yellow Mosaic" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Blackgram</strong> — Yellow Mosaic
+          <div class="wiki-id-sub"><code>blackgram_yellow_mosaic</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="blueberry" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">14</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/blueberry_healthy.webp" alt="Blueberry - Healthy" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Blueberry</strong> — Healthy
+          <div class="wiki-id-sub"><code>blueberry_healthy</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://www.kaggle.com/datasets/harisri2005/plant-disease-processed" target="_blank" rel="noopener noreferrer" class="source-link">Master Plant Disease Dataset ↗</a>
+          <div class="source-citation">Tanniru (2025), Kaggle (plant-disease-processed)</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="broccoli" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">15</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/broccoli_healthy.webp" alt="Broccoli - Healthy" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Broccoli</strong> — Healthy
+          <div class="wiki-id-sub"><code>broccoli_healthy</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.17632/6243z8r6t6.1" target="_blank" rel="noopener noreferrer" class="source-link">Multi-Crop Disease Dataset ↗</a>
+          <div class="source-citation">Prem Kumar E. (2025), Mendeley Data</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="cabbage" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">16</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/cabbage_healthy.webp" alt="Cabbage - Healthy" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Cabbage</strong> — Healthy
+          <div class="wiki-id-sub"><code>cabbage_healthy</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.17632/sjmgzhwrxv.1" target="_blank" rel="noopener noreferrer" class="source-link">Cabbage Crop Diseases Dataset ↗</a>
+          <div class="source-citation">Ayawli et al. (2023), Mendeley Data</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="cabbage" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">17</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/cabbage_tip_burn.webp" alt="Cabbage - Tip Burn" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Cabbage</strong> — Tip Burn
+          <div class="wiki-id-sub"><code>cabbage_tip_burn</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.17632/sjmgzhwrxv.1" target="_blank" rel="noopener noreferrer" class="source-link">Cabbage Crop Diseases Dataset ↗</a>
+          <div class="source-citation">Ayawli et al. (2023), Mendeley Data</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="cauliflower" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">18</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/cauliflower_blackrot.webp" alt="Cauliflower - Blackrot" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Cauliflower</strong> — Blackrot
+          <div class="wiki-id-sub"><code>cauliflower_blackrot</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="cauliflower" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">19</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/cauliflower_downy_mildew.webp" alt="Cauliflower - Downy Mildew" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Cauliflower</strong> — Downy Mildew
+          <div class="wiki-id-sub"><code>cauliflower_downy_mildew</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="cauliflower" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">20</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/cauliflower_healthy.webp" alt="Cauliflower - Healthy" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Cauliflower</strong> — Healthy
+          <div class="wiki-id-sub"><code>cauliflower_healthy</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.17632/6243z8r6t6.1" target="_blank" rel="noopener noreferrer" class="source-link">Multi-Crop Disease Dataset ↗</a>
+          <div class="source-citation">Prem Kumar E. (2025), Mendeley Data</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="cherry" data-status="verified" data-license="odbl 1.0">
+        <td class="td-num">21</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/cherry_cherry_brown_spot.webp" alt="Cherry - Cherry Brown Spot" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Cherry</strong> — Cherry Brown Spot
+          <div class="wiki-id-sub"><code>cherry_cherry_brown_spot</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.1016/j.dib.2025.112130" target="_blank" rel="noopener noreferrer" class="source-link">PlantCity Benchmark ↗</a>
+          <div class="source-citation">Khan et al. (2025), Data in Brief</div>
+        </td>
+        <td class="td-license"><a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener noreferrer" class="lic-link">ODbL 1.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="cherry" data-status="verified" data-license="odbl 1.0">
+        <td class="td-num">22</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/cherry_cherry_leaf_scorch.webp" alt="Cherry - Cherry Leaf Scorch" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Cherry</strong> — Cherry Leaf Scorch
+          <div class="wiki-id-sub"><code>cherry_cherry_leaf_scorch</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.1016/j.dib.2025.112130" target="_blank" rel="noopener noreferrer" class="source-link">PlantCity Benchmark ↗</a>
+          <div class="source-citation">Khan et al. (2025), Data in Brief</div>
+        </td>
+        <td class="td-license"><a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener noreferrer" class="lic-link">ODbL 1.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="cherry" data-status="verified" data-license="odbl 1.0">
+        <td class="td-num">23</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/cherry_cherry_purple_leaf_spot.webp" alt="Cherry - Cherry Purple Leaf Spot" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Cherry</strong> — Cherry Purple Leaf Spot
+          <div class="wiki-id-sub"><code>cherry_cherry_purple_leaf_spot</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.1016/j.dib.2025.112130" target="_blank" rel="noopener noreferrer" class="source-link">PlantCity Benchmark ↗</a>
+          <div class="source-citation">Khan et al. (2025), Data in Brief</div>
+        </td>
+        <td class="td-license"><a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener noreferrer" class="lic-link">ODbL 1.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="cherry" data-status="verified" data-license="odbl 1.0">
+        <td class="td-num">24</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/cherry_cherry_shot_hole.webp" alt="Cherry - Cherry Shot Hole" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Cherry</strong> — Cherry Shot Hole
+          <div class="wiki-id-sub"><code>cherry_cherry_shot_hole</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.1016/j.dib.2025.112130" target="_blank" rel="noopener noreferrer" class="source-link">PlantCity Benchmark ↗</a>
+          <div class="source-citation">Khan et al. (2025), Data in Brief</div>
+        </td>
+        <td class="td-license"><a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener noreferrer" class="lic-link">ODbL 1.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="chilli" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">25</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/chilli_bacterial_spot.webp" alt="Chilli - Bacterial Spot" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Chilli</strong> — Bacterial Spot
+          <div class="wiki-id-sub"><code>chilli_bacterial_spot</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.1016/j.dib.2025.111320" target="_blank" rel="noopener noreferrer" class="source-link">Chilli Leaf Diseases Dataset ↗</a>
+          <div class="source-citation">Nirob et al. (2025), Data in Brief / Kaggle</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="chilli" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">26</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/chilli_cercospora_leaf_spot.webp" alt="Chilli - Cercospora Leaf Spot" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Chilli</strong> — Cercospora Leaf Spot
+          <div class="wiki-id-sub"><code>chilli_cercospora_leaf_spot</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.1016/j.dib.2025.111320" target="_blank" rel="noopener noreferrer" class="source-link">Chilli Leaf Diseases Dataset ↗</a>
+          <div class="source-citation">Nirob et al. (2025), Data in Brief / Kaggle</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="chilli" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">27</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/chilli_healthy.webp" alt="Chilli - Healthy" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Chilli</strong> — Healthy
+          <div class="wiki-id-sub"><code>chilli_healthy</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.1016/j.dib.2025.111320" target="_blank" rel="noopener noreferrer" class="source-link">Chilli Leaf Diseases Dataset ↗</a>
+          <div class="source-citation">Nirob et al. (2025), Data in Brief / Kaggle</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="chilli" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">28</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/chilli_leaf_curl_virus.webp" alt="Chilli - Leaf Curl Virus" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Chilli</strong> — Leaf Curl Virus
+          <div class="wiki-id-sub"><code>chilli_leaf_curl_virus</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.1016/j.dib.2025.111320" target="_blank" rel="noopener noreferrer" class="source-link">Chilli Leaf Diseases Dataset ↗</a>
+          <div class="source-citation">Nirob et al. (2025), Data in Brief / Kaggle</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="chilli" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">29</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/chilli_nutrition_deficiency.webp" alt="Chilli - Nutrition Deficiency" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Chilli</strong> — Nutrition Deficiency
+          <div class="wiki-id-sub"><code>chilli_nutrition_deficiency</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.1016/j.dib.2025.111320" target="_blank" rel="noopener noreferrer" class="source-link">Chilli Leaf Diseases Dataset ↗</a>
+          <div class="source-citation">Nirob et al. (2025), Data in Brief / Kaggle</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="chilli" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">30</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/chilli_white_spot.webp" alt="Chilli - White Spot" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Chilli</strong> — White Spot
+          <div class="wiki-id-sub"><code>chilli_white_spot</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.1016/j.dib.2025.111320" target="_blank" rel="noopener noreferrer" class="source-link">Chilli Leaf Diseases Dataset ↗</a>
+          <div class="source-citation">Nirob et al. (2025), Data in Brief / Kaggle</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="citrus" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">31</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/citrus_citrus_hindu_mite.webp" alt="Citrus - Citrus Hindu Mite" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Citrus</strong> — Citrus Hindu Mite
+          <div class="wiki-id-sub"><code>citrus_citrus_hindu_mite</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://data.mendeley.com/datasets/9ywvpv3xtg/1" target="_blank" rel="noopener noreferrer" class="source-link">Lemon Leaf Disease (LLD) ↗</a>
+          <div class="source-citation">Al Amin (2023), Mendeley Data</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="citrus" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">32</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/citrus_citrus_algal_leaf_spot.webp" alt="Citrus - Citrus Algal Leaf Spot" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Citrus</strong> — Citrus Algal Leaf Spot
+          <div class="wiki-id-sub"><code>citrus_citrus_algal_leaf_spot</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://data.mendeley.com/datasets/9ywvpv3xtg/1" target="_blank" rel="noopener noreferrer" class="source-link">Lemon Leaf Disease (LLD) ↗</a>
+          <div class="source-citation">Al Amin (2023), Mendeley Data</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="coffee" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">33</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/coffee_healthy.webp" alt="Coffee - Healthy" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Coffee</strong> — Healthy
+          <div class="wiki-id-sub"><code>coffee_healthy</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.1016/j.compag.2020.105658" target="_blank" rel="noopener noreferrer" class="source-link">BrACoLD Coffee Dataset ↗</a>
+          <div class="source-citation">Esgario et al. (2020), Computers &amp; Electronics in Agriculture</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="coffee" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">34</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/coffee_leaf_miner.webp" alt="Coffee - Leaf Miner" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Coffee</strong> — Leaf Miner
+          <div class="wiki-id-sub"><code>coffee_leaf_miner</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.1016/j.compag.2020.105658" target="_blank" rel="noopener noreferrer" class="source-link">BrACoLD Coffee Dataset ↗</a>
+          <div class="source-citation">Esgario et al. (2020), Computers &amp; Electronics in Agriculture</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="coffee" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">35</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/coffee_phoma.webp" alt="Coffee - Phoma" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Coffee</strong> — Phoma
+          <div class="wiki-id-sub"><code>coffee_phoma</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.1016/j.compag.2020.105658" target="_blank" rel="noopener noreferrer" class="source-link">BrACoLD Coffee Dataset ↗</a>
+          <div class="source-citation">Esgario et al. (2020), Computers &amp; Electronics in Agriculture</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="corn" data-status="verified" data-license="cc0 1.0">
+        <td class="td-num">36</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/corn_healthy.webp" alt="Corn - Healthy" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Corn</strong> — Healthy
+          <div class="wiki-id-sub"><code>corn_healthy</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://www.kaggle.com/datasets/smaranjitghose/corn-or-maize-leaf-disease-dataset" target="_blank" rel="noopener noreferrer" class="source-link">Corn / Maize Leaf Disease Dataset ↗</a>
+          <div class="source-citation">Ghose (2021), Kaggle</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC0 1.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="corn" data-status="verified" data-license="cc0 1.0">
+        <td class="td-num">37</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/corn_northern_leaf_blight.webp" alt="Corn - Northern Leaf Blight" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Corn</strong> — Northern Leaf Blight
+          <div class="wiki-id-sub"><code>corn_northern_leaf_blight</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://www.kaggle.com/datasets/smaranjitghose/corn-or-maize-leaf-disease-dataset" target="_blank" rel="noopener noreferrer" class="source-link">Corn / Maize Leaf Disease Dataset ↗</a>
+          <div class="source-citation">Ghose (2021), Kaggle</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC0 1.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="corn" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">38</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/corn_rust.webp" alt="Corn - Rust" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Corn</strong> — Rust
+          <div class="wiki-id-sub"><code>corn_rust</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://www.kaggle.com/datasets/harisri2005/plant-disease-processed" target="_blank" rel="noopener noreferrer" class="source-link">Master Plant Disease Dataset ↗</a>
+          <div class="source-citation">Tanniru (2025), Kaggle (plant-disease-processed)</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="corn" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">39</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/corn_corn_gray_leaf_spot.webp" alt="Corn - Corn Gray Leaf Spot" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Corn</strong> — Corn Gray Leaf Spot
+          <div class="wiki-id-sub"><code>corn_corn_gray_leaf_spot</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://www.kaggle.com/datasets/harisri2005/plant-disease-processed" target="_blank" rel="noopener noreferrer" class="source-link">Master Plant Disease Dataset ↗</a>
+          <div class="source-citation">Tanniru (2025), Kaggle (plant-disease-processed)</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="corn" data-status="verified" data-license="odbl 1.0">
+        <td class="td-num">40</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/corn_corn_holcus_leaf_spot.webp" alt="Corn - Corn Holcus Leaf Spot" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Corn</strong> — Corn Holcus Leaf Spot
+          <div class="wiki-id-sub"><code>corn_corn_holcus_leaf_spot</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.1016/j.dib.2025.112130" target="_blank" rel="noopener noreferrer" class="source-link">PlantCity Benchmark ↗</a>
+          <div class="source-citation">Khan et al. (2025), Data in Brief</div>
+        </td>
+        <td class="td-license"><a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener noreferrer" class="lic-link">ODbL 1.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="ginger" data-status="verified" data-license="mit">
+        <td class="td-num">41</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/ginger_bacterial_wilt.webp" alt="Ginger - Bacterial Wilt" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Ginger</strong> — Bacterial Wilt
+          <div class="wiki-id-sub"><code>ginger_bacterial_wilt</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://github.com/wongjay1941/Ginger-Leaf-Dataset" target="_blank" rel="noopener noreferrer" class="source-link">Ginger Leaf Dataset ↗</a>
+          <div class="source-citation">Wong (2024), TARUMT; Yigezu et al. (2024)</div>
+        </td>
+        <td class="td-license"><a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer" class="lic-link">MIT ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="ginger" data-status="verified" data-license="mit">
+        <td class="td-num">42</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/ginger_dehydrated.webp" alt="Ginger - Dehydrated" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Ginger</strong> — Dehydrated
+          <div class="wiki-id-sub"><code>ginger_dehydrated</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://github.com/wongjay1941/Ginger-Leaf-Dataset" target="_blank" rel="noopener noreferrer" class="source-link">Ginger Leaf Dataset ↗</a>
+          <div class="source-citation">Wong (2024), TARUMT; Yigezu et al. (2024)</div>
+        </td>
+        <td class="td-license"><a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer" class="lic-link">MIT ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="ginger" data-status="verified" data-license="mit">
+        <td class="td-num">43</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/ginger_healthy.webp" alt="Ginger - Healthy" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Ginger</strong> — Healthy
+          <div class="wiki-id-sub"><code>ginger_healthy</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://github.com/wongjay1941/Ginger-Leaf-Dataset" target="_blank" rel="noopener noreferrer" class="source-link">Ginger Leaf Dataset ↗</a>
+          <div class="source-citation">Wong (2024), TARUMT; Yigezu et al. (2024)</div>
+        </td>
+        <td class="td-license"><a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer" class="lic-link">MIT ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="ginger" data-status="verified" data-license="mit">
+        <td class="td-num">44</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/ginger_leaf_blight.webp" alt="Ginger - Leaf Blight" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Ginger</strong> — Leaf Blight
+          <div class="wiki-id-sub"><code>ginger_leaf_blight</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://github.com/wongjay1941/Ginger-Leaf-Dataset" target="_blank" rel="noopener noreferrer" class="source-link">Ginger Leaf Dataset ↗</a>
+          <div class="source-citation">Wong (2024), TARUMT; Yigezu et al. (2024)</div>
+        </td>
+        <td class="td-license"><a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer" class="lic-link">MIT ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="ginger" data-status="verified" data-license="mit">
+        <td class="td-num">45</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/ginger_pest_damage.webp" alt="Ginger - Pest Damage" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Ginger</strong> — Pest Damage
+          <div class="wiki-id-sub"><code>ginger_pest_damage</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://github.com/wongjay1941/Ginger-Leaf-Dataset" target="_blank" rel="noopener noreferrer" class="source-link">Ginger Leaf Dataset ↗</a>
+          <div class="source-citation">Wong (2024), TARUMT; Yigezu et al. (2024)</div>
+        </td>
+        <td class="td-license"><a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer" class="lic-link">MIT ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="grape" data-status="verified" data-license="cc0 1.0">
+        <td class="td-num">46</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/grape_black_rot.webp" alt="Grape - Black Rot" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Grape</strong> — Black Rot
+          <div class="wiki-id-sub"><code>grape_black_rot</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://www.kaggle.com/datasets/rm1000/grape-disease-dataset-original" target="_blank" rel="noopener noreferrer" class="source-link">Grape Disease Dataset (Original) ↗</a>
+          <div class="source-citation">rm1000 (2021), Kaggle</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC0 1.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="grape" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">47</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/grape_esca__black_measles_.webp" alt="Grape - Esca (Black Measles)" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Grape</strong> — Esca (Black Measles)
+          <div class="wiki-id-sub"><code>grape_esca_(black_measles)</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://data.mendeley.com/datasets/8nnd2ypcv3/1" target="_blank" rel="noopener noreferrer" class="source-link">Niphad Grape Leaf Dataset ↗</a>
+          <div class="source-citation">Dharrao et al. (2023), Mendeley Data</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="grape" data-status="verified" data-license="cc0 1.0">
+        <td class="td-num">48</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/grape_healthy.webp" alt="Grape - Healthy" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Grape</strong> — Healthy
+          <div class="wiki-id-sub"><code>grape_healthy</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://www.kaggle.com/datasets/rm1000/grape-disease-dataset-original" target="_blank" rel="noopener noreferrer" class="source-link">Grape Disease Dataset (Original) ↗</a>
+          <div class="source-citation">rm1000 (2021), Kaggle</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC0 1.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="grape" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">49</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/grape_leaf_blight.webp" alt="Grape - Leaf Blight" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Grape</strong> — Leaf Blight
+          <div class="wiki-id-sub"><code>grape_leaf_blight</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://data.mendeley.com/datasets/8nnd2ypcv3/1" target="_blank" rel="noopener noreferrer" class="source-link">Niphad Grape Leaf Dataset ↗</a>
+          <div class="source-citation">Dharrao et al. (2023), Mendeley Data</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="grape" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">50</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/grape_grape_bacterial_rot.webp" alt="Grape - Grape Bacterial Rot" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Grape</strong> — Grape Bacterial Rot
+          <div class="wiki-id-sub"><code>grape_grape_bacterial_rot</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://data.mendeley.com/datasets/8nnd2ypcv3/1" target="_blank" rel="noopener noreferrer" class="source-link">Niphad Grape Leaf Dataset ↗</a>
+          <div class="source-citation">Dharrao et al. (2023), Mendeley Data</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="grape" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">51</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/grape_grape_downy_mildew.webp" alt="Grape - Grape Downy Mildew" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Grape</strong> — Grape Downy Mildew
+          <div class="wiki-id-sub"><code>grape_grape_downy_mildew</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://data.mendeley.com/datasets/8nnd2ypcv3/1" target="_blank" rel="noopener noreferrer" class="source-link">Niphad Grape Leaf Dataset ↗</a>
+          <div class="source-citation">Dharrao et al. (2023), Mendeley Data</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="grape" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">52</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/grape_grape_powdery_mildew.webp" alt="Grape - Grape Powdery Mildew" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Grape</strong> — Grape Powdery Mildew
+          <div class="wiki-id-sub"><code>grape_grape_powdery_mildew</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://data.mendeley.com/datasets/8nnd2ypcv3/1" target="_blank" rel="noopener noreferrer" class="source-link">Niphad Grape Leaf Dataset ↗</a>
+          <div class="source-citation">Dharrao et al. (2023), Mendeley Data</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="groundnut" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">53</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/groundnut_early_leaf_spot.webp" alt="Groundnut - Early Leaf Spot" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Groundnut</strong> — Early Leaf Spot
+          <div class="wiki-id-sub"><code>groundnut_early_leaf_spot</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="groundnut" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">54</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/groundnut_healthy.webp" alt="Groundnut - Healthy" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Groundnut</strong> — Healthy
+          <div class="wiki-id-sub"><code>groundnut_healthy</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="groundnut" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">55</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/groundnut_late_leaf_spot.webp" alt="Groundnut - Late Leaf Spot" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Groundnut</strong> — Late Leaf Spot
+          <div class="wiki-id-sub"><code>groundnut_late_leaf_spot</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="groundnut" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">56</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/groundnut_late_leaf_spot_and_early_rust.webp" alt="Groundnut - Late Leaf Spot And Early Rust" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Groundnut</strong> — Late Leaf Spot And Early Rust
+          <div class="wiki-id-sub"><code>groundnut_late_leaf_spot_and_early_rust</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="groundnut" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">57</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/groundnut_nutrition_deficiency.webp" alt="Groundnut - Nutrition Deficiency" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Groundnut</strong> — Nutrition Deficiency
+          <div class="wiki-id-sub"><code>groundnut_nutrition_deficiency</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="groundnut" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">58</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/groundnut_rust.webp" alt="Groundnut - Rust" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Groundnut</strong> — Rust
+          <div class="wiki-id-sub"><code>groundnut_rust</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="guava" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">59</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/guava_algal_leaf_spot.webp" alt="Guava - Algal Leaf Spot" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Guava</strong> — Algal Leaf Spot
+          <div class="wiki-id-sub"><code>guava_algal_leaf_spot</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://data.mendeley.com/datasets/46spm4z4d3/2" target="_blank" rel="noopener noreferrer" class="source-link">Guava Leaf Disease Dataset ↗</a>
+          <div class="source-citation">Hasan &amp; Rahman (2023), Mendeley Data / Dalvi CDLA-Permissive</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="guava" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">60</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/guava_dot.webp" alt="Guava - Dot" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Guava</strong> — Dot
+          <div class="wiki-id-sub"><code>guava_dot</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://data.mendeley.com/datasets/46spm4z4d3/2" target="_blank" rel="noopener noreferrer" class="source-link">Guava Leaf Disease Dataset ↗</a>
+          <div class="source-citation">Hasan &amp; Rahman (2023), Mendeley Data / Dalvi CDLA-Permissive</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="guava" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">61</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/guava_healthy.webp" alt="Guava - Healthy" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Guava</strong> — Healthy
+          <div class="wiki-id-sub"><code>guava_healthy</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://data.mendeley.com/datasets/46spm4z4d3/2" target="_blank" rel="noopener noreferrer" class="source-link">Guava Leaf Disease Dataset ↗</a>
+          <div class="source-citation">Hasan &amp; Rahman (2023), Mendeley Data / Dalvi CDLA-Permissive</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="guava" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">62</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/guava_insect_damage.webp" alt="Guava - Insect Damage" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Guava</strong> — Insect Damage
+          <div class="wiki-id-sub"><code>guava_insect_damage</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://data.mendeley.com/datasets/46spm4z4d3/2" target="_blank" rel="noopener noreferrer" class="source-link">Guava Leaf Disease Dataset ↗</a>
+          <div class="source-citation">Hasan &amp; Rahman (2023), Mendeley Data / Dalvi CDLA-Permissive</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="guava" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">63</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/guava_spiraling_whitefly.webp" alt="Guava - Spiraling Whitefly" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Guava</strong> — Spiraling Whitefly
+          <div class="wiki-id-sub"><code>guava_spiraling_whitefly</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://data.mendeley.com/datasets/46spm4z4d3/2" target="_blank" rel="noopener noreferrer" class="source-link">Guava Leaf Disease Dataset ↗</a>
+          <div class="source-citation">Hasan &amp; Rahman (2023), Mendeley Data / Dalvi CDLA-Permissive</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="jamun" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">64</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/jamun_bacterial_spot.webp" alt="Jamun - Bacterial Spot" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Jamun</strong> — Bacterial Spot
+          <div class="wiki-id-sub"><code>jamun_bacterial_spot</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://data.mendeley.com/datasets/43d75vptz4/3" target="_blank" rel="noopener noreferrer" class="source-link">Jamun / Java Plum Leaf Dataset ↗</a>
+          <div class="source-citation">Bhowmik &amp; Ahad (2023), Mendeley Data</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="jamun" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">65</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/jamun_brown_blight.webp" alt="Jamun - Brown Blight" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Jamun</strong> — Brown Blight
+          <div class="wiki-id-sub"><code>jamun_brown_blight</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://data.mendeley.com/datasets/43d75vptz4/3" target="_blank" rel="noopener noreferrer" class="source-link">Jamun / Java Plum Leaf Dataset ↗</a>
+          <div class="source-citation">Bhowmik &amp; Ahad (2023), Mendeley Data</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="jamun" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">66</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/jamun_healthy.webp" alt="Jamun - Healthy" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Jamun</strong> — Healthy
+          <div class="wiki-id-sub"><code>jamun_healthy</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://data.mendeley.com/datasets/43d75vptz4/3" target="_blank" rel="noopener noreferrer" class="source-link">Jamun / Java Plum Leaf Dataset ↗</a>
+          <div class="source-citation">Bhowmik &amp; Ahad (2023), Mendeley Data</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="jamun" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">67</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/jamun_powdery_mildew.webp" alt="Jamun - Powdery Mildew" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Jamun</strong> — Powdery Mildew
+          <div class="wiki-id-sub"><code>jamun_powdery_mildew</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://data.mendeley.com/datasets/43d75vptz4/3" target="_blank" rel="noopener noreferrer" class="source-link">Jamun / Java Plum Leaf Dataset ↗</a>
+          <div class="source-citation">Bhowmik &amp; Ahad (2023), Mendeley Data</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="jamun" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">68</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/jamun_sooty_mold.webp" alt="Jamun - Sooty Mold" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Jamun</strong> — Sooty Mold
+          <div class="wiki-id-sub"><code>jamun_sooty_mold</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://data.mendeley.com/datasets/43d75vptz4/3" target="_blank" rel="noopener noreferrer" class="source-link">Jamun / Java Plum Leaf Dataset ↗</a>
+          <div class="source-citation">Bhowmik &amp; Ahad (2023), Mendeley Data</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="mango" data-status="verified" data-license="cc0 1.0">
+        <td class="td-num">69</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/mango_anthracnose.webp" alt="Mango - Anthracnose" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Mango</strong> — Anthracnose
+          <div class="wiki-id-sub"><code>mango_anthracnose</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://www.kaggle.com/datasets/aryashah2k/mango-leaf-disease-dataset" target="_blank" rel="noopener noreferrer" class="source-link">Mango Leaf Disease Dataset ↗</a>
+          <div class="source-citation">Shah et al. (2023), Mendeley Data / Kaggle</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC0 1.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="mango" data-status="verified" data-license="cc0 1.0">
+        <td class="td-num">70</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/mango_cutting_weevil.webp" alt="Mango - Cutting Weevil" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Mango</strong> — Cutting Weevil
+          <div class="wiki-id-sub"><code>mango_cutting_weevil</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://www.kaggle.com/datasets/aryashah2k/mango-leaf-disease-dataset" target="_blank" rel="noopener noreferrer" class="source-link">Mango Leaf Disease Dataset ↗</a>
+          <div class="source-citation">Shah et al. (2023), Mendeley Data / Kaggle</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC0 1.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="mango" data-status="verified" data-license="cc0 1.0">
+        <td class="td-num">71</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/mango_die_back.webp" alt="Mango - Die Back" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Mango</strong> — Die Back
+          <div class="wiki-id-sub"><code>mango_die_back</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://www.kaggle.com/datasets/aryashah2k/mango-leaf-disease-dataset" target="_blank" rel="noopener noreferrer" class="source-link">Mango Leaf Disease Dataset ↗</a>
+          <div class="source-citation">Shah et al. (2023), Mendeley Data / Kaggle</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC0 1.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="mango" data-status="verified" data-license="cc0 1.0">
+        <td class="td-num">72</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/mango_gall_midge.webp" alt="Mango - Gall Midge" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Mango</strong> — Gall Midge
+          <div class="wiki-id-sub"><code>mango_gall_midge</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://www.kaggle.com/datasets/aryashah2k/mango-leaf-disease-dataset" target="_blank" rel="noopener noreferrer" class="source-link">Mango Leaf Disease Dataset ↗</a>
+          <div class="source-citation">Shah et al. (2023), Mendeley Data / Kaggle</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC0 1.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="mango" data-status="verified" data-license="cc0 1.0">
+        <td class="td-num">73</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/mango_healthy.webp" alt="Mango - Healthy" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Mango</strong> — Healthy
+          <div class="wiki-id-sub"><code>mango_healthy</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://www.kaggle.com/datasets/aryashah2k/mango-leaf-disease-dataset" target="_blank" rel="noopener noreferrer" class="source-link">Mango Leaf Disease Dataset ↗</a>
+          <div class="source-citation">Shah et al. (2023), Mendeley Data / Kaggle</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC0 1.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="mango" data-status="verified" data-license="cc0 1.0">
+        <td class="td-num">74</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/mango_sooty_mould.webp" alt="Mango - Sooty Mould" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Mango</strong> — Sooty Mould
+          <div class="wiki-id-sub"><code>mango_sooty_mould</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://www.kaggle.com/datasets/aryashah2k/mango-leaf-disease-dataset" target="_blank" rel="noopener noreferrer" class="source-link">Mango Leaf Disease Dataset ↗</a>
+          <div class="source-citation">Shah et al. (2023), Mendeley Data / Kaggle</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC0 1.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="peach" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">75</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/peach_healthy.webp" alt="Peach - Healthy" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Peach</strong> — Healthy
+          <div class="wiki-id-sub"><code>peach_healthy</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://www.kaggle.com/datasets/harisri2005/plant-disease-processed" target="_blank" rel="noopener noreferrer" class="source-link">Master Plant Disease Dataset ↗</a>
+          <div class="source-citation">Tanniru (2025), Kaggle (plant-disease-processed)</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="peach" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">76</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/peach_peach_bacterial_spot.webp" alt="Peach - Peach Bacterial Spot" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Peach</strong> — Peach Bacterial Spot
+          <div class="wiki-id-sub"><code>peach_peach_bacterial_spot</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.17632/3pmj85snvw.1" target="_blank" rel="noopener noreferrer" class="source-link">Peach Leaf Disease Dataset ↗</a>
+          <div class="source-citation">Farman et al. (2022), Mendeley Data</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="peach" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">77</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/peach_peach_leaf_shot_hole.webp" alt="Peach - Peach Leaf Shot Hole" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Peach</strong> — Peach Leaf Shot Hole
+          <div class="wiki-id-sub"><code>peach_peach_leaf_shot_hole</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.17632/3pmj85snvw.1" target="_blank" rel="noopener noreferrer" class="source-link">Peach Leaf Disease Dataset ↗</a>
+          <div class="source-citation">Farman et al. (2022), Mendeley Data</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="pear" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">78</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/pear_healthy.webp" alt="Pear - Healthy" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Pear</strong> — Healthy
+          <div class="wiki-id-sub"><code>pear_healthy</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.3390/agronomy11050930" target="_blank" rel="noopener noreferrer" class="source-link">DiaMOS Plant Pear Dataset ↗</a>
+          <div class="source-citation">Fenu &amp; Malloci (2021), Agronomy</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="pear" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">79</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/pear_pear_black_spot.webp" alt="Pear - Pear Black Spot" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Pear</strong> — Pear Black Spot
+          <div class="wiki-id-sub"><code>pear_pear_black_spot</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.3390/agronomy11050930" target="_blank" rel="noopener noreferrer" class="source-link">DiaMOS Plant Pear Dataset ↗</a>
+          <div class="source-citation">Fenu &amp; Malloci (2021), Agronomy</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="pear" data-status="verified" data-license="odbl 1.0">
+        <td class="td-num">80</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/pear_pear_fire_blight.webp" alt="Pear - Pear Fire Blight" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Pear</strong> — Pear Fire Blight
+          <div class="wiki-id-sub"><code>pear_pear_fire_blight</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.1016/j.dib.2025.112130" target="_blank" rel="noopener noreferrer" class="source-link">PlantCity Benchmark ↗</a>
+          <div class="source-citation">Khan et al. (2025), Data in Brief</div>
+        </td>
+        <td class="td-license"><a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener noreferrer" class="lic-link">ODbL 1.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="pear" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">81</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/pear_pear_leaf_curl.webp" alt="Pear - Pear Leaf Curl" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Pear</strong> — Pear Leaf Curl
+          <div class="wiki-id-sub"><code>pear_pear_leaf_curl</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.3390/agronomy11050930" target="_blank" rel="noopener noreferrer" class="source-link">DiaMOS Plant Pear Dataset ↗</a>
+          <div class="source-citation">Fenu &amp; Malloci (2021), Agronomy</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="plum" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">82</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/plum_healthy.webp" alt="Plum - Healthy" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Plum</strong> — Healthy
+          <div class="wiki-id-sub"><code>plum_healthy</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.17632/w7sdx55m7z.1" target="_blank" rel="noopener noreferrer" class="source-link">Plum Leaf &amp; Fruit Dataset ↗</a>
+          <div class="source-citation">Nayeem et al. (2023), Mendeley Data</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="plum" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">83</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/plum_plum_insect_hole.webp" alt="Plum - Plum Insect Hole" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Plum</strong> — Plum Insect Hole
+          <div class="wiki-id-sub"><code>plum_plum_insect_hole</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.17632/w7sdx55m7z.1" target="_blank" rel="noopener noreferrer" class="source-link">Plum Leaf &amp; Fruit Dataset ↗</a>
+          <div class="source-citation">Nayeem et al. (2023), Mendeley Data</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="plum" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">84</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/plum_plum_yellow_leaf.webp" alt="Plum - Plum Yellow Leaf" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Plum</strong> — Plum Yellow Leaf
+          <div class="wiki-id-sub"><code>plum_plum_yellow_leaf</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.17632/w7sdx55m7z.1" target="_blank" rel="noopener noreferrer" class="source-link">Plum Leaf &amp; Fruit Dataset ↗</a>
+          <div class="source-citation">Nayeem et al. (2023), Mendeley Data</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="potato" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">85</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/potato_late_blight.webp" alt="Potato - Late Blight" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Potato</strong> — Late Blight
+          <div class="wiki-id-sub"><code>potato_late_blight</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="radish" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">86</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/radish_black_leaf_spot.webp" alt="Radish - Black Leaf Spot" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Radish</strong> — Black Leaf Spot
+          <div class="wiki-id-sub"><code>radish_black_leaf_spot</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="radish" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">87</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/radish_downey_mildew.webp" alt="Radish - Downey Mildew" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Radish</strong> — Downey Mildew
+          <div class="wiki-id-sub"><code>radish_downey_mildew</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="radish" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">88</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/radish_flea_beetle.webp" alt="Radish - Flea Beetle" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Radish</strong> — Flea Beetle
+          <div class="wiki-id-sub"><code>radish_flea_beetle</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="radish" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">89</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/radish_healthy.webp" alt="Radish - Healthy" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Radish</strong> — Healthy
+          <div class="wiki-id-sub"><code>radish_healthy</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="soybean" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">90</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/soybean_bacterial_pustule.webp" alt="Soybean - Bacterial Pustule" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Soybean</strong> — Bacterial Pustule
+          <div class="wiki-id-sub"><code>soybean_bacterial_pustule</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://data.mendeley.com/datasets/6fhphxg297/2" target="_blank" rel="noopener noreferrer" class="source-link">Soybean Leaf Dataset ↗</a>
+          <div class="source-citation">Thorwat et al. (2022), Mendeley Data</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="soybean" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">91</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/soybean_cercospora_leaf_blight.webp" alt="Soybean - Cercospora Leaf Blight" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Soybean</strong> — Cercospora Leaf Blight
+          <div class="wiki-id-sub"><code>soybean_cercospora_leaf_blight</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.17632/6243z8r6t6.1" target="_blank" rel="noopener noreferrer" class="source-link">Multi-Crop Disease Dataset ↗</a>
+          <div class="source-citation">Prem Kumar E. (2025), Mendeley Data</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="soybean" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">92</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/soybean_sudden_death_syndrome.webp" alt="Soybean - Sudden Death Syndrome" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Soybean</strong> — Sudden Death Syndrome
+          <div class="wiki-id-sub"><code>soybean_sudden_death_syndrome</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://doi.org/10.17632/6243z8r6t6.1" target="_blank" rel="noopener noreferrer" class="source-link">Multi-Crop Disease Dataset ↗</a>
+          <div class="source-citation">Prem Kumar E. (2025), Mendeley Data</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="soybean" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">93</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/soybean_target_leaf_spot.webp" alt="Soybean - Target Leaf Spot" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Soybean</strong> — Target Leaf Spot
+          <div class="wiki-id-sub"><code>soybean_target_leaf_spot</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://data.mendeley.com/datasets/6fhphxg297/2" target="_blank" rel="noopener noreferrer" class="source-link">Soybean Leaf Dataset ↗</a>
+          <div class="source-citation">Thorwat et al. (2022), Mendeley Data</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="strawberry" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">94</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/strawberry_healthy.webp" alt="Strawberry - Healthy" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Strawberry</strong> — Healthy
+          <div class="wiki-id-sub"><code>strawberry_healthy</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://www.kaggle.com/datasets/harisri2005/plant-disease-processed" target="_blank" rel="noopener noreferrer" class="source-link">Master Plant Disease Dataset ↗</a>
+          <div class="source-citation">Tanniru (2025), Kaggle (plant-disease-processed)</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="strawberry" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">95</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/strawberry_strawberry_angular_leaf_spot.webp" alt="Strawberry - Strawberry Angular Leaf Spot" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Strawberry</strong> — Strawberry Angular Leaf Spot
+          <div class="wiki-id-sub"><code>strawberry_strawberry_angular_leaf_spot</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://datasetninja.com/plant-diseases" target="_blank" rel="noopener noreferrer" class="source-link">Supervisely Plant Diseases ↗</a>
+          <div class="source-citation">DatasetNinja / Supervisely Aggregation</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="strawberry" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">96</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/strawberry_strawberry_leaf_scorch.webp" alt="Strawberry - Strawberry Leaf Scorch" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Strawberry</strong> — Strawberry Leaf Scorch
+          <div class="wiki-id-sub"><code>strawberry_strawberry_leaf_scorch</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://www.kaggle.com/datasets/harisri2005/plant-disease-processed" target="_blank" rel="noopener noreferrer" class="source-link">Master Plant Disease Dataset ↗</a>
+          <div class="source-citation">Tanniru (2025), Kaggle (plant-disease-processed)</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="strawberry" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">97</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/strawberry_strawberry_leaf_spot.webp" alt="Strawberry - Strawberry Leaf Spot" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Strawberry</strong> — Strawberry Leaf Spot
+          <div class="wiki-id-sub"><code>strawberry_strawberry_leaf_spot</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://datasetninja.com/plant-diseases" target="_blank" rel="noopener noreferrer" class="source-link">Supervisely Plant Diseases ↗</a>
+          <div class="source-citation">DatasetNinja / Supervisely Aggregation</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="strawberry" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">98</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/strawberry_strawberry_powdery_mildew.webp" alt="Strawberry - Strawberry Powdery Mildew" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Strawberry</strong> — Strawberry Powdery Mildew
+          <div class="wiki-id-sub"><code>strawberry_strawberry_powdery_mildew</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://datasetninja.com/plant-diseases" target="_blank" rel="noopener noreferrer" class="source-link">Supervisely Plant Diseases ↗</a>
+          <div class="source-citation">DatasetNinja / Supervisely Aggregation</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="sugarcane" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">99</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/sugarcane_healthy.webp" alt="Sugarcane - Healthy" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Sugarcane</strong> — Healthy
+          <div class="wiki-id-sub"><code>sugarcane_healthy</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="sugarcane" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">100</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/sugarcane_mosaic.webp" alt="Sugarcane - Mosaic" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Sugarcane</strong> — Mosaic
+          <div class="wiki-id-sub"><code>sugarcane_mosaic</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="sugarcane" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">101</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/sugarcane_red_rot.webp" alt="Sugarcane - Red Rot" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Sugarcane</strong> — Red Rot
+          <div class="wiki-id-sub"><code>sugarcane_red_rot</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="sugarcane" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">102</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/sugarcane_rust.webp" alt="Sugarcane - Rust" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Sugarcane</strong> — Rust
+          <div class="wiki-id-sub"><code>sugarcane_rust</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="sugarcane" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">103</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/sugarcane_yellow.webp" alt="Sugarcane - Yellow" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Sugarcane</strong> — Yellow
+          <div class="wiki-id-sub"><code>sugarcane_yellow</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="tomato" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">104</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/tomato_bacterial_spot.webp" alt="Tomato - Bacterial Spot" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Tomato</strong> — Bacterial Spot
+          <div class="wiki-id-sub"><code>tomato_bacterial_spot</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="tomato" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">105</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/tomato_healthy.webp" alt="Tomato - Healthy" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Tomato</strong> — Healthy
+          <div class="wiki-id-sub"><code>tomato_healthy</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="tomato" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">106</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/tomato_spider_mites.webp" alt="Tomato - Spider Mites" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Tomato</strong> — Spider Mites
+          <div class="wiki-id-sub"><code>tomato_spider_mites</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="tomato" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">107</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/tomato_target_spot.webp" alt="Tomato - Target Spot" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Tomato</strong> — Target Spot
+          <div class="wiki-id-sub"><code>tomato_target_spot</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="tomato" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">108</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/tomato_tomato_early_blight.webp" alt="Tomato - Tomato Early Blight" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Tomato</strong> — Tomato Early Blight
+          <div class="wiki-id-sub"><code>tomato_tomato_early_blight</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="tomato" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">109</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/tomato_tomato_late_blight.webp" alt="Tomato - Tomato Late Blight" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Tomato</strong> — Tomato Late Blight
+          <div class="wiki-id-sub"><code>tomato_tomato_late_blight</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="tomato" data-status="verified" data-license="cc by-sa 4.0">
+        <td class="td-num">110</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/tomato_tomato_septoria_leaf_spot.webp" alt="Tomato - Tomato Septoria Leaf Spot" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Tomato</strong> — Tomato Septoria Leaf Spot
+          <div class="wiki-id-sub"><code>tomato_tomato_septoria_leaf_spot</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://arxiv.org/abs/1511.08060" target="_blank" rel="noopener noreferrer" class="source-link">PlantVillage Benchmark ↗</a>
+          <div class="source-citation">Hughes &amp; Salathe (2015), arXiv:1511.08060</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY-SA 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+<tr class="row-verified" data-crop="zucchini" data-status="verified" data-license="cc by 4.0">
+        <td class="td-num">111</td>
+        <td class="td-thumb">
+          <img src="assets/wiki_samples/zucchini_healthy.webp" alt="Zucchini - Healthy" loading="lazy" class="thumb-img" />
+        </td>
+        <td class="td-condition">
+          <strong>Zucchini</strong> — Healthy
+          <div class="wiki-id-sub"><code>zucchini_healthy</code></div>
+        </td>
+        <td class="td-source">
+          <a href="https://data.mendeley.com/datasets/8t6k37ztxc/1" target="_blank" rel="noopener noreferrer" class="source-link">Agri-Vision4 Zucchini Dataset ↗</a>
+          <div class="source-citation">Billah et al. (2023), Agri-Vision4 / Mendeley Data</div>
+        </td>
+        <td class="td-license"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" class="lic-link">CC BY 4.0 ↗</a></td>
+        <td class="td-status"><span class="badge badge-verified">✓ Verified Permissive</span></td>
+        <td class="td-changes">Resized to max 800x600, converted to WebP (q=90)</td>
+      </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="assets/hale_logo_full_dark.png" alt="Hale — Plant Health AI" class="footer-logo-img" />
+      </div>
+      <p class="footer-copy">
+        Research prototype for foliar plant leaf disease classification. No independent field evaluation has been conducted. Not for agronomic or diagnostic decisions. The application does not store uploaded images or results. Not for commercial use (CC BY-NC-SA 4.0).
+      </p>
+      <div class="footer-links">
+        <a href="wiki.html" class="footer-link">Disease Wiki</a>
+        <a href="http://localhost:8000/docs" target="_blank" class="footer-link">API Docs</a>
+        <a href="index.html" class="footer-link">AI Scanner</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const tableRows = document.querySelectorAll('tbody tr');
+    const visibleCount = document.getElementById('visibleCount');
+
+    function filterTable() {
+      const q = (searchInput ? searchInput.value : '').toLowerCase().trim();
+      let shown = 0;
+
+      tableRows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        const matchesQuery = !q || text.includes(q);
+
+        if (matchesQuery) {
+          row.style.display = '';
+          shown++;
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      if (visibleCount) {
+        visibleCount.textContent = shown;
+      }
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', filterTable);
+    }
+  </script>
+</body>
+</html>

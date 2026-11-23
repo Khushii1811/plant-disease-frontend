@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hale v1.0 — AI Foliar Plant Disease & Health Intelligence</title>
+  <meta name="description"
+    content="Upload a plant leaf image and instantly diagnose diseases with ConvNeXt-Tiny DualHead AI across 33 crops and 177 foliar disease classes with verified treatment recommendations." />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/svg+xml" href="assets/hale_logo.svg" />
+  <link rel="stylesheet" href="cropper.min.css" />
+  <link rel="stylesheet" href="style.css?v=2.2.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+</head>
+
+<body>
+
+  <!-- ── Navbar ── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" style="text-decoration:none;" title="Hale — Plant Health AI">
+        <img src="assets/hale_logo_full_dark.png" alt="Hale — Plant Health AI" class="nav-logo-img" />
+      </a>
+      <div class="nav-links">
+        <a href="#upload-section" class="nav-link">Diagnose</a>
+        <a href="wiki.html" class="nav-link" style="color:#86efac; font-weight:700;">Disease Wiki <span class="nav-badge-pill">177</span></a>
+        <a href="#how-it-works" class="nav-link">How it Works</a>
+        <div class="api-status" id="api-status">
+          <span class="status-dot" id="status-dot"></span>
+          <span id="status-text">Connecting…</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <header class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-pest-canvas-wrap" id="pest-canvas-wrap">
+      <canvas id="pest-canvas"></canvas>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Hale v1.0 · ConvNeXt-Tiny DualHead · 177 Classes · 33 Crops
+      </div>
+      <h1 class="hero-title">
+        Detect Plant Diseases<br />
+        <span class="gradient-text">Instantly with AI</span>
+      </h1>
+      <p class="hero-subtitle">
+        Upload a leaf image and get a calibrated diagnosis with targeted treatment recommendations — powered by
+        temperature-scaled deep learning.
+      </p>
+      <p class="hero-research-notice" style="font-size:0.8rem; color:#94a3b8; margin: 0.5rem 0 1.25rem 0; letter-spacing: 0.01em;">🔬 Tested on curated research images; field performance not yet measured.</p>
+      <a href="#upload-section" class="hero-cta" id="hero-cta-btn">
+        <span>Analyze a Leaf</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+    <div class="hero-scroll-hint">
+      <div class="scroll-line"></div>
+    </div>
+  </header>
+
+  <!-- ── Stats Bar ── -->
+  <section class="stats-bar" id="stats-section">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <span class="stat-value" id="stat-classes">177</span>
+        <span class="stat-label">Disease Classes</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-value" id="stat-device">GPU</span>
+        <span class="stat-label">Compute Device</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-value">ConvNeXt</span>
+        <span class="stat-label">Architecture</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-value">Calibrated</span>
+        <span class="stat-label">Confidence Scores</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Upload Section ── -->
+  <main class="main-section" id="upload-section">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="section-tag">AI Diagnosis</div>
+        <h2 class="section-title">Upload a Plant Leaf</h2>
+        <p class="section-subtitle">Drag & drop or click to browse (max 10 MB per image, up to 3 images, JPG, PNG, WEBP).</p>
+        <div style="margin-top: 0.5rem;"><span style="display:inline-block; padding: 0.35rem 0.85rem; background: rgba(34, 197, 94, 0.12); border: 1px solid rgba(34, 197, 94, 0.35); border-radius: 20px; font-size: 0.78rem; color: #86efac;">🍃 <strong>Capture Guidance:</strong> Photo should show only the leaf. Keep fingers and background out of frame.</span></div>
+      </div>
+
+      <div style="max-width: 780px; margin: 0 auto 1.5rem auto; padding: 0.65rem 1rem; background: rgba(15, 35, 25, 0.75); border: 1px solid rgba(74, 222, 128, 0.25); border-radius: 8px; text-align: center; font-size: 0.82rem; color: #a7f3d0;">
+        ⚠️ Research prototype for foliar plant leaf disease classification. No independent field evaluation has been conducted. Not for agronomic or diagnostic decisions.
+      </div>
+
+      <div class="upload-workspace">
+
+        <!-- Upload Card -->
+        <div class="upload-card" id="upload-card">
+
+          <!-- Multi-Angle Consensus Tray (1 to 3 images) -->
+          <div class="multi-photo-tray" id="multi-photo-tray">
+            <div class="multi-photo-tray-header">
+              <div>
+                <span class="tray-label">📸 Leaf Angles (1 to 3 Photos):</span>
+                <div style="font-size: 0.74rem; color: #38bdf8; margin-top: 0.2rem;">Experimental: averages calibrated probabilities; no field evaluation</div>
+              </div>
+              <span class="tray-subtext" id="tray-subtext">1 Photo Uploaded</span>
+            </div>
+            <div class="photo-slots-grid">
+              <div class="photo-slot-card active" id="photo-slot-0" data-slot="0" title="Click to view/upload Upper Leaf photo (Top Surface)">
+                <div class="slot-badge">Slot 1 · Upper</div>
+                <div class="slot-thumb-container" id="slot-thumb-0">
+                  <span class="slot-placeholder-icon">🌿</span>
+                  <span class="slot-placeholder-text">Upper Leaf</span>
+                </div>
+                <button type="button" class="slot-clear-btn" id="slot-clear-0" style="display:none;" title="Remove this photo">×</button>
+              </div>
+
+              <div class="photo-slot-card" id="photo-slot-1" data-slot="1" title="Click to view/upload Little Zoom photo (Close-Up Symptom)">
+                <div class="slot-badge">Slot 2 · Zoom</div>
+                <div class="slot-thumb-container" id="slot-thumb-1">
+                  <span class="slot-placeholder-icon">🔍</span>
+                  <span class="slot-placeholder-text">Little Zoom</span>
+                </div>
+                <button type="button" class="slot-clear-btn" id="slot-clear-1" style="display:none;" title="Remove this photo">×</button>
+              </div>
+
+              <div class="photo-slot-card" id="photo-slot-2" data-slot="2" title="Click to view/upload photo covering the entire leaf (Natural Distance)">
+                <div class="slot-badge">Slot 3 · Entire Leaf</div>
+                <div class="slot-thumb-container" id="slot-thumb-2">
+                  <span class="slot-placeholder-icon">📷</span>
+                  <span class="slot-placeholder-text">Entire Leaf</span>
+                </div>
+                <button type="button" class="slot-clear-btn" id="slot-clear-2" style="display:none;" title="Remove this photo">×</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="upload-zone" id="upload-zone">
+            <input type="file" id="file-input" accept="image/*" multiple hidden />
+            <div class="upload-idle" id="upload-idle">
+              <div class="upload-icon-wrap">
+                <svg class="upload-icon" viewBox="0 0 64 64" fill="none">
+                  <circle cx="32" cy="32" r="31" stroke="url(#g1)" stroke-width="2" />
+                  <path d="M32 44V24M24 32l8-8 8 8" stroke="url(#g2)" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M22 44h20" stroke="url(#g2)" stroke-width="2.5" stroke-linecap="round" />
+                  <defs>
+                    <linearGradient id="g1" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#4ade80" />
+                      <stop offset="1" stop-color="#22d3ee" />
+                    </linearGradient>
+                    <linearGradient id="g2" x1="24" y1="24" x2="40" y2="44" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#4ade80" />
+                      <stop offset="1" stop-color="#22d3ee" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div class="upload-pulse"></div>
+              </div>
+              <h3 class="upload-title" id="upload-title">Drop leaf image here</h3>
+              <p class="upload-hint">or <button class="browse-btn" id="browse-btn" type="button">browse files</button>
+              </p>
+              <div class="upload-formats">Supports 1 to 3 images (max 10 MB and 50 MP per image) · JPG, PNG, WEBP</div>
+            </div>
+
+            <div class="upload-preview" id="upload-preview" style="display:none;">
+              <div class="preview-image-wrap">
+                <img id="preview-img" src="" alt="Plant leaf preview" />
+                <img id="cam-overlay" src="" alt="Grad-CAM Heatmap" class="cam-overlay" style="display:none;" />
+                <div class="preview-overlay">
+                  <button class="change-btn crop-btn" id="crop-img-btn" type="button">✂️ Crop Leaf</button>
+                  <button class="change-btn reset-crop-btn" id="reset-crop-btn" type="button" style="display:none;">↩️ Original</button>
+                  <button class="change-btn" id="change-img-btn" type="button">Change Image</button>
+                </div>
+              </div>
+              <div class="preview-meta" id="preview-meta"></div>
+
+              <!-- Multi-View Perspective Switcher (Visible when multiple views analyzed) -->
+              <div class="multi-view-bar" id="multi-view-bar" style="display:none;">
+                <div class="multi-view-label">🔍 Inspection Angle:</div>
+                <div class="multi-view-tabs" id="multi-view-tabs">
+                  <!-- View buttons inserted dynamically -->
+                </div>
+              </div>
+
+              <!-- Grad-CAM Control Bar -->
+              <div class="cam-controls" id="cam-controls" style="display:none;">
+                <div class="cam-control-header">
+                  <div class="cam-toggle-wrap">
+                    <label class="cam-switch">
+                      <input type="checkbox" id="cam-toggle" checked />
+                      <span class="cam-slider"></span>
+                    </label>
+                    <span class="cam-label">🔥 Grad-CAM Localization</span>
+                  </div>
+                  <span class="cam-layer-tag">Stage 4 · ConvNeXt</span>
+                </div>
+                <div class="cam-opacity-wrap" id="cam-opacity-wrap">
+                  <span class="cam-opacity-label">Opacity</span>
+                  <input type="range" id="cam-opacity" min="0" max="100" value="55" class="cam-range" />
+                  <span class="cam-opacity-val" id="cam-opacity-val">55%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="crop-select-wrapper" style="margin-top: 1.25rem; background: rgba(15, 35, 25, 0.65); border: 1px solid rgba(74, 222, 128, 0.25); border-radius: 8px; padding: 0.9rem 1.1rem;">
+            <label for="crop-select" class="crop-select-label" style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600; color: #a7f3d0; margin-bottom: 0.5rem;">
+              <span class="crop-select-icon">🌿</span>
+              <span>Select Host Crop (Optional):</span>
+            </label>
+            <div class="custom-select-box" style="position: relative; width: 100%;">
+              <select class="crop-select" id="crop-select" style="width: 100%; display: block; padding: 0.75rem 2.5rem 0.75rem 1rem; background-color: #0c1a13; border: 1px solid rgba(74, 222, 128, 0.3); border-radius: 6px; color: #f1f5f9; font-size: 0.92rem; font-weight: 500; cursor: pointer; -webkit-appearance: none; -moz-appearance: none; appearance: none; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234ade80' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E&quot;); background-repeat: no-repeat; background-position: right 1rem center; background-size: 16px;">
+                <option value="" style="background-color: #0b1a13; color: #f8fafc;">🌱 Auto-Detect (All 33 Crops)</option>
+                <option value="Apple">Apple</option>
+                <option value="Banana">Banana</option>
+                <option value="Bean">Bean</option>
+                <option value="Bell Pepper">Bell Pepper</option>
+                <option value="Blackgram">Blackgram</option>
+                <option value="Blueberry">Blueberry</option>
+                <option value="Broccoli">Broccoli</option>
+                <option value="Cabbage">Cabbage</option>
+                <option value="Cauliflower">Cauliflower</option>
+                <option value="Cherry">Cherry</option>
+                <option value="Chilli">Chilli</option>
+                <option value="Citrus">Citrus</option>
+                <option value="Coffee">Coffee</option>
+                <option value="Corn">Corn</option>
+                <option value="Cucumber">Cucumber</option>
+                <option value="Eggplant">Eggplant</option>
+                <option value="Ginger">Ginger</option>
+                <option value="Grape">Grape</option>
+                <option value="Groundnut">Groundnut</option>
+                <option value="Guava">Guava</option>
+                <option value="Jamun">Jamun</option>
+                <option value="Mango">Mango</option>
+                <option value="Paddy">Paddy (Rice)</option>
+                <option value="Peach">Peach</option>
+                <option value="Pear">Pear</option>
+                <option value="Plum">Plum</option>
+                <option value="Potato">Potato</option>
+                <option value="Radish">Radish</option>
+                <option value="Soybean">Soybean</option>
+                <option value="Strawberry">Strawberry</option>
+                <option value="Sugarcane">Sugarcane</option>
+                <option value="Tomato">Tomato</option>
+                <option value="Zucchini">Zucchini</option>
+              </select>
+            </div>
+            <p class="crop-select-hint">Optional. Assumes the selected crop is correct; confidence in this mode is not calibrated against wrong-crop uploads. Leave unselected to let the model verify the crop.</p>
+          </div>
+
+          <!-- Background Removal (Leaf Masking) Toggle (Hidden: experimental beta disabled in production) -->
+          <div class="bg-remove-wrapper" style="margin-top: 0.9rem; background: rgba(15, 35, 25, 0.65); border: 1px solid rgba(74, 222, 128, 0.25); border-radius: 8px; padding: 0.75rem 1.1rem; display: none; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 0.6rem;">
+              <span style="font-size: 1.1rem;">✂️</span>
+              <div>
+                <div style="display: flex; align-items: center; gap: 0.4rem;">
+                  <span style="font-size: 0.88rem; font-weight: 600; color: #f1f5f9;">Remove Background</span>
+                  <span style="font-size: 0.7rem; font-weight: 700; color: #38bdf8; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 4px; padding: 0.1rem 0.35rem; text-transform: uppercase;">Beta</span>
+                </div>
+                <div style="font-size: 0.76rem; color: #94a3b8; margin-top: 0.15rem;">BETA: reduces accuracy on this model; use only if the background dominates</div>
+              </div>
+            </div>
+            <label class="cam-switch" style="flex-shrink: 0; margin-left: 0.75rem;">
+              <input type="checkbox" id="bg-remove-toggle" />
+              <span class="cam-slider"></span>
+            </label>
+          </div>
+
+          <div class="upload-actions">
+            <button class="analyze-btn" id="analyze-btn" type="button" disabled>
+              <span class="analyze-btn-content" id="analyze-btn-content">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="M21 21l-4.35-4.35" />
+                </svg>
+                Analyze Leaf
+              </span>
+              <span class="analyze-btn-loading" id="analyze-btn-loading" style="display:none;">
+                <span class="spinner"></span>
+                Analyzing…
+              </span>
+            </button>
+            <div class="privacy-note" style="margin-top: 0.85rem; font-size: 0.76rem; color: #64748b; text-align: center; display: flex; align-items: center; justify-content: center; gap: 0.4rem;">
+              <span>🔒</span>
+              <span>Zero third-party requests. The application does not store uploaded images or results.</span>
+            </div>
+          </div>
+
+          <div class="drag-overlay" id="drag-overlay">
+            <div class="drag-overlay-content">
+              <div class="drag-leaf">🌿</div>
+              <span>Release to upload</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results Panel -->
+        <div class="results-panel" id="results-panel">
+          <div class="results-empty" id="results-empty">
+            <div class="empty-icon">🔬</div>
+            <h3>Awaiting Analysis</h3>
+            <p>Upload a leaf image to see the diagnosis results here.</p>
+          </div>
+
+          <div class="results-content" id="results-content" style="display:none;">
+
+            <!-- Top Prediction -->
+            <div class="result-card top-prediction" id="top-pred-card">
+              <div class="result-card-header">
+                <div class="result-badge" id="result-badge">🌿 Diagnosis</div>
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <div class="inference-time" id="inference-time"></div>
+                  <button class="download-pdf-btn" id="download-pdf-btn" type="button" title="Download Official Diagnostic PDF Report">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <span>PDF Report</span>
+                  </button>
+                </div>
+              </div>
+              <div class="top-pred-body">
+                <div class="pred-crop" id="pred-crop"></div>
+                <div class="consensus-badge" id="consensus-badge" style="display:none;">
+                  <span class="consensus-badge-icon">✨</span>
+                  <span class="consensus-badge-text" id="consensus-badge-text">3/3 Views in Agreement</span>
+                </div>
+                <h3 class="pred-disease" id="pred-disease"></h3>
+                <div class="confidence-wrap">
+                  <div class="confidence-label">
+                    <span>Confidence</span>
+                    <span class="confidence-pct" id="confidence-pct"></span>
+                  </div>
+                  <div class="confidence-bar-bg">
+                    <div class="confidence-bar-fill" id="confidence-bar"></div>
+                  </div>
+                </div>
+                <div class="confidence-warning" id="confidence-warning" style="display:none;">
+                  ⚠️ Low confidence diagnosis. Consider re-photographing under balanced lighting or selecting the host crop above to constrain the diagnosis.
+                </div>
+
+                <!-- Dual-Head Diagnostic Verification Meter -->
+                <div class="dual-head-meter" id="dual-head-meter" style="display:none;">
+                  <div class="meter-header">
+                    <span class="meter-title">🔬 Neural Dual-Head Status:</span>
+                    <span class="meter-arch-pill">ConvNeXt-Tiny DualHead</span>
+                  </div>
+                  <div class="meter-grid">
+                    <div class="meter-item" id="meter-crop-item">
+                      <div class="meter-item-top">
+                        <span class="meter-label">🌿 Host Crop Head</span>
+                        <span class="meter-badge" id="meter-crop-badge">—</span>
+                      </div>
+                      <div class="meter-val-row">
+                        <span class="meter-name" id="meter-crop-name">—</span>
+                        <span class="meter-pct" id="meter-crop-pct">—</span>
+                      </div>
+                      <div class="meter-bar-bg"><div class="meter-bar-fill" id="meter-crop-bar"></div></div>
+                    </div>
+                    <div class="meter-item" id="meter-disease-item">
+                      <div class="meter-item-top">
+                        <span class="meter-label">🧪 Pathology Head</span>
+                        <span class="meter-badge" id="meter-disease-badge">—</span>
+                      </div>
+                      <div class="meter-val-row">
+                        <span class="meter-name" id="meter-disease-name">—</span>
+                        <span class="meter-pct" id="meter-disease-pct">—</span>
+                      </div>
+                      <div class="meter-bar-bg"><div class="meter-bar-fill" id="meter-disease-bar"></div></div>
+                    </div>
+                  </div>
+                  <div class="meter-verdict-note" id="meter-verdict-note" style="display:none;"></div>
+                </div>
+
+                <!-- Preliminary Screening Disclaimer Line -->
+                <div class="result-clinical-disclaimer" id="result-clinical-disclaimer">
+                  ⚖️ <strong>Preliminary Screening Aid:</strong> Verify symptoms with a certified agronomist or extension officer before applying chemical treatments.
+                </div>
+              </div>
+            </div>
+
+            <!-- Retake Guidance Box (< 0.60 Uncertain) -->
+            <div class="result-card retake-card" id="retake-tips-card" style="display:none;">
+              <div class="retake-header">
+                <span class="retake-icon">📷</span>
+                <div>
+                  <h4 class="retake-title">Photography Retake Guidelines</h4>
+                  <p class="retake-subtitle" id="retake-subtitle">Calibrated confidence is below 60%. Please retake following these tips:</p>
+                </div>
+              </div>
+
+              <!-- Unsupported Disease Guard Banner -->
+              <div class="unsupported-guard-alert" id="unsupported-guard-alert" style="display:none;">
+                <span class="guard-icon">🛡️</span>
+                <div class="guard-content">
+                  <strong class="guard-heading">Crop Diagnosis Guard Triggered</strong>
+                  <p class="guard-msg" id="guard-warning-text"></p>
+                </div>
+              </div>
+
+              <div class="retake-grid">
+                <div class="retake-item">
+                  <span class="retake-emoji">💡</span>
+                  <div class="retake-text">
+                    <strong>Balanced Daylight:</strong>
+                    <span>Use diffuse natural light; avoid harsh flash glare or deep shadows.</span>
+                  </div>
+                </div>
+                <div class="retake-item">
+                  <span class="retake-emoji">🎯</span>
+                  <div class="retake-text">
+                    <strong>Centered Framing:</strong>
+                    <span>Center a single symptomatic leaf; fill 70%+ of the frame.</span>
+                  </div>
+                </div>
+                <div class="retake-item">
+                  <span class="retake-emoji">🍃</span>
+                  <div class="retake-text">
+                    <strong>Plain Background:</strong>
+                    <span>Hold a neutral paper or sheet behind leaf to eliminate background clutter.</span>
+                  </div>
+                </div>
+                <div class="retake-item">
+                  <span class="retake-emoji">🌿</span>
+                  <div class="retake-text">
+                    <strong id="retake-crop-tip-title">Select Host Crop:</strong>
+                    <span id="retake-crop-tip-text">Pick the host crop in the dropdown above to focus neural diagnostic heads.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Alternatives -->
+            <div class="result-card alternatives-card">
+              <div class="alt-header">
+                <span class="alt-title" id="alt-title">Alternative Diagnoses</span>
+                <span class="alt-subtitle" id="alt-subtitle">Top 3 predictions</span>
+              </div>
+              <div class="alternatives-list" id="alternatives-list"></div>
+            </div>
+
+            <!-- Meta -->
+            <div class="result-card meta-card" id="meta-card">
+              <div class="meta-row">
+                <span class="meta-label">Confidence Threshold</span>
+                <span class="meta-value" id="meta-temp"></span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Timestamp</span>
+                <span class="meta-value" id="meta-time"></span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Model</span>
+                <span class="meta-value">ConvNeXt-Tiny</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Error State -->
+          <div class="results-error" id="results-error" style="display:none;">
+            <div class="error-icon">⚠️</div>
+            <h3>Analysis Failed</h3>
+            <p id="error-message">Something went wrong. Please try again.</p>
+            <button class="retry-btn" id="retry-btn" type="button">Retry</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Full-Width Agronomic Treatment & Prevention Protocol (Below Workspace) -->
+      <div class="treatment-fullwidth-wrap" id="treatment-fullwidth-wrap" style="display:none;">
+        <div class="result-card action-card" id="action-card">
+          <div class="action-header-row">
+            <div class="action-icon-wrap" id="action-icon-wrap">
+              <span id="action-icon">💡</span>
+            </div>
+            <div class="action-info">
+              <div class="action-label" id="action-label">Plant & Disease Care</div>
+              <div class="action-decision" id="action-decision">Immediate Action Required</div>
+              <div class="action-pathogen-tag" id="action-pathogen-tag" style="display:none;"></div>
+            </div>
+            <a href="wiki.html" id="action-wiki-link" target="_blank" class="btn-action-wiki" style="display:none;" title="View reference leaf photo and protocols in Disease Wiki">
+              <span>📖 Open in Wiki</span>
+              <span>➔</span>
+            </a>
+          </div>
+
+          <!-- Uncertain / Preliminary Guidance Warning -->
+          <div class="treatment-uncertain-alert" id="treatment-uncertain-alert" style="display:none;">
+            <span class="uncertain-alert-icon">⚠️</span>
+            <div class="uncertain-alert-text">
+              <strong>Preliminary Guidance:</strong> Confirm diagnosis on the plant before applying chemical treatments.
+            </div>
+          </div>
+
+          <!-- Structured Content Sections -->
+          <div class="treatment-details-grid" id="treatment-details-grid">
+            <!-- Symptoms -->
+            <div class="treatment-section" id="sec-symptoms">
+              <div class="treatment-sec-title">
+                <div class="sec-title-left">
+                  <span class="sec-emoji">🔍</span>
+                  <span>Key Visual Symptoms</span>
+                </div>
+                <span class="sec-tag">Visual Reference</span>
+              </div>
+              <p class="treatment-sec-body" id="treatment-symptoms">—</p>
+            </div>
+
+            <!-- Immediate Actions -->
+            <div class="treatment-section" id="sec-immediate">
+              <div class="treatment-sec-title">
+                <div class="sec-title-left">
+                  <span class="sec-emoji">🚨</span>
+                  <span>Immediate Cultural Actions</span>
+                </div>
+                <span class="sec-tag cultural">Sanitation</span>
+              </div>
+              <ul class="treatment-sec-list" id="treatment-immediate"></ul>
+            </div>
+
+            <!-- Organic Treatments -->
+            <div class="treatment-section" id="sec-organic">
+              <div class="treatment-sec-title">
+                <div class="sec-title-left">
+                  <span class="sec-emoji">🌿</span>
+                  <span>Organic & Biological Solutions</span>
+                </div>
+                <span class="sec-tag omri">OMRI / Biological</span>
+              </div>
+              <ul class="treatment-sec-list" id="treatment-organic"></ul>
+            </div>
+
+            <!-- Targeted Chemical Treatments -->
+            <div class="treatment-section" id="sec-chemical">
+              <div class="treatment-sec-title">
+                <div class="sec-title-left">
+                  <span class="sec-emoji">🧪</span>
+                  <span>Targeted Actives & FRAC Modes of Action</span>
+                </div>
+                <span class="sec-tag frac">FRAC Classified</span>
+              </div>
+              <div class="chemical-disclaimer-banner" style="margin: 0.5rem 0 0.85rem 0; padding: 0.55rem 0.85rem; background: rgba(239, 68, 68, 0.08); border-left: 3px solid #ef4444; border-radius: 4px; font-size: 0.78rem; color: #fca5a5; line-height: 1.45;">
+                ⚖️ <strong>Chemical Use Disclaimer:</strong> Active ingredients are provided for academic and reference purposes only. Consult a certified agronomist or local agricultural extension office and strictly follow approved product label instructions, protective gear requirements, and pre-harvest intervals before applying any chemical treatment.
+              </div>
+              <ul class="treatment-sec-list" id="treatment-chemical"></ul>
+            </div>
+
+            <!-- Preventive Measures -->
+            <div class="treatment-section" id="sec-prevention">
+              <div class="treatment-sec-title">
+                <div class="sec-title-left">
+                  <span class="sec-emoji">🛡️</span>
+                  <span>Long-term Agronomic Prevention</span>
+                </div>
+                <span class="sec-tag prevent">Preventive Culture</span>
+              </div>
+              <ul class="treatment-sec-list" id="treatment-prevention"></ul>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="treatment-disclaimer-box" id="treatment-disclaimer">
+              ⚖️ <strong>Regulatory Disclaimer:</strong> Always adhere to local agricultural regulations and manufacturer labels for approved application rates, personal protective equipment (PPE), and pre-harvest intervals.
+              <span class="treatment-citations" id="treatment-citations">Scientific Grounding: UC Davis IPM, Cornell Vegetable MD, FRAC/IRAC Guidelines.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ── In-Browser Image Cropper Modal ── -->
+  <div class="modal-backdrop" id="crop-modal" style="display:none;">
+    <div class="modal-dialog crop-modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-icon">✂️</span>
+          <h3 class="modal-title">Crop Leaf Image</h3>
+        </div>
+        <button class="modal-close-btn" id="close-cropper-btn" type="button">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-hint">Focus the crop box on the symptomatic leaf to remove background clutter before inference. Cropping is non-destructive.</p>
+        <div class="cropper-container-wrap">
+          <img id="cropper-source-img" src="" alt="Source leaf for cropping" />
+        </div>
+        <div class="cropper-toolbar">
+          <div class="cropper-aspect-group">
+            <span class="toolbar-label">Aspect:</span>
+            <button type="button" class="crop-aspect-btn active" data-ratio="free">Free</button>
+            <button type="button" class="crop-aspect-btn" data-ratio="1">1:1 Square</button>
+            <button type="button" class="crop-aspect-btn" data-ratio="1.333">4:3</button>
+          </div>
+          <div class="cropper-tools-group">
+            <button type="button" class="crop-tool-btn" id="crop-rotate-left" title="Rotate Left">↺ 90°</button>
+            <button type="button" class="crop-tool-btn" id="crop-rotate-right" title="Rotate Right">↻ 90°</button>
+            <button type="button" class="crop-tool-btn" id="crop-reset-tool" title="Reset View">Reset</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="modal-cancel-btn" id="cancel-crop-btn" type="button">Cancel</button>
+        <button class="modal-apply-btn" id="apply-crop-btn" type="button">Apply Crop</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Knowledge Base Showcase Teaser Banner ── -->
+  <section class="wiki-teaser-section" id="wiki-teaser">
+    <div class="container">
+      <div class="wiki-teaser-card">
+        <div class="wiki-teaser-left">
+          <div class="wiki-teaser-badge">
+            <span>🌿</span>
+            <span>Comprehensive Disease Wiki · 177 Covered Conditions</span>
+          </div>
+          <h2 class="wiki-teaser-heading">
+            Need to research a plant disease or treatment protocol?
+          </h2>
+          <p class="wiki-teaser-desc">
+            Explore our botanical knowledge base across 33 crops — featuring reference photos, visual symptom descriptions, OMRI-listed organic solutions, and FRAC chemical modes of action.
+          </p>
+          <div class="wiki-teaser-stats-row">
+            <div class="teaser-stat"><span class="teaser-stat-num">177</span> <span class="teaser-stat-lbl">Conditions</span></div>
+            <span class="teaser-sep">•</span>
+            <div class="teaser-stat"><span class="teaser-stat-num">33</span> <span class="teaser-stat-lbl">Host Crops</span></div>
+            <span class="teaser-sep">•</span>
+            <div class="teaser-stat"><span class="teaser-stat-num">82</span> <span class="teaser-stat-lbl">Fungal</span></div>
+            <span class="teaser-sep">•</span>
+            <div class="teaser-stat"><span class="teaser-stat-num">17</span> <span class="teaser-stat-lbl">Bacterial</span></div>
+            <span class="teaser-sep">•</span>
+            <div class="teaser-stat"><span class="teaser-stat-num">14</span> <span class="teaser-stat-lbl">Viral</span></div>
+          </div>
+        </div>
+        <div class="wiki-teaser-right">
+          <a href="wiki.html" class="wiki-teaser-btn">
+            <span>Explore Disease Wiki</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <span class="wiki-teaser-subhint">Search any crop, symptom, or pathogen</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── How It Works ── -->
+  <section class="how-section" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Process</div>
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">From image to actionable decision in milliseconds.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <div class="step-icon">📸</div>
+          <h3 class="step-title">Upload Leaf</h3>
+          <p class="step-desc">Drag or browse a clear photo of the plant leaf you want to diagnose.</p>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <div class="step-icon">🧠</div>
+          <h3 class="step-title">DualHead AI Analysis</h3>
+          <p class="step-desc">ConvNeXt-Tiny DualHead predicts host crop and pathology across 177 foliar classes with
+            calibrated confidence.</p>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <div class="step-icon">🔬</div>
+          <h3 class="step-title">Diagnosis & Confidence</h3>
+          <p class="step-desc">Get the top calibrated diagnosis, uncertainty score, and top-3 alternative differential
+            predictions.</p>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step-card">
+          <div class="step-number">04</div>
+          <div class="step-icon">📋</div>
+          <h3 class="step-title">Action & Treatment Plan</h3>
+          <p class="step-desc">Receive reference management notes and actionable measures to manage the diagnosed
+            condition or protect healthy foliage.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="assets/hale_logo_full_dark.png" alt="Hale — Plant Health AI" class="footer-logo-img" />
+      </div>
+      <p class="footer-copy">Tested on curated research images; field performance not yet measured. Research prototype for foliar plant leaf disease classification. No independent field evaluation has been conducted. Not for agronomic or diagnostic decisions. The application does not store uploaded images or results. Not for commercial use (CC BY-NC-SA 4.0).</p>
+      <div class="footer-links">
+        <a href="credits.html" class="footer-link">Credits &amp; Licensing</a>
+        <a href="wiki.html" class="footer-link">Disease Wiki</a>
+        <a href="http://localhost:8000/docs" target="_blank" class="footer-link" id="footer-api-docs">API Docs</a>
+        <a href="http://localhost:8000/redoc" target="_blank" class="footer-link" id="footer-redoc">ReDoc</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="cropper.min.js"></script>
+  <script src="jspdf.umd.min.js"></script>
+  <script src="html2canvas.min.js"></script>
+  <script src="app.js?v=2.2.0"></script>
+</body>
+
+</html>

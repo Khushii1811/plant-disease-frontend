@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hale v1.0 — AI Foliar Plant Disease & Health Intelligence</title>
+  <meta name="description"
+    content="Upload a plant leaf image and instantly diagnose diseases with ConvNeXt-Tiny DualHead AI across 33 crops and 177 foliar disease classes with verified treatment recommendations." />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/svg+xml" href="assets/hale_logo.svg" />
+  <link rel="stylesheet" href="cropper.min.css" />
+  <link rel="stylesheet" href="style.css?v=2.1.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <style>
+    /* Ambient Insect Feeding Canvas Overlay (Integrated into Hero Background) */
+    .hero-pest-canvas-wrap {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+      transform-origin: center center;
+      transform: scale(1.05);
+      animation: hero-zoom 20s ease-in-out infinite alternate;
+    }
+
+    #pest-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── Navbar ── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" style="text-decoration:none;" title="Hale — Plant Health AI">
+        <img src="assets/hale_logo_full_dark.png" alt="Hale — Plant Health AI" class="nav-logo-img" />
+      </a>
+      <div class="nav-links">
+        <a href="#upload-section" class="nav-link">Diagnose</a>
+        <a href="#how-it-works" class="nav-link">How it Works</a>
+        <div class="api-status" id="api-status">
+          <span class="status-dot" id="status-dot"></span>
+          <span id="status-text">Connecting…</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <header class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-pest-canvas-wrap" id="pest-canvas-wrap">
+      <canvas id="pest-canvas"></canvas>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Hale v1.0 · ConvNeXt-Tiny DualHead · 177 Classes · 33 Crops
+      </div>
+      <h1 class="hero-title">
+        Detect Plant Diseases<br />
+        <span class="gradient-text">Instantly with AI</span>
+      </h1>
+      <p class="hero-subtitle">
+        Upload a leaf image and get a calibrated diagnosis with targeted treatment recommendations — powered by
+        temperature-scaled deep learning.
+      </p>
+      <a href="#upload-section" class="hero-cta" id="hero-cta-btn">
+        <span>Analyze a Leaf</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+    <div class="hero-scroll-hint">
+      <div class="scroll-line"></div>
+    </div>
+  </header>
+
+  <!-- ── Stats Bar ── -->
+  <section class="stats-bar" id="stats-section">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <span class="stat-value" id="stat-classes">177</span>
+        <span class="stat-label">Disease Classes</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-value" id="stat-device">GPU</span>
+        <span class="stat-label">Compute Device</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-value">ConvNeXt</span>
+        <span class="stat-label">Architecture</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-value">Calibrated</span>
+        <span class="stat-label">Confidence Scores</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Upload Section ── -->
+  <main class="main-section" id="upload-section">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="section-tag">AI Diagnosis</div>
+        <h2 class="section-title">Upload a Plant Leaf</h2>
+        <p class="section-subtitle">Drag & drop or click to browse. Supports JPG, PNG, WEBP.</p>
+      </div>
+
+      <div class="upload-workspace">
+
+        <!-- Upload Card -->
+        <div class="upload-card" id="upload-card">
+
+          <!-- Multi-Angle Consensus Tray (1 to 3 images) -->
+          <div class="multi-photo-tray" id="multi-photo-tray">
+            <div class="multi-photo-tray-header">
+              <span class="tray-label">📸 Leaf Angles (1 to 3 Photos):</span>
+              <span class="tray-subtext" id="tray-subtext">1 Photo Uploaded</span>
+            </div>
+            <div class="photo-slots-grid">
+              <div class="photo-slot-card active" id="photo-slot-0" data-slot="0" title="Click to view/upload Upper Leaf photo (Top Surface)">
+                <div class="slot-badge">Slot 1 · Upper</div>
+                <div class="slot-thumb-container" id="slot-thumb-0">
+                  <span class="slot-placeholder-icon">🌿</span>
+                  <span class="slot-placeholder-text">Upper Leaf</span>
+                </div>
+                <button type="button" class="slot-clear-btn" id="slot-clear-0" style="display:none;" title="Remove this photo">×</button>
+              </div>
+
+              <div class="photo-slot-card" id="photo-slot-1" data-slot="1" title="Click to view/upload Little Zoom photo (Close-Up Symptom)">
+                <div class="slot-badge">Slot 2 · Zoom</div>
+                <div class="slot-thumb-container" id="slot-thumb-1">
+                  <span class="slot-placeholder-icon">🔍</span>
+                  <span class="slot-placeholder-text">Little Zoom</span>
+                </div>
+                <button type="button" class="slot-clear-btn" id="slot-clear-1" style="display:none;" title="Remove this photo">×</button>
+              </div>
+
+              <div class="photo-slot-card" id="photo-slot-2" data-slot="2" title="Click to view/upload photo covering the entire leaf (Natural Distance)">
+                <div class="slot-badge">Slot 3 · Entire Leaf</div>
+                <div class="slot-thumb-container" id="slot-thumb-2">
+                  <span class="slot-placeholder-icon">📷</span>
+                  <span class="slot-placeholder-text">Entire Leaf</span>
+                </div>
+                <button type="button" class="slot-clear-btn" id="slot-clear-2" style="display:none;" title="Remove this photo">×</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="upload-zone" id="upload-zone">
+            <input type="file" id="file-input" accept="image/*" multiple hidden />
+            <div class="upload-idle" id="upload-idle">
+              <div class="upload-icon-wrap">
+                <svg class="upload-icon" viewBox="0 0 64 64" fill="none">
+                  <circle cx="32" cy="32" r="31" stroke="url(#g1)" stroke-width="2" />
+                  <path d="M32 44V24M24 32l8-8 8 8" stroke="url(#g2)" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path d="M22 44h20" stroke="url(#g2)" stroke-width="2.5" stroke-linecap="round" />
+                  <defs>
+                    <linearGradient id="g1" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#4ade80" />
+                      <stop offset="1" stop-color="#22d3ee" />
+                    </linearGradient>
+                    <linearGradient id="g2" x1="24" y1="24" x2="40" y2="44" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#4ade80" />
+                      <stop offset="1" stop-color="#22d3ee" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div class="upload-pulse"></div>
+              </div>
+              <h3 class="upload-title" id="upload-title">Drop leaf image here</h3>
+              <p class="upload-hint">or <button class="browse-btn" id="browse-btn" type="button">browse files</button>
+              </p>
+              <div class="upload-formats">Supports 1 to 3 images for consensus · JPG, PNG, WEBP</div>
+            </div>
+
+            <div class="upload-preview" id="upload-preview" style="display:none;">
+              <div class="preview-image-wrap">
+                <img id="preview-img" src="" alt="Plant leaf preview" />
+                <img id="cam-overlay" src="" alt="Grad-CAM Heatmap" class="cam-overlay" style="display:none;" />
+                <div class="preview-overlay">
+                  <button class="change-btn crop-btn" id="crop-img-btn" type="button">✂️ Crop Leaf</button>
+                  <button class="change-btn reset-crop-btn" id="reset-crop-btn" type="button" style="display:none;">↩️ Original</button>
+                  <button class="change-btn" id="change-img-btn" type="button">Change Image</button>
+                </div>
+              </div>
+              <div class="preview-meta" id="preview-meta"></div>
+
+              <!-- Multi-View Perspective Switcher -->
+              <div class="multi-view-bar" id="multi-view-bar" style="display:none;">
+                <div class="multi-view-label">🔍 Inspection Angle:</div>
+                <div class="multi-view-tabs" id="multi-view-tabs">
+                  <!-- View buttons inserted dynamically -->
+                </div>
+              </div>
+
+              <!-- Grad-CAM Control Bar -->
+              <div class="cam-controls" id="cam-controls" style="display:none;">
+                <div class="cam-control-header">
+                  <div class="cam-toggle-wrap">
+                    <label class="cam-switch">
+                      <input type="checkbox" id="cam-toggle" checked />
+                      <span class="cam-slider"></span>
+                    </label>
+                    <span class="cam-label">🔥 Grad-CAM Localization</span>
+                  </div>
+                  <span class="cam-layer-tag">Stage 4 · ConvNeXt</span>
+                </div>
+                <div class="cam-opacity-wrap" id="cam-opacity-wrap">
+                  <span class="cam-opacity-label">Opacity</span>
+                  <input type="range" id="cam-opacity" min="0" max="100" value="55" class="cam-range" />
+                  <span class="cam-opacity-val" id="cam-opacity-val">55%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="crop-select-wrapper" style="margin-top: 1.25rem; background: rgba(15, 35, 25, 0.65); border: 1px solid rgba(74, 222, 128, 0.25); border-radius: 8px; padding: 0.9rem 1.1rem;">
+            <label for="crop-select" class="crop-select-label" style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600; color: #a7f3d0; margin-bottom: 0.5rem;">
+              <span class="crop-select-icon">🌿</span>
+              <span>Select Host Crop (Optional):</span>
+            </label>
+            <div class="custom-select-box" style="position: relative; width: 100%;">
+              <select class="crop-select" id="crop-select" style="width: 100%; display: block; padding: 0.75rem 2.5rem 0.75rem 1rem; background-color: #0c1a13; border: 1px solid rgba(74, 222, 128, 0.3); border-radius: 6px; color: #f1f5f9; font-size: 0.92rem; font-weight: 500; cursor: pointer; -webkit-appearance: none; -moz-appearance: none; appearance: none; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234ade80' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E&quot;); background-repeat: no-repeat; background-position: right 1rem center; background-size: 16px;">
+                <option value="" style="background-color: #0b1a13; color: #f8fafc;">🌱 Auto-Detect (All 33 Crops)</option>
+                <option value="Apple">Apple</option>
+                <option value="Banana">Banana</option>
+                <option value="Bean">Bean</option>
+                <option value="Bell Pepper">Bell Pepper</option>
+                <option value="Blackgram">Blackgram</option>
+                <option value="Blueberry">Blueberry</option>
+                <option value="Broccoli">Broccoli</option>
+                <option value="Cabbage">Cabbage</option>
+                <option value="Cauliflower">Cauliflower</option>
+                <option value="Cherry">Cherry</option>
+                <option value="Chilli">Chilli</option>
+                <option value="Citrus">Citrus</option>
+                <option value="Coffee">Coffee</option>
+                <option value="Corn">Corn</option>
+                <option value="Cucumber">Cucumber</option>
+                <option value="Eggplant">Eggplant</option>
+                <option value="Ginger">Ginger</option>
+                <option value="Grape">Grape</option>
+                <option value="Groundnut">Groundnut</option>
+                <option value="Guava">Guava</option>
+                <option value="Jamun">Jamun</option>
+                <option value="Mango">Mango</option>
+                <option value="Paddy">Paddy (Rice)</option>
+                <option value="Peach">Peach</option>
+                <option value="Pear">Pear</option>
+                <option value="Plum">Plum</option>
+                <option value="Potato">Potato</option>
+                <option value="Radish">Radish</option>
+                <option value="Soybean">Soybean</option>
+                <option value="Strawberry">Strawberry</option>
+                <option value="Sugarcane">Sugarcane</option>
+                <option value="Tomato">Tomato</option>
+                <option value="Zucchini">Zucchini</option>
+              </select>
+            </div>
+            <p class="crop-select-hint">Specify a crop to lock diagnosis strictly to its pathology, or leave on
+              auto-detect.</p>
+          </div>
+
+          <!-- Background Removal Toggle -->
+          <div class="bg-remove-wrapper" style="margin-top: 0.9rem; background: rgba(15, 35, 25, 0.65); border: 1px solid rgba(74, 222, 128, 0.25); border-radius: 8px; padding: 0.75rem 1.1rem; display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 0.6rem;">
+              <span style="font-size: 1.1rem;">✂️</span>
+              <div>
+                <div style="display: flex; align-items: center; gap: 0.4rem;">
+                  <span style="font-size: 0.88rem; font-weight: 600; color: #f1f5f9;">Remove Background</span>
+                  <span style="font-size: 0.7rem; font-weight: 700; color: #38bdf8; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 4px; padding: 0.1rem 0.35rem; text-transform: uppercase;">Beta</span>
+                </div>
+                <div style="font-size: 0.76rem; color: #94a3b8; margin-top: 0.15rem;">Isolates leaf on neutral grey background before inference</div>
+              </div>
+            </div>
+            <label class="cam-switch" style="flex-shrink: 0; margin-left: 0.75rem;">
+              <input type="checkbox" id="bg-remove-toggle" />
+              <span class="cam-slider"></span>
+            </label>
+          </div>
+
+          <div class="upload-actions">
+            <button class="analyze-btn" id="analyze-btn" type="button" disabled>
+              <span class="analyze-btn-content" id="analyze-btn-content">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="M21 21l-4.35-4.35" />
+                </svg>
+                Analyze Leaf
+              </span>
+              <span class="analyze-btn-loading" id="analyze-btn-loading" style="display:none;">
+                <span class="spinner"></span>
+                Analyzing…
+              </span>
+            </button>
+          </div>
+
+          <div class="drag-overlay" id="drag-overlay">
+            <div class="drag-overlay-content">
+              <div class="drag-leaf">🌿</div>
+              <span>Release to upload</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results Panel -->
+        <div class="results-panel" id="results-panel">
+          <div class="results-empty" id="results-empty">
+            <div class="empty-icon">🔬</div>
+            <h3>Awaiting Analysis</h3>
+            <p>Upload a leaf image to see the diagnosis results here.</p>
+          </div>
+
+          <div class="results-content" id="results-content" style="display:none;">
+
+            <!-- Top Prediction -->
+            <div class="result-card top-prediction" id="top-pred-card">
+              <div class="result-card-header">
+                <div class="result-badge" id="result-badge">🌿 Diagnosis</div>
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <div class="inference-time" id="inference-time"></div>
+                  <button class="download-pdf-btn" id="download-pdf-btn" type="button" title="Download Official Diagnostic PDF Report">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <span>PDF Report</span>
+                  </button>
+                </div>
+              </div>
+              <div class="top-pred-body">
+                <div class="pred-crop" id="pred-crop"></div>
+                <div class="consensus-badge" id="consensus-badge" style="display:none;">
+                  <span class="consensus-badge-icon">✨</span>
+                  <span class="consensus-badge-text" id="consensus-badge-text">3/3 Views in Agreement</span>
+                </div>
+                <h3 class="pred-disease" id="pred-disease"></h3>
+                <div class="confidence-wrap">
+                  <div class="confidence-label">
+                    <span>Confidence</span>
+                    <span class="confidence-pct" id="confidence-pct"></span>
+                  </div>
+                  <div class="confidence-bar-bg">
+                    <div class="confidence-bar-fill" id="confidence-bar"></div>
+                  </div>
+                </div>
+                <div class="confidence-warning" id="confidence-warning" style="display:none;">
+                  ⚠️ Low confidence diagnosis. Consider re-photographing under balanced lighting or selecting the host crop above to constrain the diagnosis.
+                </div>
+
+                <!-- Dual-Head Diagnostic Verification Meter -->
+                <div class="dual-head-meter" id="dual-head-meter" style="display:none;">
+                  <div class="meter-header">
+                    <span class="meter-title">🔬 Neural Dual-Head Status:</span>
+                    <span class="meter-arch-pill">ConvNeXt-Tiny DualHead</span>
+                  </div>
+                  <div class="meter-grid">
+                    <div class="meter-item" id="meter-crop-item">
+                      <div class="meter-item-top">
+                        <span class="meter-label">🌿 Host Crop Head</span>
+                        <span class="meter-badge" id="meter-crop-badge">—</span>
+                      </div>
+                      <div class="meter-val-row">
+                        <span class="meter-name" id="meter-crop-name">—</span>
+                        <span class="meter-pct" id="meter-crop-pct">—</span>
+                      </div>
+                      <div class="meter-bar-bg"><div class="meter-bar-fill" id="meter-crop-bar"></div></div>
+                    </div>
+                    <div class="meter-item" id="meter-disease-item">
+                      <div class="meter-item-top">
+                        <span class="meter-label">🧪 Pathology Head</span>
+                        <span class="meter-badge" id="meter-disease-badge">—</span>
+                      </div>
+                      <div class="meter-val-row">
+                        <span class="meter-name" id="meter-disease-name">—</span>
+                        <span class="meter-pct" id="meter-disease-pct">—</span>
+                      </div>
+                      <div class="meter-bar-bg"><div class="meter-bar-fill" id="meter-disease-bar"></div></div>
+                    </div>
+                  </div>
+                  <div class="meter-verdict-note" id="meter-verdict-note" style="display:none;"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Retake Guidance Box (< 0.60 Uncertain) -->
+            <div class="result-card retake-card" id="retake-tips-card" style="display:none;">
+              <div class="retake-header">
+                <span class="retake-icon">📷</span>
+                <div>
+                  <h4 class="retake-title">Photography Retake Guidelines</h4>
+                  <p class="retake-subtitle" id="retake-subtitle">Calibrated confidence is below 60%. Please retake following these tips:</p>
+                </div>
+              </div>
+
+              <!-- Unsupported Disease Guard Banner -->
+              <div class="unsupported-guard-alert" id="unsupported-guard-alert" style="display:none;">
+                <span class="guard-icon">🛡️</span>
+                <div class="guard-content">
+                  <strong class="guard-heading">Crop Diagnosis Guard Triggered</strong>
+                  <p class="guard-msg" id="guard-warning-text"></p>
+                </div>
+              </div>
+
+              <div class="retake-grid">
+                <div class="retake-item">
+                  <span class="retake-emoji">💡</span>
+                  <div class="retake-text">
+                    <strong>Balanced Daylight:</strong>
+                    <span>Use diffuse natural light; avoid harsh flash glare or deep shadows.</span>
+                  </div>
+                </div>
+                <div class="retake-item">
+                  <span class="retake-emoji">🎯</span>
+                  <div class="retake-text">
+                    <strong>Centered Framing:</strong>
+                    <span>Center a single symptomatic leaf; fill 70%+ of the frame.</span>
+                  </div>
+                </div>
+                <div class="retake-item">
+                  <span class="retake-emoji">🍃</span>
+                  <div class="retake-text">
+                    <strong>Plain Background:</strong>
+                    <span>Hold a neutral paper or sheet behind leaf to eliminate background clutter.</span>
+                  </div>
+                </div>
+                <div class="retake-item">
+                  <span class="retake-emoji">🌿</span>
+                  <div class="retake-text">
+                    <strong id="retake-crop-tip-title">Select Host Crop:</strong>
+                    <span id="retake-crop-tip-text">Pick the host crop in the dropdown above to focus neural diagnostic heads.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Alternatives -->
+            <div class="result-card alternatives-card">
+              <div class="alt-header">
+                <span class="alt-title" id="alt-title">Alternative Diagnoses</span>
+                <span class="alt-subtitle" id="alt-subtitle">Top 3 predictions</span>
+              </div>
+              <div class="alternatives-list" id="alternatives-list"></div>
+            </div>
+
+            <!-- Meta -->
+            <div class="result-card meta-card" id="meta-card">
+              <div class="meta-row">
+                <span class="meta-label">Confidence Threshold</span>
+                <span class="meta-value" id="meta-temp"></span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Timestamp</span>
+                <span class="meta-value" id="meta-time"></span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Model</span>
+                <span class="meta-value">ConvNeXt-Tiny</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Error State -->
+          <div class="results-error" id="results-error" style="display:none;">
+            <div class="error-icon">⚠️</div>
+            <h3>Analysis Failed</h3>
+            <p id="error-message">Something went wrong. Please try again.</p>
+            <button class="retry-btn" id="retry-btn" type="button">Retry</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Full-Width Agronomic Treatment & Prevention Protocol -->
+      <div class="treatment-fullwidth-wrap" id="treatment-fullwidth-wrap" style="display:none;">
+        <div class="result-card action-card" id="action-card">
+          <div class="action-header-row">
+            <div class="action-icon-wrap" id="action-icon-wrap">
+              <span id="action-icon">💡</span>
+            </div>
+            <div class="action-info">
+              <div class="action-label" id="action-label">Agronomic Treatment Protocol</div>
+              <div class="action-decision" id="action-decision">Immediate Action Required</div>
+              <div class="action-pathogen-tag" id="action-pathogen-tag" style="display:none;"></div>
+            </div>
+          </div>
+
+          <!-- Uncertain / Preliminary Guidance Warning -->
+          <div class="treatment-uncertain-alert" id="treatment-uncertain-alert" style="display:none;">
+            <span class="uncertain-alert-icon">⚠️</span>
+            <div class="uncertain-alert-text">
+              <strong>Preliminary Guidance:</strong> Confirm diagnosis on the plant before applying chemical treatments.
+            </div>
+          </div>
+
+          <!-- Structured Content Sections -->
+          <div class="treatment-details-grid" id="treatment-details-grid">
+            <!-- Symptoms -->
+            <div class="treatment-section" id="sec-symptoms">
+              <div class="treatment-sec-title">
+                <div class="sec-title-left">
+                  <span class="sec-emoji">🔍</span>
+                  <span>Key Visual Symptoms</span>
+                </div>
+                <span class="sec-tag">Field Diagnostic</span>
+              </div>
+              <p class="treatment-sec-body" id="treatment-symptoms">—</p>
+            </div>
+
+            <!-- Immediate Actions -->
+            <div class="treatment-section" id="sec-immediate">
+              <div class="treatment-sec-title">
+                <div class="sec-title-left">
+                  <span class="sec-emoji">🚨</span>
+                  <span>Immediate Cultural Actions</span>
+                </div>
+                <span class="sec-tag cultural">Sanitation</span>
+              </div>
+              <ul class="treatment-sec-list" id="treatment-immediate"></ul>
+            </div>
+
+            <!-- Organic Treatments -->
+            <div class="treatment-section" id="sec-organic">
+              <div class="treatment-sec-title">
+                <div class="sec-title-left">
+                  <span class="sec-emoji">🌿</span>
+                  <span>Organic & Biological Solutions</span>
+                </div>
+                <span class="sec-tag omri">OMRI / Biological</span>
+              </div>
+              <ul class="treatment-sec-list" id="treatment-organic"></ul>
+            </div>
+
+            <!-- Targeted Chemical Treatments -->
+            <div class="treatment-section" id="sec-chemical">
+              <div class="treatment-sec-title">
+                <div class="sec-title-left">
+                  <span class="sec-emoji">🧪</span>
+                  <span>Targeted Actives & FRAC Modes of Action</span>
+                </div>
+                <span class="sec-tag frac">FRAC Classified</span>
+              </div>
+              <ul class="treatment-sec-list" id="treatment-chemical"></ul>
+            </div>
+
+            <!-- Preventive Measures -->
+            <div class="treatment-section" id="sec-prevention">
+              <div class="treatment-sec-title">
+                <div class="sec-title-left">
+                  <span class="sec-emoji">🛡️</span>
+                  <span>Long-term Agronomic Prevention</span>
+                </div>
+                <span class="sec-tag prevent">Preventive Culture</span>
+              </div>
+              <ul class="treatment-sec-list" id="treatment-prevention"></ul>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="treatment-disclaimer-box" id="treatment-disclaimer">
+              ⚖️ <strong>Regulatory Disclaimer:</strong> Always adhere to local agricultural regulations and manufacturer labels for approved application rates, personal protective equipment (PPE), and pre-harvest intervals.
+              <span class="treatment-citations" id="treatment-citations">Scientific Grounding: UC Davis IPM, Cornell Vegetable MD, FRAC/IRAC Guidelines.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ── In-Browser Image Cropper Modal ── -->
+  <div class="modal-backdrop" id="crop-modal" style="display:none;">
+    <div class="modal-dialog crop-modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-icon">✂️</span>
+          <h3 class="modal-title">Crop Leaf Image</h3>
+        </div>
+        <button class="modal-close-btn" id="close-cropper-btn" type="button">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-hint">Focus the crop box on the symptomatic leaf to remove background clutter before inference. Cropping is non-destructive.</p>
+        <div class="cropper-container-wrap">
+          <img id="cropper-source-img" src="" alt="Source leaf for cropping" />
+        </div>
+        <div class="cropper-toolbar">
+          <div class="cropper-aspect-group">
+            <span class="toolbar-label">Aspect:</span>
+            <button type="button" class="crop-aspect-btn active" data-ratio="free">Free</button>
+            <button type="button" class="crop-aspect-btn" data-ratio="1">1:1 Square</button>
+            <button type="button" class="crop-aspect-btn" data-ratio="1.333">4:3</button>
+          </div>
+          <div class="cropper-tools-group">
+            <button type="button" class="crop-tool-btn" id="crop-rotate-left" title="Rotate Left">↺ 90°</button>
+            <button type="button" class="crop-tool-btn" id="crop-rotate-right" title="Rotate Right">↻ 90°</button>
+            <button type="button" class="crop-tool-btn" id="crop-reset-tool" title="Reset View">Reset</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="modal-cancel-btn" id="cancel-crop-btn" type="button">Cancel</button>
+        <button class="modal-apply-btn" id="apply-crop-btn" type="button">Apply Crop</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── How It Works ── -->
+  <section class="how-section" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Process</div>
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">From image to actionable decision in milliseconds.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <div class="step-icon">📸</div>
+          <h3 class="step-title">Upload Leaf</h3>
+          <p class="step-desc">Drag or browse a clear photo of the plant leaf you want to diagnose.</p>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <div class="step-icon">🧠</div>
+          <h3 class="step-title">DualHead AI Analysis</h3>
+          <p class="step-desc">ConvNeXt-Tiny DualHead predicts host crop and pathology across 177 foliar classes with
+            calibrated confidence.</p>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <div class="step-icon">🔬</div>
+          <h3 class="step-title">Diagnosis & Confidence</h3>
+          <p class="step-desc">Get the top calibrated diagnosis, uncertainty score, and top-3 alternative differential
+            predictions.</p>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step-card">
+          <div class="step-number">04</div>
+          <div class="step-icon">📋</div>
+          <h3 class="step-title">Action & Treatment Plan</h3>
+          <p class="step-desc">Receive verified treatment advice and actionable measures to manage the diagnosed
+            condition or protect healthy foliage.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="assets/hale_logo_full_dark.png" alt="Hale — Plant Health AI" class="footer-logo-img" />
+      </div>
+      <p class="footer-copy">Powered by ConvNeXt-Tiny + FastAPI · Built by Khushi Patel</p>
+      <div class="footer-links">
+        <a href="http://localhost:8000/docs" target="_blank" class="footer-link" id="footer-api-docs">API Docs</a>
+        <a href="http://localhost:8000/redoc" target="_blank" class="footer-link" id="footer-redoc">ReDoc</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="cropper.min.js"></script>
+  <script src="jspdf.umd.min.js"></script>
+  <script src="html2canvas.min.js"></script>
+  <script src="app.js?v=2.0.2"></script>
+
+  <!-- ── Subtle Ambient Foliar Chewing Animation Script ── -->
+  <script>
+    (function () {
+      'use strict';
+
+      const canvas = document.getElementById('pest-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const heroEl = document.getElementById('hero');
+
+      let dpr = window.devicePixelRatio || 1;
+      let width = 0;
+      let height = 0;
+
+      function resize() {
+        if (!heroEl || !canvas) return;
+        const rect = heroEl.getBoundingClientRect();
+        width = rect.width;
+        height = rect.height;
+        dpr = window.devicePixelRatio || 1;
+        canvas.width = Math.round(width * dpr);
+        canvas.height = Math.round(height * dpr);
+        canvas.style.width = `${width}px`;
+        canvas.style.height = `${height}px`;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      // ── Background Image Scale & Coordinate Mapping (hero-bg.jpg: 1376x768) ──
+      const BG_NATURAL_W = 1376;
+      const BG_NATURAL_H = 768;
+
+      function getScreenCoords(normX, normY) {
+        const scale = Math.max(width / BG_NATURAL_W, height / BG_NATURAL_H);
+        const renderW = BG_NATURAL_W * scale;
+        const renderH = BG_NATURAL_H * scale;
+        const offsetX = (width - renderW) / 2;
+        const offsetY = (height - renderH) / 2;
+        return {
+          x: offsetX + normX * renderW,
+          y: offsetY + normY * renderH,
+          scale: scale,
+        };
+      }
+
+      // ── Spline Interpolation for Organic Crawling ──
+      function catmullRom(p0, p1, p2, p3, t) {
+        const t2 = t * t;
+        const t3 = t2 * t;
+        return 0.5 * (
+          (2 * p1) +
+          (-p0 + p2) * t +
+          (2 * p0 - 5 * p1 + 4 * p2 - p3) * t2 +
+          (-p0 + 3 * p1 - 3 * p2 + p3) * t3
+        );
+      }
+
+      function getSplinePoint(points, globalT) {
+        const n = points.length - 1;
+        const clampedT = Math.max(0, Math.min(1, globalT));
+        const seg = clampedT * n;
+        const i = Math.floor(seg);
+        const localT = seg - i;
+
+        const p0 = points[Math.max(0, i - 1)];
+        const p1 = points[i];
+        const p2 = points[Math.min(n, i + 1)];
+        const p3 = points[Math.min(n, i + 2)];
+
+        const u = catmullRom(p0.u, p1.u, p2.u, p3.u, localT);
+        const v = catmullRom(p0.v, p1.v, p2.v, p3.v, localT);
+
+        const delta = 0.006;
+        const nextT = Math.min(1, clampedT + delta);
+        const segNext = nextT * n;
+        const iNext = Math.floor(segNext);
+        const localTNext = segNext - iNext;
+        const q0 = points[Math.max(0, iNext - 1)];
+        const q1 = points[iNext];
+        const q2 = points[Math.min(n, iNext + 1)];
+        const q3 = points[Math.min(n, iNext + 2)];
+        const uNext = catmullRom(q0.u, q1.u, q2.u, q3.u, localTNext);
+        const vNext = catmullRom(q0.v, q1.v, q2.v, q3.v, localTNext);
+
+        const angle = Math.atan2(vNext - v, uNext - u);
+        return { u, v, angle };
+      }
+
+      // ── Botanical Waypoints Anchored to Foliage on hero-bg.jpg ──
+      const HORNWORM_WAYPOINTS = [
+        { u: 0.1090, v: 0.2474 }, // Upper petiole entry
+        { u: 0.1526, v: 0.3125 }, // Down main rachis
+        { u: 0.1926, v: 0.3646 }, // Petiole node turn
+        { u: 0.2108, v: 0.3841 }, // Lateral leaflet petiolule
+        { u: 0.2471, v: 0.3711 }, // Site 1: Upper lobe feeding
+        { u: 0.2762, v: 0.4427 }, // Traversing secondary vein toward midrib
+        { u: 0.3161, v: 0.4818 }, // Site 2: Middle lobe feeding
+        { u: 0.3416, v: 0.5534 }, // Traversing blade to apex
+        { u: 0.3525, v: 0.5924 }, // Site 3: Apical tip nibble
+        { u: 0.3270, v: 0.6771 }, // Scurrying into lower canopy shadow
+        { u: 0.2950, v: 0.7900 }, // Disappearing into foliage depth
+      ];
+
+      // ── Natural Chewed Shot-Hole Sites ──
+      const SHOTHOLE_SITES = [
+        {
+          id: 'hole_1',
+          u: 0.2471,
+          v: 0.3711,
+          feedStart: 3.2,
+          feedEnd: 6.5,
+          baseRadius: 6.0,
+          seed: 4.82,
+          frass: [
+            { x: -3.5, y: 7.0, rx: 0.85, ry: 0.55, rot: 0.3 },
+          ],
+        },
+        {
+          id: 'hole_2',
+          u: 0.3161,
+          v: 0.4818,
+          feedStart: 8.4,
+          feedEnd: 11.6,
+          baseRadius: 7.2,
+          seed: 8.35,
+          frass: [
+            { x: -4.5, y: 8.5, rx: 0.95, ry: 0.60, rot: 0.5 },
+            { x:  2.5, y: 9.0, rx: 0.80, ry: 0.50, rot: -0.3 },
+          ],
+        },
+        {
+          id: 'hole_3',
+          u: 0.3525,
+          v: 0.5924,
+          feedStart: 12.6,
+          feedEnd: 13.8,
+          baseRadius: 4.0,
+          seed: 2.14,
+          frass: [
+            { x: 1.5, y: 5.0, rx: 0.70, ry: 0.45, rot: 0.2 },
+          ],
+        },
+      ];
+
+      // ── Timing & Lifecycle ──
+      const CYCLE_DURATION = 17.5;
+      let currentTime = 0;
+      let isPaused = false;
+      let lastTimestamp = performance.now();
+
+      // Respect accessibility setting
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        isPaused = true;
+      }
+
+      // ── Ragged Organic Shot-Hole Contour Generator ──
+      function getRaggedShotHoleContour(baseRadius, seed, growth) {
+        const points = [];
+        const numPoints = 28;
+        const rEffective = baseRadius * growth;
+
+        for (let i = 0; i < numPoints; i++) {
+          const angle = (i / numPoints) * Math.PI * 2;
+          const h1 = Math.sin(angle * 3.0 + seed);
+          const h2 = Math.cos(angle * 5.0 - seed * 1.7);
+          const h3 = Math.sin(angle * 7.0 + seed * 2.3);
+          const microNib = Math.cos(angle * 13.0 + seed * 0.5) * 0.08;
+          const roughness = 1.0 + 0.22 * h1 + 0.14 * h2 + 0.09 * h3 + microNib;
+
+          const stretchX = 1.14 + Math.sin(seed) * 0.08;
+          const stretchY = 0.88 + Math.cos(seed) * 0.08;
+
+          const r = rEffective * roughness;
+          points.push({
+            x: Math.cos(angle) * r * stretchX,
+            y: Math.sin(angle) * r * stretchY,
+          });
+        }
+        return points;
+      }
+
+      // ── Render Chewed Foliar Holes ──
+      function renderHornwormShotHoles(time) {
+        SHOTHOLE_SITES.forEach((site) => {
+          let growth = 0;
+          if (time >= site.feedStart) {
+            growth = Math.min(1.0, (time - site.feedStart) / (site.feedEnd - site.feedStart));
+          }
+          if (growth <= 0.001) return;
+
+          const screenPos = getScreenCoords(site.u, site.v);
+          const baseScale = screenPos.scale * (width / 1376 > 1 ? 1.0 : 0.88);
+
+          // Subtle natural fadeout before loop restart
+          let healAlpha = 1.0;
+          if (time >= 15.2 && time <= 17.2) {
+            healAlpha = Math.max(0, 1.0 - (time - 15.2) / 2.0);
+          } else if (time > 17.2) {
+            healAlpha = 0;
+          }
+
+          if (healAlpha <= 0.01) return;
+
+          ctx.save();
+          ctx.globalAlpha = healAlpha;
+          ctx.translate(screenPos.x, screenPos.y);
+
+          const points = getRaggedShotHoleContour(site.baseRadius * baseScale, site.seed, growth);
+          const len = points.length;
+
+          // Single continuous organic path
+          ctx.beginPath();
+          for (let i = 0; i < len; i++) {
+            const p = points[i];
+            const nextP = points[(i + 1) % len];
+            const midX = (p.x + nextP.x) / 2;
+            const midY = (p.y + nextP.y) / 2;
+            if (i === 0) {
+              ctx.moveTo(midX, midY);
+            } else {
+              ctx.quadraticCurveTo(p.x, p.y, midX, midY);
+            }
+          }
+          ctx.closePath();
+
+          // Void Fill: Translucent foliage shadow tone (lightened, natural)
+          const rMax = site.baseRadius * baseScale * growth;
+          const voidGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, Math.max(1, rMax));
+          voidGrad.addColorStop(0.0, 'rgba(32, 58, 34, 0.80)');
+          voidGrad.addColorStop(0.70, 'rgba(22, 44, 25, 0.86)');
+          voidGrad.addColorStop(1.0, 'rgba(16, 34, 18, 0.90)');
+          ctx.fillStyle = voidGrad;
+          ctx.fill();
+
+          // Subtle organic cut edge (soft warm-brown, no central lines)
+          ctx.strokeStyle = 'rgba(72, 54, 32, 0.55)';
+          ctx.lineWidth = 0.8;
+          ctx.lineCap = 'round';
+          ctx.lineJoin = 'round';
+          ctx.stroke();
+
+          // Micro Frass
+          if (growth > 0.45) {
+            ctx.fillStyle = '#140e08';
+            site.frass.forEach((fp) => {
+              ctx.beginPath();
+              ctx.ellipse(
+                fp.x * baseScale,
+                fp.y * baseScale,
+                fp.rx * baseScale,
+                fp.ry * baseScale,
+                fp.rot,
+                0,
+                Math.PI * 2
+              );
+              ctx.fill();
+            });
+          }
+
+          ctx.restore();
+        });
+      }
+
+      // ── Render Authentic Tomato Hornworm Caterpillar (Manduca quinquemaculata) ──
+      function renderTomatoHornworm(x, y, angle, isFeeding, walkPhase, opacity, scaleFactor) {
+        if (opacity <= 0.01) return;
+
+        ctx.save();
+        ctx.globalAlpha = opacity;
+        ctx.translate(x, y);
+        ctx.rotate(angle);
+        ctx.scale(scaleFactor, scaleFactor);
+
+        // Soft ambient drop shadow
+        ctx.save();
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.55)';
+        ctx.shadowBlur = 10;
+        ctx.shadowOffsetX = 2.5;
+        ctx.shadowOffsetY = 4.0;
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
+        ctx.beginPath();
+        ctx.ellipse(-2, 2, 22, 6.5, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+
+        const segmentCount = 10;
+        const segmentRadius = [4.2, 5.0, 5.4, 5.6, 5.8, 5.8, 5.7, 5.4, 4.8, 3.8];
+        const undulationAmp = isFeeding ? 0.35 : 1.8;
+
+        // Fleshy gripping prolegs
+        const prolegSegments = [3, 4, 5, 6, 9];
+        ctx.fillStyle = '#31632c';
+        ctx.strokeStyle = '#1d3e1a';
+        ctx.lineWidth = 0.9;
+
+        prolegSegments.forEach((segIdx) => {
+          const segX = 14 - segIdx * 3.7;
+          const segYOffset = Math.sin(walkPhase - segIdx * 0.45) * undulationAmp;
+          const r = segmentRadius[segIdx];
+
+          [-1, 1].forEach((side) => {
+            const py = (r - 0.5) * side + segYOffset;
+            ctx.beginPath();
+            ctx.ellipse(segX, py, 2.2, 2.8, side * 0.2, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.fillStyle = '#112210';
+            ctx.beginPath();
+            ctx.arc(segX + 0.3, py + 2.2 * side, 0.7, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = '#31632c';
+          });
+        });
+
+        // 3 True Thoracic Legs
+        ctx.strokeStyle = '#1d3e1a';
+        ctx.lineWidth = 1.1;
+        ctx.lineCap = 'round';
+        for (let t = 0; t < 3; t++) {
+          const tx = 14 - t * 3.2;
+          const legSwing = Math.sin(walkPhase + t * 0.8) * (isFeeding ? 0.4 : 2.2);
+          [-1, 1].forEach((side) => {
+            ctx.beginPath();
+            ctx.moveTo(tx, side * 3.5);
+            ctx.lineTo(tx + 2.0 + legSwing * 0.5, side * 6.5);
+            ctx.lineTo(tx + 4.0 + legSwing, side * 8.2);
+            ctx.stroke();
+          });
+        }
+
+        // Body Segments with White Chevrons and Spiracles
+        for (let i = segmentCount - 1; i >= 0; i--) {
+          const segX = 14 - i * 3.7;
+          const segY = Math.sin(walkPhase - i * 0.45) * undulationAmp;
+          const r = segmentRadius[i];
+
+          ctx.save();
+          ctx.translate(segX, segY);
+
+          const segGrad = ctx.createRadialGradient(-0.8, -1.2, r * 0.2, 0, 0, r);
+          segGrad.addColorStop(0.0, '#6cb85c');
+          segGrad.addColorStop(0.55, '#4a943a');
+          segGrad.addColorStop(0.85, '#357228');
+          segGrad.addColorStop(1.0, '#234f19');
+
+          ctx.fillStyle = segGrad;
+          ctx.strokeStyle = 'rgba(30, 68, 22, 0.45)';
+          ctx.lineWidth = 0.75;
+          ctx.beginPath();
+          ctx.ellipse(0, 0, 2.5, r, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.stroke();
+
+          // White V-shaped chevrons
+          if (i >= 2 && i <= 8) {
+            ctx.strokeStyle = 'rgba(240, 255, 235, 0.85)';
+            ctx.lineWidth = 0.95;
+            ctx.lineCap = 'round';
+            ctx.beginPath();
+            ctx.moveTo(-1.2, -r * 0.75);
+            ctx.lineTo(1.4, -r * 0.25);
+            ctx.lineTo(-0.8, 0);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(-1.2, r * 0.75);
+            ctx.lineTo(1.4, r * 0.25);
+            ctx.lineTo(-0.8, 0);
+            ctx.stroke();
+          }
+
+          // Spiracles
+          if (i >= 1 && i <= 8) {
+            [-1, 1].forEach((side) => {
+              const sy = side * (r * 0.55);
+              ctx.fillStyle = '#140c06';
+              ctx.beginPath();
+              ctx.ellipse(0.4, sy, 0.75, 1.1, 0, 0, Math.PI * 2);
+              ctx.fill();
+
+              ctx.fillStyle = '#d97706';
+              ctx.beginPath();
+              ctx.arc(0.4, sy, 0.35, 0, Math.PI * 2);
+              ctx.fill();
+            });
+          }
+
+          ctx.restore();
+        }
+
+        // Caudal Horn at posterior end
+        const tailX = 14 - (segmentCount - 1) * 3.7;
+        const tailY = Math.sin(walkPhase - (segmentCount - 1) * 0.45) * undulationAmp;
+        ctx.save();
+        ctx.translate(tailX, tailY);
+        ctx.strokeStyle = '#1b3a16';
+        ctx.lineWidth = 1.3;
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+        ctx.moveTo(-1, 0);
+        ctx.quadraticCurveTo(-6, -4, -10, -7);
+        ctx.stroke();
+
+        ctx.strokeStyle = '#0a140a';
+        ctx.lineWidth = 1.1;
+        ctx.beginPath();
+        ctx.moveTo(-6, -4);
+        ctx.lineTo(-10, -7);
+        ctx.stroke();
+        ctx.restore();
+
+        // Head Capsule with subtle chewing mandibles
+        const headX = 17.5;
+        const chewBobY = isFeeding ? Math.sin(walkPhase * 2.8) * 1.6 : 0;
+        const chewBobX = isFeeding ? Math.cos(walkPhase * 2.8) * 0.8 : 0;
+
+        ctx.save();
+        ctx.translate(headX + chewBobX, chewBobY);
+
+        const headGrad = ctx.createRadialGradient(-0.5, -0.8, 1, 0, 0, 3.8);
+        headGrad.addColorStop(0, '#75c264');
+        headGrad.addColorStop(0.7, '#438e34');
+        headGrad.addColorStop(1, '#24561b');
+        ctx.fillStyle = headGrad;
+        ctx.strokeStyle = '#1c4516';
+        ctx.lineWidth = 0.8;
+        ctx.beginPath();
+        ctx.arc(0, 0, 3.6, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+
+        // Stemmata (Eyes)
+        ctx.fillStyle = '#0a180a';
+        ctx.beginPath();
+        ctx.arc(1.2, -1.8, 0.65, 0, Math.PI * 2);
+        ctx.arc(1.2,  1.8, 0.65, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Mandibles
+        const mandAngle = isFeeding ? Math.abs(Math.sin(walkPhase * 3.5)) * 0.45 + 0.15 : 0.12;
+        ctx.strokeStyle = '#231206';
+        ctx.lineWidth = 1.1;
+        ctx.beginPath();
+        ctx.moveTo(2.5, -1.0);
+        ctx.lineTo(4.5 + Math.sin(mandAngle) * 1.5, -2.0 - Math.sin(mandAngle) * 2.0);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(2.5, 1.0);
+        ctx.lineTo(4.5 + Math.sin(mandAngle) * 1.5, 2.0 + Math.sin(mandAngle) * 2.0);
+        ctx.stroke();
+
+        ctx.restore();
+        ctx.restore();
+      }
+
+      // ── Main Simulation Animation Loop ──
+      function animate(now) {
+        requestAnimationFrame(animate);
+
+        const delta = Math.min(0.1, (now - lastTimestamp) / 1000);
+        lastTimestamp = now;
+
+        if (!isPaused) {
+          currentTime += delta;
+          if (currentTime >= CYCLE_DURATION) {
+            currentTime = 0;
+          }
+        }
+
+        ctx.clearRect(0, 0, width, height);
+
+        // Calculate Caterpillar Position along Leaf Waypoints
+        let pestT = 0;
+        let isFeeding = false;
+        let walkPhase = currentTime * 16;
+        let pestOpacity = 1.0;
+
+        if (currentTime < 3.2) {
+          pestT = (currentTime / 3.2) * 0.36;
+          isFeeding = false;
+        } else if (currentTime < 6.5) {
+          pestT = 0.36;
+          isFeeding = true;
+          walkPhase = currentTime * 12;
+        } else if (currentTime < 8.4) {
+          pestT = 0.36 + ((currentTime - 6.5) / 1.9) * 0.24;
+          isFeeding = false;
+        } else if (currentTime < 11.6) {
+          pestT = 0.60;
+          isFeeding = true;
+          walkPhase = currentTime * 12;
+        } else if (currentTime < 12.6) {
+          pestT = 0.60 + ((currentTime - 11.6) / 1.0) * 0.18;
+          isFeeding = false;
+        } else if (currentTime < 13.8) {
+          pestT = 0.78;
+          isFeeding = true;
+          walkPhase = currentTime * 12;
+        } else if (currentTime < 14.8) {
+          pestT = 0.78 + ((currentTime - 13.8) / 1.0) * 0.22;
+          isFeeding = false;
+          if (currentTime > 14.2) {
+            pestOpacity = Math.max(0, 1.0 - (currentTime - 14.2) / 0.6);
+          }
+        } else {
+          pestOpacity = 0;
+        }
+
+        // Render Chewed Shot Holes on Leaf Lamina
+        renderHornwormShotHoles(currentTime);
+
+        // Render Caterpillar
+        if (pestOpacity > 0.01) {
+          const spline = getSplinePoint(HORNWORM_WAYPOINTS, pestT);
+          const screenPos = getScreenCoords(spline.u, spline.v);
+          const scale = screenPos.scale * (width / 1376 > 1 ? 1.05 : 0.88);
+
+          renderTomatoHornworm(
+            screenPos.x,
+            screenPos.y,
+            spline.angle,
+            isFeeding,
+            walkPhase,
+            pestOpacity,
+            scale
+          );
+        }
+      }
+
+      requestAnimationFrame(animate);
+
+      // Spacebar toggle for pause/play
+      window.addEventListener('keydown', (e) => {
+        if (e.code === 'Space' && e.target === document.body) {
+          e.preventDefault();
+          isPaused = !isPaused;
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>
