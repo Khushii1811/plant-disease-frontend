@@ -1,4 +1,5 @@
-# OS & Editor files
+# Internal preview & development mockups
+*-preview.html
 .DS_Store
 Thumbs.db
 .vscode/
