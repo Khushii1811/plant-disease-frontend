@@ -685,8 +685,10 @@ window.addEventListener('scroll', () => {
 
 // ── Health Check ─────────────────────────────────────────
 async function checkHealth() {
+  if (statusDot) statusDot.className = 'status-dot';
+  if (statusText) statusText.textContent = 'Connecting...';
   try {
-    const res  = await fetch(HEALTH_URL, { signal: AbortSignal.timeout(5000) });
+    const res  = await fetch(HEALTH_URL, { signal: AbortSignal.timeout(15000) });
     const data = await res.json();
     if (statusDot) statusDot.className = 'status-dot online';
     if (statusText) statusText.textContent = 'API Online';
@@ -2169,7 +2171,7 @@ function initScrollAnimations() {
 async function loadCrops() {
   if (!cropSelect) return;
   try {
-    const res = await fetch(CROPS_URL, { signal: AbortSignal.timeout(5000) });
+    const res = await fetch(CROPS_URL, { signal: AbortSignal.timeout(15000) });
     if (!res.ok) return;
     const data = await res.json();
     if (data.crops && Array.isArray(data.crops) && data.crops.length > 0) {
@@ -2199,7 +2201,7 @@ async function loadCrops() {
 // ── Load Model Stats ─────────────────────────────────────
 async function loadModelStats() {
   try {
-    const res = await fetch(CLASSES_URL, { signal: AbortSignal.timeout(5000) });
+    const res = await fetch(CLASSES_URL, { signal: AbortSignal.timeout(15000) });
     if (!res.ok) return;
     const data = await res.json();
     if (data.total_classes && statClasses) {
