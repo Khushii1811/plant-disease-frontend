@@ -2568,6 +2568,5 @@ document.addEventListener('DOMContentLoaded', () => {
   if (footerDocs) footerDocs.href = `${API_BASE}/docs`;
   if (footerRedoc) footerRedoc.href = `${API_BASE}/redoc`;
 
-  // Periodic health re-check every 30s
-  setInterval(checkHealth, 30000);
+  // Initial health check on page load only (no periodic interval to allow serverless scale-to-zero)
 });
